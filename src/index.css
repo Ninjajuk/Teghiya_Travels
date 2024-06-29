@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loader {
+    border: 2px solid #f3f3f3; /* Light grey */
+    border-top: 2px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* hero section header sliding effect starts here */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    33% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    66% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    /* 100% {
+      opacity: 0;
+      transform: translateX(100%);
+    } */
+  }
+  
+  .h1-slide {
+    animation: slideIn 5s infinite;
+  }
+  
+  .h1-1 {
+    animation-delay: 0s;
+  }
+  
+  .h1-2 {
+    animation-delay: 3s;
+  }
+  
+  .h1-3 {
+    animation-delay: 6s;
+  }
+
+  
+    /* hero section header sliding effect ends here */
+
+    /* Typing header para */
+    .text-writing {
+      width: 21ch;
+      border-right: 3px solid;
+      animation: blink 1s step-end , type 2.5s steps(21) forwards;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+    
+    @keyframes type {
+      0% {
+        width: 0;
+      }
+    }
+
+
+    /* Typing effect components style starts here */
+    .type-wrap {
+      font-size: 50px;
+      padding: 20px;
+    }
+    
+    .typed-cursor {
+      opacity: 1;
+      animation: blink 0.7s infinite;
+    }
+    
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+     /* Typing effect components style Ends here */
