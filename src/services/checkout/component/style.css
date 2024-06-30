@@ -1,0 +1,26 @@
+/* 
+level moves inside the input tag
+.label-floating input:not(:placeholder-shown) {
+    padding-top: 1.4rem;
+  }
+  .label-floating input:not(:placeholder-shown) ~ label {
+    font-size: 0.6rem;
+    transition: all 0.2s ease-in-out;
+    color: #1f9d55;
+  } */
+
+  /* Label moves on the border */
+  .label-floating input:not(:placeholder-shown) ~ label{
+    transition: all 0.2s ease-in-out;
+  }
+  .label-floating input:not(:placeholder-shown) ~ label {
+    font-size: 0.7rem;
+    transition: all 0.2s ease-in-out;
+    color: #1f9d55;
+    margin-top: -0.7rem;
+    margin-left: 10px;
+    background: white;
+    display: block;
+    padding: 2px 6px;
+    width: fit-content;
+  }

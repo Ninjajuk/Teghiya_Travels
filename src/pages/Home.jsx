@@ -10,20 +10,30 @@ import WeddingBookingSection from '../components/WeddingBooking';
 import SpecialBookingSection from '../components/SpecialBookingSection';
 import FAQRelatedBooking from '../components/FAQ/FAQRelatedBooking';
 import SpecialBookingPandalsCatering from '../components/SpecialBookingPandalsCatering';
+import LoginForm from '../services/auth/LoginForm';
+
 
 
 
 
 const HomePage = () => {
   console.log("Home component rendered");
+  const[logmodal,setlogmodal]=useState(false)
 
+
+  const handleLoginModal=()=>{
+    setlogmodal(!logmodal)
+  }
+const closeLoginModal=()=>{
+  setlogmodal(false)
+}
 
 
   return (
     <>
 
       <main className="h-auto flex flex-col">
-              <Navbar />
+              <Navbar handleLoginModal={handleLoginModal}/>
 
       <Hero/>
       <WeddingBookingSection/>
@@ -35,6 +45,10 @@ const HomePage = () => {
 
 
         <Footer/>
+        {logmodal && (
+          <LoginForm closeLoginModal={closeLoginModal}/>
+        )}
+   
       </main>
 
     </>

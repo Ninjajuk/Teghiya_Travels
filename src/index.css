@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark mode */
+
+
+/* Dark mode */
+
 .loader {
     border: 2px solid #f3f3f3; /* Light grey */
     border-top: 2px solid #3498db; /* Blue */
@@ -15,6 +20,13 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  /* Navbar transition effect */
+
+
+
+  /* Navbar transition effect */
+
 
   /* hero section header sliding effect starts here */
   @keyframes slideIn {

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/context';
 
 
 const SpecialBookingSection = () => {
+  const {language}=useContext(ThemeContext)
   return (
     <div className="bg-gray-100 py-16 lg:px-[10rem]">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
@@ -37,7 +39,7 @@ const SpecialBookingSection = () => {
           </div>
         </div>
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4">Now, Get More Than Just Bus Tickets with Our Service!</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4">{language==='en'?'Now, Get More Than Just Bus Tickets with Our Service!':'अब, हमारी बस टिकटों की सेवा के अलावा और भी बहुत कुछ प्राप्त करें!!'}</h2>
           <p className="text-lg lg:text-xl text-gray-600 mb-8">
             Plan and organize your special events in advance. Ensure everything done in comfort and style.
           </p>

@@ -1,8 +1,11 @@
 import React from 'react'
+import BusSearchResultPage from '../services/buslisting/BusSearchResultPage'
 
 const BusListing = () => {
   return (
-    <div>BusListing</div>
+    <>
+    <BusSearchResultPage/>
+    </>
   )
 }
 

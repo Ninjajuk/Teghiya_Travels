@@ -1,12 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import useClickOutside from '../customhooks/useClickOutside'
 import { FaAlignJustify, FaAngleDown, FaAngleUp, FaTimes } from 'react-icons/fa'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { ThemeContext } from '../context/context'
 
-const Navbar = () => {
+const Navbar = ({handleLoginModal}) => {
   const[opensubmenu,setOpensubmenu]=useState(false)
   const[mobilemenu,setMobileMenu]=useState(false)
   const navigate=useNavigate()
+  const { theme, toggleTheme ,language, toggleLanguage } =useContext(ThemeContext)
 
   const handlemobilemenuOpen=()=>{
     setMobileMenu(!mobilemenu)
@@ -35,13 +37,13 @@ const Navbar = () => {
   }
   return (
     <>
-      <nav className=" sticky top-0 scroll-smooth z-10 flex items-center justify-between bg-themeLight shadow-lg  h-[4rem] lg:px-[10rem] ">
+      <nav className={` sticky top-0 scroll-smooth z-10 flex items-center justify-between bg-themeLight shadow-lg  h-[4rem] lg:px-[10rem] app-container ${theme}`}>
         <div
           onClick={() => navigate("/")}
           className="w-full max-w-xs lg:max-w-sm cursor-pointer"
         >
           <h1 className="px-2 text-lg lg:text-2xl font-bold text-primary leading- lg:leading-8 truncate">
-            Teghiya Travels
+            {/* Teghiya Travels */} {language === 'en' ? 'Teghiya Travels' : 'तेघिया ट्रैवल्स'}
           </h1>
         </div>
         <div onClick={handlemobilemenuOpen} className="px-2 cursor-pointer">
@@ -138,14 +140,14 @@ const Navbar = () => {
         )}
 
         <div
-          className="hidden lg:flex relative  space-x-4 text-gray-600"
+          className={`hidden lg:flex relative  space-x-4 text-gray-600 ${theme==='light'?'text-gray-600':'text-white'}`}
           ref={menuRef}
         >
           <a
             onClick={() => setOpensubmenu(!opensubmenu)}
             className=" flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md truncate"
           >
-            <span className="truncate">Manage Booking</span>
+            <span className="truncate">{language==='en'?'Manage Booking':'बुकिंग प्रबंधित करें'}</span>
             <span className="ml-2">
               {opensubmenu ? (
                 <FaAngleUp className="w-6 h-6" />
@@ -162,32 +164,32 @@ const Navbar = () => {
           <NavLink
             to="/cancellation"
             className={({ isActive }) =>
-              `flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md ${
+              `flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md transition duration-500 ease-in-out  ${
                 isActive ? "text-primary ring-1 ring-primary " : "text-gray-600"
               }`
             }
             // className="flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md"
           >
-            Cancellation
+            {language === 'en' ? 'Cancellation' : 'रद्द करना'}
           </NavLink>
           <NavLink
             to="/contact-us"
             className={({ isActive }) =>
-              `flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md truncate ${
+              `flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md truncate transition duration-500 ease-in-out transform hover:scale-105 ${
                 isActive ? "text-primary ring-1 ring-primary " : "text-gray-600"
               }`
             }
           >
-            Contact Us
+           {language==='en'?'Contact Us' :'संपर्क करें'}
           </NavLink>
           <a
-            onClick={() => handelLogin()}
-            className="flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md cursor-pointer"
+            onClick={() => handleLoginModal()}
+            className="flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md cursor-pointer transition duration-500 ease-in-out hover:scale-105"
           >
-            Login
+            {language==='en'?'Login' :'खाता'}
           </a>
-          <a href="#" className="flex items-center  ">
-            <span className="hover:bg-gray-200 hover:text-primary rounded-full p-2">
+          <div onClick={()=>toggleTheme()} className="flex items-center cursor-pointer ">
+            {theme==='light'?<span className="hover:bg-gray-200 hover:text-primary rounded-full p-2">
               <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6">
                 <path
                   fill-rule="evenodd"
@@ -206,8 +208,7 @@ const Navbar = () => {
                   class="fill-primary"
                 ></path>
               </svg>
-            </span>
-            {/* <span className="ml-4 hover:bg-gray-200 hover:text-purple-800">
+            </span> :<span span className="hover:bg-gray-200 hover:text-primary rounded-full p-2">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -218,15 +219,18 @@ const Navbar = () => {
                   >
                     <path
                       d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                      class="fill-purple-800 stroke-purple-800"
+                      class="fill-primary stroke-primary"
                     ></path>
                     <path
                       d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
-                      class="stroke-purple-800"
+                      class="stroke-primary"
                     ></path>
                   </svg>
-                </span> */}
-          </a>
+                </span>}
+
+
+          </div>
+          <div onClick={()=>toggleLanguage()} className='cursor-pointer'>{language==='en'?'हिंदी':'English'}</div>
           {/* <p>Account</p> */}
         </div>
       </nav>

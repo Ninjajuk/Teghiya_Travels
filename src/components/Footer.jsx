@@ -10,7 +10,7 @@ const Footer = () => {
     <h2 id="footer-heading" className="sr-only">
       Footer
     </h2>
-      <div className="">
+      {/* <div className="">
 
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8">
@@ -45,11 +45,7 @@ const Footer = () => {
 
           <div className="relative mt-6 flex items-center py-12 px-6 sm:py-16 sm:px-10 lg:mt-0">
             <div className="absolute inset-0 overflow-hidden rounded-lg">
-              {/* <img
-                src="https://tailwindui.com/img/ecommerce-images/footer-02-exclusive-sale.jpg"
-                alt=""
-                className="h-full w-full object-cover object-center saturate-0 filter"
-              /> */}
+  
               <div className="absolute inset-0 bg-gray-200 " />
             </div>
             <div className="relative mx-auto max-w-sm text-center">
@@ -76,7 +72,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="py-10 md:flex md:items-center md:justify-between">
         <div className="text-center md:text-left">
