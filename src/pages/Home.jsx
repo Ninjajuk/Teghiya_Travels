@@ -33,7 +33,7 @@ const closeLoginModal=()=>{
     <>
 
       <main className="h-auto flex flex-col">
-              <Navbar handleLoginModal={handleLoginModal}/>
+             <Navbar handleLoginModal={handleLoginModal}/>
 
       <Hero/>
       <WeddingBookingSection/>
@@ -41,9 +41,6 @@ const closeLoginModal=()=>{
         {/* <Testing /> */}
         <SpecialBookingPandalsCatering/>
         <FAQRelatedBooking/>
-
-
-
         <Footer/>
         {logmodal && (
           <LoginForm closeLoginModal={closeLoginModal}/>
