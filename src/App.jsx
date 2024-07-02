@@ -9,6 +9,7 @@ import MyBookingPage from './pages/MyBooking';
 import ContactUsPage from './pages/ContactUs';
 import MyProfile from './pages/MyProfile';
 import CheckoutPage from './services/checkout/Checkout';
+import ErrorPage from './pages/ErrorPage';
 
 
 
@@ -35,6 +36,7 @@ const closeLoginModal=()=>{
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/myprofile" element={<MyProfile />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
 

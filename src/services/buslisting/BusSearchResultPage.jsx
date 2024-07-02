@@ -1,11 +1,22 @@
 
-import React, { useState } from 'react'
-import {busDeta} from './busdetaildata.js'
+import React, { useEffect, useState } from 'react'
+import {busList} from './busdetaildata.js'
 import { FaBusAlt, FaClock, FaFlagCheckered, FaMapMarkerAlt, FaPlay } from 'react-icons/fa';
 import { MdOutlineFlag, MdOutlineTripOrigin } from 'react-icons/md';
+import { useLocation } from 'react-router-dom';
 
 
 const BusSearchResultPage = () => {
+
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+  const query = useQuery();
+  const fromCity = query.get('fromCity');
+  const toCity = query.get('toCity');
+  // const departDate = query.get('departDate');
+  // const returnDate = query.get('returnDate');
+  // const mode = query.get('mode');
 
   const [selectedItemId, setSelectedItemId] = useState(null);
 
@@ -13,6 +24,19 @@ const BusSearchResultPage = () => {
     setSelectedItemId(selectedItemId === id ? null : id);
     console.log(`clicked on ${id}`);
   };
+  const [busListings, setBusListings] = useState([]);
+
+  useEffect(() => {
+    // Filter static bus listings based on query parameters
+    const filteredBusListings = busList.filter(bus => {
+      return (
+        bus.fromCity.toLowerCase() === fromCity.toLowerCase() &&
+        bus.toCity.toLowerCase() === toCity.toLowerCase() 
+      );
+    });
+    setBusListings(filteredBusListings);
+  }, [fromCity, toCity]);
+  console.log('busListings',busListings,fromCity)
   return (
     <>
       <main className="bg-gray-100  py-12">
@@ -22,7 +46,7 @@ const BusSearchResultPage = () => {
           </h1>
 
           <div className="h-full min-h-24 w-full grid grid-cols-1 gap-2  ">
-            {busDeta.map((item, index) => (
+            {busListings.length > 0  ? busListings.map((item, index) => (
               <>
                 <div
                   key={item.id}
@@ -32,7 +56,7 @@ const BusSearchResultPage = () => {
                     <div className="lg:w-1/2 ">
                       <h1 className="px-2 py-2 text-gray-600 font-semibold text-lg">
                         <span>{item.startTime}</span>
-                        <span className="ml-2">{item.startingDate}</span>
+                        <span className="ml-2">{item.fromCity}</span>
                       </h1>
                       <p className="pb-2 px-2 flex justify-between lg:flex-row lg:justify-normal">
                         <span className="text-gray-500 text-sm flex items-center">
@@ -74,7 +98,7 @@ const BusSearchResultPage = () => {
                       </p> */}
                     </div>
 
-                    <div className="lg:w-1/2  ">
+                    <div className="lg:w-1/2">
                       <h1 className="px-2 py-2 text-gray-600 font-semibold text-lg">
                         <span>{item.endTime}</span>
                         <span className="ml-2">{item.reachDate}</span>
@@ -87,7 +111,7 @@ const BusSearchResultPage = () => {
                           </span>
                         </span>
                         <span className="ml-2 text-sky-700">
-                          {item.dropPoint}
+                          {item.toCity}
                         </span>
                       </p>
                       <p className="px-2 flex items-center  justify-between lg:flex-row lg:justify-normal">
@@ -133,25 +157,31 @@ const BusSearchResultPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* {selectedItemId === item.id && (
-            <div className="flex-none  bg-gray-200">
-              <BusBookingHome/>
-            </div>
-          )} */}
+                  {selectedItemId === item.id && (
+                    <div className="flex-none  bg-gray-200">
+                      {/* <BusBookingHome /> */}
+                      Seat Legend
+                    </div>
+                  )}
                 </div>
               </>
-            ))}
+            )
+          ):(
+            <>
+            <h1 className='text-primary'>Not found bus</h1>
+            </>
+          )}
           </div>
-          <div className="grid grid-cols-5 gap-2">
-            {/* {busSeat.map((item)=>(
+          {/* <div className="grid grid-cols-5 gap-2">
+            {busSeat.map((item)=>(
           <>
   
           <div type='text'  className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></div>
     
    
           </>
-        ))} */}
-          </div>
+        ))}
+          </div> */}
         </div>
       </main>
     </>

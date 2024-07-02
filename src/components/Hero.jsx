@@ -5,8 +5,10 @@ import { ThemeContext } from '../context/context';
 import {cities} from './common/data'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from 'react-router-dom';
 const Hero = () => {
   const {language } =useContext(ThemeContext)
+  const navigate = useNavigate();
 
 
 //Date picker show on click on div
@@ -21,6 +23,20 @@ const [startDate, setStartDate] = useState(new Date());
     setTo(from);
   };
 
+  //Navigate to Bus Listing Page after finding the result
+  const handleSearch = () => {
+    const fromCity = encodeURIComponent(from);
+    const toCity = encodeURIComponent(to);
+    const departDate = startDate.toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
+    const searchParams = new URLSearchParams({
+      fromCity,
+      toCity,
+      departDate,
+      returnDate: '',
+      mode: 'oneway',
+    }).toString();
+    navigate(`/search?${searchParams}`);
+  };
 
   return (
     <div
@@ -108,7 +124,7 @@ const [startDate, setStartDate] = useState(new Date());
               className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5"
             /> */}
           </div>
-          <button className="w-full lg:w-auto px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700">
+          <button onClick={handleSearch} className="w-full lg:w-auto px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700">
             {language === "en" ? "Search Bus" : "बस खोजें"}
           </button>
         </div>
