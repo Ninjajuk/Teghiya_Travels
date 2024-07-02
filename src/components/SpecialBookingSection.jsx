@@ -11,29 +11,29 @@ const SpecialBookingSection = () => {
           <div className="w-full h-auto max-w-md">
           <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
   {/* <!-- Bus body --> */}
-  <rect x="10" y="30" width="280" height="70" fill="#FFD700" stroke="black" stroke-width="2"/>
+  <rect x="10" y="30" width="280" height="70" fill="#FFD700" stroke="black" strokeWidth="2"/>
 {/*   
   <!-- Bus roof --> */}
-  <rect x="10" y="20" width="280" height="10" fill="#FFD700" stroke="black" stroke-width="2"/>
+  <rect x="10" y="20" width="280" height="10" fill="#FFD700" stroke="black" strokeWidth="2"/>
   
   {/* <!-- Bus windows --> */}
-  <rect x="20" y="40" width="40" height="30" fill="white" stroke="black" stroke-width="1"/>
-  <rect x="70" y="40" width="40" height="30" fill="white" stroke="black" stroke-width="1"/>
-  <rect x="120" y="40" width="40" height="30" fill="white" stroke="black" stroke-width="1"/>
-  <rect x="170" y="40" width="40" height="30" fill="white" stroke="black" stroke-width="1"/>
-  <rect x="220" y="40" width="40" height="30" fill="white" stroke="black" stroke-width="1"/>
+  <rect x="20" y="40" width="40" height="30" fill="white" stroke="black" strokeWidth="1"/>
+  <rect x="70" y="40" width="40" height="30" fill="white" stroke="black" strokeWidth="1"/>
+  <rect x="120" y="40" width="40" height="30" fill="white" stroke="black" strokeWidth="1"/>
+  <rect x="170" y="40" width="40" height="30" fill="white" stroke="black" strokeWidth="1"/>
+  <rect x="220" y="40" width="40" height="30" fill="white" stroke="black" strokeWidth="1"/>
   
   {/* <!-- Bus door --> */}
-  <rect x="270" y="30" width="20" height="70" fill="#87CEEB" stroke="black" stroke-width="2"/>
+  <rect x="270" y="30" width="20" height="70" fill="#87CEEB" stroke="black" strokeWidth="2"/>
   
   {/* <!-- Bus wheels --> */}
   <circle cx="60" cy="110" r="15" fill="black"/>
   <circle cx="240" cy="110" r="15" fill="black"/>
   
   {/* <!-- Bus details --> */}
-  <line x1="10" y1="60" x2="290" y2="60" stroke="black" stroke-width="1"/>
-  <rect x="50" y="30" width="10" height="20" fill="#FFD700" stroke="black" stroke-width="1"/>
-  <rect x="240" y="30" width="10" height="20" fill="#FFD700" stroke="black" stroke-width="1"/>
+  <line x1="10" y1="60" x2="290" y2="60" stroke="black" strokeWidth="1"/>
+  <rect x="50" y="30" width="10" height="20" fill="#FFD700" stroke="black" strokeWidth="1"/>
+  <rect x="240" y="30" width="10" height="20" fill="#FFD700" stroke="black" strokeWidth="1"/>
 </svg>
 
           </div>

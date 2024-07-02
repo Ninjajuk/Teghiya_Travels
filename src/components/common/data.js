@@ -84,5 +84,39 @@ export const userData = [
   export default userData;
   
   export const column1Header=['name','email','phone','address','role']
+  export const cities = [
+    "Aizawl",
+    "Kolasib",
+    "Silchar",
+    "Shillong",
+    "Guwahati",
+    "Dibrugarh",
+    "Itanagar",
+    "Tawang",
+    "Ziro",
+    "Bomdila",
+    "Pasighat",
+    "Along",
+    "Tezu",
+    "Roing",
+    "Namsai",
+    "Changlang",
+    "Khonsa",
+    "Yingkiong",
+    "Daporijo",
+    "Anini",
+    "Seppa",
+    "Koloriang",
+    "Pangin",
+    "Mechuka",
+    "Tuting",
+    "Basar",
+    "Hawai",
+    "Longding",
+    "Ruksin",
+    "Deomali",
+    "Kanubari",
+    "Delhi"
+  ];
   
   

@@ -14,7 +14,7 @@ const SpecialBookingPandalsCatering = () => {
       <div className="container mx-auto  flex flex-col lg:flex-row items-center">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {specailbook.map((item) => (
-            <div key={item} className="flex flex-col justify-between  bg-white rounded-md shadow-lg">
+            <div key={item.id} className="flex flex-col justify-between  bg-white rounded-md shadow-lg">
               <div className="h-full max-h-64 relative">
                 <img src={item.img} className=" w-full h-full object-cover object-center rounded-md" />
                 <div className='absolute top-0 right-0 w-full max-w-12 h-full max-h-8 bg-white rounded-md m-2 flex items-center justify-center text-primary font-semibold'>{language==='en'?'New':'नया'}</div>
