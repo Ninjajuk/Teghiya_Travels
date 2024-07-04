@@ -37,12 +37,12 @@ const Navbar = ({handleLoginModal}) => {
   }
   return (
     <>
-      <nav className={` sticky top-0 scroll-smooth z-10 flex items-center justify-between bg-themeLight shadow-lg  h-[4rem] lg:px-[10rem] app-container ${theme}`}>
+      <nav className={` sticky top-0 scroll-smooth z-10 flex items-center justify-between  shadow-lg  h-[4rem] lg:px-[10rem] app-container ${theme==='light'?'bg-themeLight text-gray-600':'bg-gray-900'}`}>
         <div
           onClick={() => navigate("/")}
           className="w-full max-w-xs lg:max-w-sm cursor-pointer"
         >
-          <h1 className="px-2 text-lg lg:text-2xl font-bold text-primary leading- lg:leading-8 truncate">
+          <h1 className={`px-2 text-lg lg:text-2xl font-bold ${theme==='light'?'text-primary':'text-white'}  leading- lg:leading-8 truncate`}>
             {/* Teghiya Travels */} {language === 'en' ? 'Teghiya Travels' : 'तेघिया ट्रैवल्स'}
           </h1>
         </div>
@@ -165,7 +165,7 @@ const Navbar = ({handleLoginModal}) => {
             to="/cancellation"
             className={({ isActive }) =>
               `flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md transition duration-500 ease-in-out  ${
-                isActive ? "text-primary ring-1 ring-primary " : "text-gray-600"
+                isActive ? "text-primary ring-1 ring-primary ": theme==='dark'?'text-white': "text-gray-600"
               }`
             }
             // className="flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md"
@@ -176,7 +176,7 @@ const Navbar = ({handleLoginModal}) => {
             to="/contact-us"
             className={({ isActive }) =>
               `flex items-center hover:bg-gray-200 hover:text-primary p-2 rounded-md truncate transition duration-500 ease-in-out transform hover:scale-105 ${
-                isActive ? "text-primary ring-1 ring-primary " : "text-gray-600"
+                isActive ? "text-primary ring-1 ring-primary " : theme==='dark'?'text-white': "text-gray-600"
               }`
             }
           >

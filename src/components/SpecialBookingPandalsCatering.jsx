@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { ThemeContext } from '../context/context';
 
 const SpecialBookingPandalsCatering = () => {
-  const { language } =useContext(ThemeContext)
+  const { language,theme } =useContext(ThemeContext)
     const specailbook=[
         {id:1,img:'/tbus1.jpg',title:`${language==='en'?'Hi there':'नमस्ते'}`,description:'',btn:`${language==='en'?'Book Vehicle':'वाहन बुक करें'}`},
         {id:2,img:'/roadhill.jpg',title:`${language==='en'?'Catering':'खानपान'}`,description:'',btn:`${language==='en'?'Book Catering':'खानपान बुक करें'}`},
@@ -10,7 +10,7 @@ const SpecialBookingPandalsCatering = () => {
         // {id:1,img:'',title:'Hi there',description:''}
     ]
   return (
-    <div className="bg-purple-800 py-16 lg:px-[10rem]">
+    <div className={`${theme==='light'?'bg-purple-800':'bg-gray-900'}  py-16 lg:px-[10rem]`}>
       <div className="container mx-auto  flex flex-col lg:flex-row items-center">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {specailbook.map((item) => (
