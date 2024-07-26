@@ -4,9 +4,9 @@ import { ThemeContext } from '../context/context';
 // import { ReactComponent as WeddingBusSvg } from './wedding-bus.svg'; 
 
 const WeddingBookingSection = () => {
-  const {language } =useContext(ThemeContext)
+  const {language,theme } =useContext(ThemeContext)
   return (
-    <div className="bg-white py-16 lg:px-[10rem]">
+    <div className={` ${theme==='light'?'bg-white':'bg-gray-950'} py-16 lg:px-[10rem]`}>
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
           {/* <div  className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4">

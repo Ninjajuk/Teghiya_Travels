@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Button from '../components/common/Button';
 import MyInput from '../components/common/MyInput';
@@ -15,10 +15,10 @@ import LoginForm from '../services/auth/LoginForm';
 
 
 
-
 const HomePage = () => {
   console.log("Home component rendered");
   const[logmodal,setlogmodal]=useState(false)
+
 
 
   const handleLoginModal=()=>{

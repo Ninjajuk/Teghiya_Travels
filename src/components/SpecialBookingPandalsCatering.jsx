@@ -10,7 +10,7 @@ const SpecialBookingPandalsCatering = () => {
         // {id:1,img:'',title:'Hi there',description:''}
     ]
   return (
-    <div className={`${theme==='light'?'bg-purple-800':'bg-gray-900'}  py-16 lg:px-[10rem]`}>
+    <div className={`${theme==='light'?'bg-purple-800':'bg-gray-950'}  py-16 lg:px-[10rem]`}>
       <div className="container mx-auto  flex flex-col lg:flex-row items-center">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {specailbook.map((item) => (

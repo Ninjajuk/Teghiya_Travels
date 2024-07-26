@@ -105,3 +105,9 @@
       100% { opacity: 1; }
     }
      /* Typing effect components style Ends here */
+
+
+     /* DatePicker Input style */
+     .react-datepicker-wrapper{
+      width: 100% !important;
+     }

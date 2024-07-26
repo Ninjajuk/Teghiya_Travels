@@ -116,7 +116,8 @@ export const userData = [
     "Ruksin",
     "Deomali",
     "Kanubari",
-    "Delhi"
+    "Delhi",
+    "Shimla"
   ];
   
   

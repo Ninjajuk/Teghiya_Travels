@@ -85,7 +85,7 @@ const TravellersDetails = () => {
     { seatNo: '', name: '', age: '', gender: '' },
     { seatNo: '', name: '', age: '', gender: '' },
     { seatNo: '', name: '', age: '', gender: '' },
-    { seatNo: '', name: '', age: '', gender: '' },
+ { seatNo: '', name: '', age: '', gender: '' },
   ]);
 
   const handleChange = (index, e) => {
@@ -96,6 +96,10 @@ const TravellersDetails = () => {
       return newTravellers;
     });
   };
+
+  const handleSubmit=()=>{
+    console.log(travellers)
+  }
 
   return (
     <>
@@ -161,7 +165,9 @@ const TravellersDetails = () => {
             </select>
           </div>
         </div>
+        
       ))}
+      <button onClick={handleSubmit}>Submit</button>
     </>
   );
 };

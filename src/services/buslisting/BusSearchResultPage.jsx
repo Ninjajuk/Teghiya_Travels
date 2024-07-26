@@ -40,7 +40,7 @@ const BusSearchResultPage = () => {
   console.log('busListings',busListings,fromCity)
   return (
     <>
-      <main className="w-full bg-gray-100  ">
+      <main className="w-full  ">
         <div className=" w-full lg:px-[10rem]">
           {/* <h1 className="py-4 text-lg lg:text-5xl font-extrabold text-primary">
             Bus Search Result Page

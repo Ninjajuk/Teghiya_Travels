@@ -7,12 +7,13 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
 const Hero = () => {
-  const {language } =useContext(ThemeContext)
+  const {language,theme } =useContext(ThemeContext)
   const navigate = useNavigate();
 
 
 //Date picker show on click on div
-const [startDate, setStartDate] = useState(new Date());
+// const [startDate, setStartDate] = useState(new Date());
+const [startDate, setStartDate] = useState(null);
 
 
   //Swap two value of input tag
@@ -77,7 +78,7 @@ const [startDate, setStartDate] = useState(new Date());
             ? "Fast, Easy, and Affordable"
             : "तेज़, आसान और किफायती"}
         </p>
-        <div className="w-full lg:w-auto flex flex-col lg:flex-row items-center bg-white p-4 rounded-md shadow-lg">
+        <div className={`w-full lg:w-auto flex flex-col lg:flex-row items-center ${theme==='light'?'bg-white':'bg-gray-950'}  p-4 rounded-md shadow-lg`}>
           <div className="w-full lg:w-auto mb-4 lg:mb-0 lg:mr-2">
             <MyInput
               placeholder={language === "en" ? "From" : "से"}
@@ -111,18 +112,17 @@ const [startDate, setStartDate] = useState(new Date());
           <div
             className="w-full lg:w-auto mb-4 lg:mb-0 lg:mr-2"
           >
-            <input
+            {/* <input
               type="date"
               className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5"
-            />
-            {/* <DatePicker
-              // ref={datepickerRef}
-              showIcon
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              minDate={new Date()} 
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5"
             /> */}
+            <DatePicker 
+                  selected={startDate} 
+                  onChange={(date) => setStartDate(date)} 
+                  minDate={new Date()}
+                  placeholderText="Select a date"
+                  className={`w-full  bg-gray-50 border  border-gray-800 text-gray-900 text-sm rounded-md shadow-md focus:outline-none focus:ring-green-800 focus:border-green-800 p-2.5`}/>
+    
           </div>
           <button onClick={handleSearch} className="w-full lg:w-auto px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700">
             {language === "en" ? "Search Bus" : "बस खोजें"}

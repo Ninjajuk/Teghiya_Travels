@@ -37,7 +37,7 @@ const Navbar = ({handleLoginModal}) => {
   }
   return (
     <>
-      <nav className={` sticky top-0 scroll-smooth z-10 flex items-center justify-between  shadow-lg  h-[4rem] lg:px-[10rem] app-container ${theme==='light'?'bg-themeLight text-gray-600':'bg-gray-900'}`}>
+      <nav className={` sticky top-0 scroll-smooth z-10 flex items-center justify-between  shadow-lg  h-[4rem] lg:px-[10rem] app-container ${theme==='light'?'bg-themeLight text-gray-600':'bg-gray-950'}`}>
         <div
           onClick={() => navigate("/")}
           className="w-full max-w-xs lg:max-w-sm cursor-pointer"

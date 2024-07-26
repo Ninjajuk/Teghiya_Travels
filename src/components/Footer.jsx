@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MdOutlineMailOutline,MdPhone } from "react-icons/md";
+import { ThemeContext } from '../context/context';
 
 const Footer = () => {
+  const {theme,language}=useContext(ThemeContext)
   
   return (
-    <footer aria-labelledby="footer-heading" className="bg-white py-4">
+    <footer aria-labelledby="footer-heading" className={` py-4 ${theme==='light'?'bg-white':'bg-gray-950'}`}>
 
     <div className="mx-auto max-w-7xl px-4 sm:px-2 lg:px-8">
     <h2 id="footer-heading" className="sr-only">
@@ -80,7 +82,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-4 flex items-center justify-center md:mt-0">
-          <p className="text-sm text-gray-500 font-bold">Designed and Coded by <span className='text-primary font-bold text-md'>Samsuddin Ansari</span></p>
+          <p className="text-sm text-gray-500 font-bold">Designed and Coded by <span className='text-primary font-bold text-md'>{language==='en'?'Samsuddin Ansari':'समसुद्दीन अंसारी'}</span></p>
 
         </div>
       </div>

@@ -3,9 +3,9 @@ import { ThemeContext } from '../context/context';
 
 
 const SpecialBookingSection = () => {
-  const {language}=useContext(ThemeContext)
+  const {language,theme}=useContext(ThemeContext)
   return (
-    <div className="bg-gray-100 py-16 lg:px-[10rem]">
+    <div className={`${theme==='light'?'bg-gray-100':'bg-gray-950'}  py-16 lg:px-[10rem]`}>
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
       <div className="w-full lg:w-1/2 ">
           <div className="w-full h-auto max-w-md">
