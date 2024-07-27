@@ -44,10 +44,10 @@ const Stepper = () => {
         {currentStep === 3 && <div><PaymentOption/></div>}
       </div>
       <div className="mt-4 flex justify-between">
-        <button onClick={prevStep} className={`py-2 px-4 rounded-md ${currentStep === 1 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-primary text-white'}`} disabled={currentStep === 1}>
+        <button title='Previous' onClick={prevStep} className={`py-2 px-4 rounded-md ${currentStep === 1 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-primary text-white'}`} disabled={currentStep === 1}>
           Previous
         </button>
-        <button onClick={nextStep} className={`py-2 px-4 rounded-md ${currentStep === steps.length ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-primary text-white'}`} disabled={currentStep === steps.length}>
+        <button title='Next' onClick={nextStep} className={`py-2 px-4 rounded-md ${currentStep === steps.length ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-primary text-white'}`} disabled={currentStep === steps.length}>
           Next
         </button>
       </div>

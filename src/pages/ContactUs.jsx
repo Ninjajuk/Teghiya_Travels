@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/Navbar';
 
 const ContactUsPage = () => {
+  // useEffect(() => {
+  //   document.title = 'Contact us - Teghiya Travels';
+  // }, []);
   return (
     <>
     <Navbar/>
