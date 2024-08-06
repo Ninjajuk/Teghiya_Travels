@@ -7,12 +7,12 @@ const SpecialBookingPandalsCatering = () => {
         {id:1,img:'/tbus1.jpg',title:`${language==='en'?'Hi there':'नमस्ते'}`,description:'',btn:`${language==='en'?'Book Vehicle':'वाहन बुक करें'}`},
         {id:2,img:'/roadhill.jpg',title:`${language==='en'?'Catering':'खानपान'}`,description:'',btn:`${language==='en'?'Book Catering':'खानपान बुक करें'}`},
         {id:3,img:'landing.jpg',title:`${language==='en'?'Pandals':'पंडाल'}`,description:'',btn:`${language==='en'?'Book Pandals':'पंडाल बुक करें'}`},
-        // {id:1,img:'',title:'Hi there',description:''}
+        {id:4,img:'https://m.media-amazon.com/images/I/715igBNcyEL._SY450_.jpg',title:`${language==='en'?'Gift':'उपहार'}`,description:'',btn:`${language==='en'?'Buy Gift':'उपहार करें'}`}
     ]
   return (
-    <div className={`${theme==='light'?'bg-purple-800':'bg-gray-950'}  py-16 lg:px-[10rem]`}>
+    <div className={`${theme==='light'?'bg-white':'bg-gray-950'}  py-4 lg:px-[10rem]`}>
       <div className="container mx-auto  flex flex-col lg:flex-row items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
           {specailbook.map((item) => (
             <div key={item.id} className="flex flex-col justify-between  bg-white rounded-md shadow-lg">
               <div className="h-full max-h-64 relative">

@@ -116,7 +116,7 @@ const TravellersDetails = () => {
               placeholder='Seat'
               value={traveller.seatNo}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5"
+              className="w-full bg-gray-50 ring-1 ring-gray-400 border-none  text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
             />
           </div>
 
@@ -130,7 +130,7 @@ const TravellersDetails = () => {
               placeholder='Name'
               value={traveller.name}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5"
+              className="w-full bg-gray-50 ring-1 ring-gray-400 border-none text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
             />
           </div>
 
@@ -144,7 +144,7 @@ const TravellersDetails = () => {
               placeholder='Age'
               value={traveller.age}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5"
+              className="w-full bg-gray-50 ring-1 ring-gray-400 border-none text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
             />
           </div>
 
