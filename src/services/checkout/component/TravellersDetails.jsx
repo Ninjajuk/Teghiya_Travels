@@ -1,4 +1,3 @@
-
 // import React, { useState } from 'react';
 
 // const TravellersDetails = () => {
@@ -76,16 +75,17 @@
 
 // export default TravellersDetails;
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "../../../components/form/style.css";
 
 const TravellersDetails = () => {
   const [travellers, setTravellers] = useState([
-    { seatNo: '', name: '', age: '', gender: '' },
-    { seatNo: '', name: '', age: '', gender: '' },
-    { seatNo: '', name: '', age: '', gender: '' },
-    { seatNo: '', name: '', age: '', gender: '' },
-    { seatNo: '', name: '', age: '', gender: '' },
- { seatNo: '', name: '', age: '', gender: '' },
+    { seatNo: "", name: "", age: "", gender: "" },
+    { seatNo: "", name: "", age: "", gender: "" },
+    { seatNo: "", name: "", age: "", gender: "" },
+    { seatNo: "", name: "", age: "", gender: "" },
+    { seatNo: "", name: "", age: "", gender: "" },
+    { seatNo: "", name: "", age: "", gender: "" },
   ]);
 
   const handleChange = (index, e) => {
@@ -97,66 +97,80 @@ const TravellersDetails = () => {
     });
   };
 
-  const handleSubmit=()=>{
-    console.log(travellers)
-  }
+  const handleSubmit = () => {
+    console.log(travellers);
+  };
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-4 text-primary">Travellers Details</h1>
+      <h1 className="text-2xl font-bold mb-4 text-primary">
+        Travellers Details
+      </h1>
       {travellers.map((traveller, index) => (
         <div key={index} className="grid grid-cols-12 gap-1 ">
           {/* Seat No (2 columns) */}
-          <div className="col-span-2 mb-2">
-            {/* <label htmlFor={`seatNo-${index}`} className="mb-1 font-medium truncate text-sm">Seat</label> */}
+          <div className=" form-group col-span-2 mb-2">
             <input
               type="text"
               id={`seatNo-${index}`}
               name="seatNo"
-              placeholder='Seat'
+              placeholder=""
               value={traveller.seatNo}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 ring-1 ring-gray-400 border-none  text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
+              className="w-full  border-none  text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
             />
+            <label
+              htmlFor={`seatNo-${index}`}
+              className="mb-1 font-medium truncate text-sm"
+            >
+              Seat
+            </label>
           </div>
 
           {/* Name (4 columns) */}
-          <div className="col-span-4 mb-2">
-            {/* <label htmlFor={`name-${index}`} className="mb-1 font-medium text-sm pl-2">Name</label> */}
+          <div className=" form-group col-span-4 mb-2">
             <input
               type="text"
               id={`name-${index}`}
               name="name"
-              placeholder='Name'
+              placeholder=""
               value={traveller.name}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 ring-1 ring-gray-400 border-none text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
+              className="w-full  border-none text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
             />
+            <label
+              htmlFor={`name-${index}`}
+              className="mb-1 font-medium text-sm pl-2"
+            >
+              Enter Name
+            </label>
           </div>
 
           {/* Age (2 columns) */}
-          <div className="col-span-2 mb-2">
-            {/* <label htmlFor={`age-${index}`} className="mb-1 font-medium">Age</label> */}
+          <div className=" form-group col-span-2 mb-2">
             <input
               type="number"
               id={`age-${index}`}
               name="age"
-              placeholder='Age'
+              placeholder=""
               value={traveller.age}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 ring-1 ring-gray-400 border-none text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
+              className="w-full  border-none text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-green-800"
             />
+            <label htmlFor={`age-${index}`} className="mb-1 font-medium">
+              Age
+            </label>
           </div>
 
           {/* Gender (4 columns) */}
-          <div className="col-span-4">
+          <div className=" form-group col-span-4">
             {/* <label htmlFor={`gender-${index}`} className="mb-1 font-medium">Gender</label> */}
             <select
               id={`gender-${index}`}
               name="gender"
               value={traveller.gender}
               onChange={(e) => handleChange(index, e)}
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5"
+              className="w-full ring-1 ring-[#ccc]   text-gray-900 text-sm rounded-lg p-2.5"
             >
               <option value="">Gender</option>
               <option value="male">Male</option>
@@ -165,7 +179,6 @@ const TravellersDetails = () => {
             </select>
           </div>
         </div>
-        
       ))}
       <button onClick={handleSubmit}>Submit</button>
     </>
@@ -173,5 +186,3 @@ const TravellersDetails = () => {
 };
 
 export default TravellersDetails;
-
-

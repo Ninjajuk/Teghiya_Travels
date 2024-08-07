@@ -92,7 +92,12 @@ const WeddingBookingSection = () => {
           </div>
         </div>
       </div>
-      {weddingForm && <WeddingBusBookingForm />}
+      {weddingForm && (
+        <WeddingBusBookingForm
+          weddingForm={weddingForm}
+          setWeddingForm={setWeddingForm}
+        />
+      )}
     </>
   );
 };

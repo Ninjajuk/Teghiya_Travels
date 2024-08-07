@@ -1,11 +1,19 @@
 import React from "react";
-
-const WeddingBusBookingForm = () => {
+import "./style.css";
+import { MdOutlineClear } from "react-icons/md";
+const WeddingBusBookingForm = ({ weddingForm, setWeddingForm }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center   bg-black bg-opacity-50 z-50 ">
-      <div className="min-h-64 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md   overflow-y-auto">
+      <div className="min-h-64 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md   overflow-y-auto relative">
+        <div
+          onClick={() => setWeddingForm(!weddingForm)}
+          className="absolute top-0 right-0 cursor-pointer text-red-600 hover:text-red-800 bg-gray-200 rounded-full "
+        >
+          <MdOutlineClear className="w-8 h-8  " />
+        </div>
         <h2 className="text-2xl font-semibold mb-4">
-          Book a Bus for Your Wedding
+          Search a <span className="text-primary font-semibold">Bus</span> for
+          Your Wedding
         </h2>
         {/* <p className="mb-6">
           Plan your wedding transportation in advance for a smooth experience.
@@ -39,7 +47,7 @@ const WeddingBusBookingForm = () => {
                 className="border rounded-md p-2 w-full"
               />
             </div> */}
-            <div>
+            <div className="">
               <label
                 htmlFor="busType"
                 className="block text-sm font-medium mb-1"
@@ -55,33 +63,33 @@ const WeddingBusBookingForm = () => {
                 <option value="premium">Premium</option>
               </select>
             </div>
-            <div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="pickupLocation"
+                placeholder=""
+                className="border focus:outline-none focus:ring-[#800000] focus:border-[#800000] rounded-md p-2 w-full"
+              />
               <label
                 htmlFor="pickupLocation"
                 className="block text-sm font-medium mb-1"
               >
                 Pickup Location
               </label>
+            </div>
+            <div className="form-group">
               <input
                 type="text"
-                id="pickupLocation"
-                placeholder="Enter pickup location"
-                className="border focus:outline-none focus:ring-[#800000] focus:border-[#800000] rounded-md p-2 w-full"
+                id="dropoffLocation"
+                placeholder=""
+                className="border rounded-md p-2 w-full"
               />
-            </div>
-            <div>
               <label
                 htmlFor="dropoffLocation"
                 className="block text-sm font-medium mb-1"
               >
                 Dropoff Location
               </label>
-              <input
-                type="text"
-                id="dropoffLocation"
-                placeholder="Enter dropoff location"
-                className="border focus:outline-none focus:ring-[#800000] focus:border-[#800000] rounded-md p-2 w-full"
-              />
             </div>
           </div>
           {/* <div className="grid gap-4 mb-6">
@@ -138,19 +146,20 @@ const WeddingBusBookingForm = () => {
               className="border rounded-md p-2 w-full h-32"
             ></textarea>
           </div> */}
-          <div className="flex justify-between">
+          <div className="w-full ">
             <button
               type="submit"
-              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+              className="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-900"
             >
               Book Now
             </button>
-            <button
+            {/* <button
               type="button"
-              className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400"
+              onClick={() => setWeddingForm(!weddingForm)}
+              className="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-900"
             >
               Cancel
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
