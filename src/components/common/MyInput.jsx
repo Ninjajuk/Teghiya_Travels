@@ -1,56 +1,56 @@
+import React, { useState } from "react";
 
-import React, { useState } from 'react'
+const MyInput = ({ placeholder = "", staticDataCity, value, onChange }) => {
+  // const [inputVal,setInputval]=useState(value)
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [filteredCities, setFilteredCities] = useState([]);
 
-const MyInput = ({placeholder = "",staticDataCity,value,onChange}) => {
-    // const [inputVal,setInputval]=useState(value)
-    const [showSuggestions, setShowSuggestions] = useState(false);
-    const [filteredCities, setFilteredCities] = useState([]);
-    
-    const handleInputChange=(e)=>{
-      setShowSuggestions(true)
-      onChange(e.target.value);
-        // console.log(inputVal)
-        // if(value.length>=4){
-        //     setShowSuggestions(true)
-        // }
-        // else{
-        //     setShowSuggestions(false) 
-        // }
-    }
-    const handleselectInput=(item)=>{
-      onChange(item);
-        // console.log(item)
-        setShowSuggestions(false)
+  const handleInputChange = (e) => {
+    setShowSuggestions(true);
+    onChange(e.target.value);
+    // console.log(inputVal)
+    // if(value.length>=4){
+    //     setShowSuggestions(true)
+    // }
+    // else{
+    //     setShowSuggestions(false)
+    // }
+  };
+  const handleselectInput = (item) => {
+    onChange(item);
+    // console.log(item)
+    setShowSuggestions(false);
+  };
 
-    }
-    
-    //Highlight the search field
-    const highlightText = (text, highlight) => {
-      const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
-      return (
-        <span>
-          {parts.map((part, index) =>
-            part.toLowerCase() === highlight.toLowerCase() ? (
-              <span key={index} className="bg-yellow-200">
-                {part}
-              </span>
-            ) : (
-              part
-            )
-          )}
-        </span>
-      );
-    };
+  //Highlight the search field
+  const highlightText = (text, highlight) => {
+    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+    return (
+      <span>
+        {parts.map((part, index) =>
+          part.toLowerCase() === highlight.toLowerCase() ? (
+            <span key={index} className="bg-yellow-200">
+              {part}
+            </span>
+          ) : (
+            part
+          )
+        )}
+      </span>
+    );
+  };
 
-     //to view the city that matches the query
-     const matchingCities = staticDataCity.filter((city) =>
+  //to view the city that matches the query
+  const matchingCities = staticDataCity.filter((city) =>
+    city.toLowerCase().includes(value.toLowerCase())
+  );
+
+  //Show search city value based on the input
+  const getSuggestion = () => {
+    const filterCity = cities.filter((city) =>
       city.toLowerCase().includes(value.toLowerCase())
     );
-
-   //Show search city value based on the input
-   const getSuggestion=()=>{
-    const filterCity=cities.filter((city)=>city.toLowerCase().includes(value.toLowerCase()))
-   }
+  };
 
   return (
     <>
@@ -74,12 +74,12 @@ const MyInput = ({placeholder = "",staticDataCity,value,onChange}) => {
             ))}
           </ul>
         )} */}
-         {showSuggestions && (
+        {showSuggestions && (
           <div className="absolute top-12  w-full h-40 bg-white rounded-md shadow-md overflow-y-auto">
             <ul className="px-4 py-2">
               {matchingCities.map((item, index) => (
                 <li
-                key={index}
+                  key={index}
                   onClick={() => handleselectInput(item)}
                   className=" px-4 py-1 text-gray-600  hover:bg-gray-200 rounded-md cursor-pointer"
                 >
@@ -92,6 +92,6 @@ const MyInput = ({placeholder = "",staticDataCity,value,onChange}) => {
       </div>
     </>
   );
-}
+};
 
-export default MyInput
+export default MyInput;

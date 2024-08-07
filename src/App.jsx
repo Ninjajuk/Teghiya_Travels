@@ -1,47 +1,44 @@
+import React, { useState } from "react";
+import HomePage from "./pages/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BusListing from "./pages/BusListing";
 
-import React, { useState } from 'react';
-import HomePage from './pages/Home';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import BusListing from './pages/BusListing';
-
-import CancellationPage from './pages/Cancellation';
-import MyBookingPage from './pages/MyBooking';
-import ContactUsPage from './pages/ContactUs';
-import MyProfile from './pages/MyProfile';
-import CheckoutPage from './services/checkout/Checkout';
-import ErrorPage from './pages/ErrorPage';
-
-
+import CancellationPage from "./pages/Cancellation";
+import MyBookingPage from "./pages/MyBooking";
+import ContactUsPage from "./pages/ContactUs";
+import MyProfile from "./pages/MyProfile";
+import CheckoutPage from "./services/checkout/Checkout";
+import ErrorPage from "./pages/ErrorPage";
+import AdminHome from "./services/admin/AdminHome";
 
 function App() {
-  const[logmodal,setlogmodal]=useState(false)
+  const [logmodal, setlogmodal] = useState(false);
 
-
-  const handleLoginModal=()=>{
-    setlogmodal(!logmodal)
-  }
-const closeLoginModal=()=>{
-  setlogmodal(false)
-}
+  const handleLoginModal = () => {
+    setlogmodal(!logmodal);
+  };
+  const closeLoginModal = () => {
+    setlogmodal(false);
+  };
 
   return (
     <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<BusListing />} />
+          <Route path="/cancellation" element={<CancellationPage />} />
+          <Route path="/mybooking" element={<MyBookingPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/myprofile" element={<MyProfile />} />
+          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/dashboard" element={<AdminHome />} />
 
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/search" element={<BusListing />} />
-            <Route path="/cancellation" element={<CancellationPage />} />
-            <Route path="/mybooking" element={<MyBookingPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/myprofile" element={<MyProfile />} />
-            <Route path="/contact-us" element={<ContactUsPage />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </BrowserRouter>
-
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
 
-export default App
+export default App;
