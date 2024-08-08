@@ -1,12 +1,21 @@
 import React from "react";
 import "./style.css";
 import { MdOutlineClear } from "react-icons/md";
-const WeddingBusBookingForm = ({ weddingForm, setWeddingForm }) => {
+const WeddingBusBookingForm = ({
+  weddingForm,
+  setWeddingForm,
+  handleCloseModal,
+}) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center   bg-black bg-opacity-50 z-50 ">
       <div className="min-h-64 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md   overflow-y-auto relative">
         <div
-          onClick={() => setWeddingForm(!weddingForm)}
+          // onClick={() => setWeddingForm(!weddingForm)}
+          // onClick={() => handleCloseModal()}
+          onClick={() => {
+            setWeddingForm(!weddingForm);
+            handleCloseModal();
+          }}
           className="absolute top-0 right-0 cursor-pointer text-red-600 hover:text-red-800 bg-gray-200 rounded-full "
         >
           <MdOutlineClear className="w-8 h-8  " />
