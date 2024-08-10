@@ -1,6 +1,7 @@
-import React, { useState, ReactNode } from "react";
-import Header from "../components/Header/index";
-import Sidebar from "../components/Sidebar/index";
+import React, { useState } from "react";
+
+import Header from "../components/header/Header";
+import Sidebar from "../components/sidebar/Sidebar";
 
 const DefaultLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

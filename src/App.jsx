@@ -10,6 +10,9 @@ import MyProfile from "./pages/MyProfile";
 import CheckoutPage from "./services/checkout/Checkout";
 import ErrorPage from "./pages/ErrorPage";
 import AdminHome from "./services/admin/AdminHome";
+import DefaultLayout from "./services/admin/layout/DefaultLayout";
+import AdminProfile from "./services/admin/profile/Profile";
+import WebsiteMain from "./services/admin/WebsiteMain";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -32,7 +35,12 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/contact-us" element={<ContactUsPage />} />
-          <Route path="/dashboard" element={<AdminHome />} />
+          <Route path="/dashboard" element={<DefaultLayout />} />
+          <Route
+            path="/dashboard/corporate-website"
+            element={<WebsiteMain />}
+          />
+          <Route path="/dashboard/adminprofile" element={<AdminProfile />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
