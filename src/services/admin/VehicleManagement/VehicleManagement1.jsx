@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const VehicleManagementDashboard = () => {
+const VehicleManagement1 = () => {
   const [vehicles, setVehicles] = useState([]);
   const [currentVehicle, setCurrentVehicle] = useState({
     make: "",
@@ -187,4 +187,4 @@ const VehicleManagementDashboard = () => {
   );
 };
 
-export default VehicleManagementDashboard;
+export default VehicleManagement1;

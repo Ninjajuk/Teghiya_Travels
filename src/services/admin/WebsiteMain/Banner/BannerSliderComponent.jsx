@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel"; // Example package for the slider
 import InputDashboard from "../../components/common/InputDashboard";
 import { bannerData } from "./bannerdata";
+import BannerForm from "../../components/FormDash/BannerForm";
+
 const BannerSlider = () => {
   const [banners, setBanners] = useState(bannerData);
   const [currentBanner, setCurrentBanner] = useState({
@@ -38,16 +40,23 @@ const BannerSlider = () => {
     setBanners(banners.filter((banner) => banner.id !== id));
   };
 
+  const [showbanner, setShowBanner] = useState(false);
+  const handleshowBanner = () => {
+    setShowBanner(!showbanner);
+  };
+
   return (
     <div className="flex gap-2  mb-4">
       <div className="w-full p-4 bg-gray-100 shadow-md rounded-md">
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold ">Manage Banners Sliders</h2>
           <button
-            onClick={handleSaveBanner}
+            // onClick={handleSaveBanner}
+            onClick={handleshowBanner}
             className="bg-blue-500 text-white px-4 py-2 rounded"
           >
-            {editing ? "Update Banner" : "Add Banner"}
+            {/* {editing ? "Update Banner" : "Add Banner"} */}
+            Add Banner
           </button>
         </div>
 
@@ -137,6 +146,7 @@ const BannerSlider = () => {
           )}
         </div> */}
       </div>
+      {showbanner && <BannerForm handleshowBanner={handleshowBanner} />}
     </div>
   );
 };
