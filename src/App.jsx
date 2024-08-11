@@ -13,6 +13,7 @@ import AdminHome from "./services/admin/AdminHome";
 import DefaultLayout from "./services/admin/layout/DefaultLayout";
 import AdminProfile from "./services/admin/profile/Profile";
 import WebsiteMain from "./services/admin/WebsiteMain";
+import VehicleManagementDashboard from "./services/admin/VehicleManagement";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -39,6 +40,10 @@ function App() {
           <Route
             path="/dashboard/corporate-website"
             element={<WebsiteMain />}
+          />
+          <Route
+            path="/dashboard/vehicle-management"
+            element={<VehicleManagementDashboard />}
           />
           <Route path="/dashboard/adminprofile" element={<AdminProfile />} />
 

@@ -1,13 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-// import Logo from "../../images/logo/logo.svg";
 import SidebarLinkGroup from "./SidebarLinkGroup";
-
-// interface SidebarProps {
-//   sidebarOpen: boolean;
-//   setSidebarOpen: (arg: boolean) => void;
-// }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const location = useLocation();
@@ -115,7 +109,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                     <React.Fragment>
                       <NavLink
                         to="#"
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text- duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-meta-4 ${
                           (pathname === "/" ||
                             pathname.includes("dashboard")) &&
                           "bg-graydark dark:bg-meta-4"
@@ -182,30 +176,105 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                             <NavLink
                               to="/dashboard/ecom"
                               className={({ isActive }) =>
-                                "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-primary " +
-                                (isActive && "!text-white")
+                                "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                (isActive && "!text-primary")
                               }
                             >
                               E-com
                             </NavLink>
+                            {/* <!-- E-com Submenu Start --> */}
+                            <div
+                              className={`translate transform overflow-hidden ${
+                                !open && "hidden"
+                              }`}
+                            >
+                              <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
+                                <li>
+                                  <NavLink
+                                    to="/dashboard/ecom/products"
+                                    className={({ isActive }) =>
+                                      "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                      (isActive && "!text-primary")
+                                    }
+                                  >
+                                    Products
+                                  </NavLink>
+                                </li>
+                                <li>
+                                  <NavLink
+                                    to="/dashboard/ecom/orders"
+                                    className={({ isActive }) =>
+                                      "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                      (isActive && "!text-primary")
+                                    }
+                                  >
+                                    Orders
+                                  </NavLink>
+                                </li>
+                              </ul>
+                            </div>
+                            {/* <!-- E-com Submenu End --> */}
                           </li>
                           <li>
                             <NavLink
                               to="/dashboard/corporate-website"
                               className={({ isActive }) =>
-                                "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-primary " +
-                                (isActive && "!text-white")
+                                "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                (isActive && "!text-primary")
                               }
                             >
                               Webiste
+                            </NavLink>
+                            {/* <!-- Website Submenu Start --> */}
+                            <div
+                              className={`translate transform overflow-hidden ${
+                                !open && "hidden"
+                              }`}
+                            >
+                              <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
+                                <li>
+                                  <NavLink
+                                    to="/dashboard/ecom/products"
+                                    className={({ isActive }) =>
+                                      "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                      (isActive && "!text-primary")
+                                    }
+                                  >
+                                    Banner
+                                  </NavLink>
+                                </li>
+                                <li>
+                                  <NavLink
+                                    to="/dashboard/ecom/orders"
+                                    className={({ isActive }) =>
+                                      "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                      (isActive && "!text-primary")
+                                    }
+                                  >
+                                    Cards
+                                  </NavLink>
+                                </li>
+                              </ul>
+                            </div>
+                            {/* <!-- Website Submenu End --> */}
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/dashboard/vehicle-management"
+                              className={({ isActive }) =>
+                                "py-2 group relative whitespace-nowrap flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                (isActive && "!text-primary")
+                              }
+                            >
+                              Vehicle Management
                             </NavLink>
                           </li>
                           <li>
                             <NavLink
                               to="/dashboard/catering"
                               className={({ isActive }) =>
-                                "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-primary " +
-                                (isActive && "!text-white")
+                                "py-2 group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-gray-100 hover:text-primary " +
+                                (isActive && "!text-primary")
                               }
                             >
                               Catering
@@ -224,7 +293,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <NavLink
                   to="/calendar"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text- duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-meta-4 ${
                     pathname.includes("calendar") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
@@ -251,7 +320,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <NavLink
                   to="/dashboard/adminprofile"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-meta-4 ${
                     pathname.includes("profile") && "bg-graydark dark:bg-meta-4"
                   }`}
                 >
@@ -288,7 +357,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                     <React.Fragment>
                       <NavLink
                         to="#"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-meta-4 ${
                           (pathname === "/forms" ||
                             pathname.includes("forms")) &&
                           "bg-graydark dark:bg-meta-4"
@@ -390,7 +459,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <NavLink
                   to="/tables"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-meta-4 ${
                     pathname.includes("tables") && "bg-graydark dark:bg-meta-4"
                   }`}
                 >
@@ -428,7 +497,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <NavLink
                   to="/settings"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray dark:hover:bg-meta-4 ${
                     pathname.includes("settings") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
