@@ -122,7 +122,7 @@ const VehicleManagement = () => {
             </div>
           ))}
         </div> */}
-        <div className="h-4/6 p-2">
+        <div className="h-4/6 p-2 bg-white">
           <MyTable headerCol={headerCol} product={VehicleData} />
         </div>
 

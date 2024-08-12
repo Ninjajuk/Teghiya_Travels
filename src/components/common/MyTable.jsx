@@ -6,7 +6,7 @@ const MyTable = ({ headerCol, product }) => {
   return (
     <div className="overflow-x-auto max-h-full">
       <table className="w-full border-collapse">
-        <thead className="sticky top-0 z-2 bg-yellow-600">
+        <thead className="sticky top-0 z-2 bg-primary text-white font-extralight">
           <tr className="text-left border  uppercase font-serif px-2">
             {headerCol.map((item, index) => (
               <th key={index} className="px-2">
@@ -17,7 +17,7 @@ const MyTable = ({ headerCol, product }) => {
         </thead>
         <tbody>
           {product.map((row, rowIndex) => (
-            <tr key={rowIndex} className="border border-b-0 border-gray-400">
+            <tr key={rowIndex} className="divide-y-2 divide-gray-200">
               {/* {headerCol.map((index) => (
                 <td key={index} className="py-2 px-2 text-nowrap">
                   {row[index]}
@@ -49,6 +49,74 @@ const MyTable = ({ headerCol, product }) => {
 };
 
 export default MyTable;
+
+// import React, { useState } from "react";
+
+// const MyTable = ({ headerCol, product }) => {
+//   const [sortedData, setSortedData] = useState(product);
+//   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+
+//   const onSort = (col) => {
+//     let direction = "asc";
+//     if (sortConfig.key === col && sortConfig.direction === "asc") {
+//       direction = "desc";
+//     }
+
+//     const sortedArray = [...sortedData].sort((a, b) => {
+//       if (a[col] < b[col]) return direction === "asc" ? -1 : 1;
+//       if (a[col] > b[col]) return direction === "asc" ? 1 : -1;
+//       return 0;
+//     });
+
+//     setSortedData(sortedArray);
+//     setSortConfig({ key: col, direction });
+//   };
+
+//   const getSortIndicator = (col) => {
+//     if (sortConfig.key === col) {
+//       return sortConfig.direction === "asc" ? "▲" : "▼";
+//     }
+//     return "";
+//   };
+
+//   return (
+//     <div className="overflow-x-auto max-h-full">
+//       <table className="w-full border-collapse">
+//         <thead className="sticky top-0 z-2 bg-yellow-600">
+//           <tr className="text-left border uppercase font-serif px-2">
+//             {headerCol.map((item, index) => (
+//               <th
+//                 key={index}
+//                 className="px-2 cursor-pointer"
+//                 onClick={() => onSort(item)}
+//               >
+//                 {item} {getSortIndicator(item)}
+//               </th>
+//             ))}
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {sortedData.map((row, rowIndex) => (
+//             <tr key={rowIndex} className="border border-b-0 border-gray-400">
+//               {headerCol.map((col, colIndex) => (
+//                 <td key={colIndex} className="py-2 px-2 text-nowrap">
+//                   {typeof row[col] === "string" &&
+//                   row[col].startsWith("http") ? (
+//                     <img src={row[col]} alt="Product" className="max-h-16" />
+//                   ) : (
+//                     row[col]
+//                   )}
+//                 </td>
+//               ))}
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default MyTable;
 
 // import React, { useState } from 'react';
 // import PropTypes from 'prop-types';

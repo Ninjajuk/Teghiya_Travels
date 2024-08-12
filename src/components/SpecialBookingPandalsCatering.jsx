@@ -10,7 +10,7 @@ const SpecialBookingPandalsCatering = () => {
   const specailbook = [
     {
       id: 1,
-      img: "/tbus1.jpg",
+      img: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Bolero-Neo/10766/1690267562292/front-left-side-47.jpg",
       title: `${language === "en" ? "Hi there" : "नमस्ते"}`,
       description: "",
       btn: `${language === "en" ? "Book Vehicle" : "वाहन बुक करें"}`,
