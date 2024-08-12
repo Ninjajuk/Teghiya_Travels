@@ -79,8 +79,37 @@ const VehicleManagement = () => {
               {editing ? "Update Vehicle" : "Add Vehicle"}
             </button>
           </div>
-          <div>
-            <h1>Filterss</h1>
+          {/* Filters Section */}
+          <div className="mb-4 flex justify-between">
+            <input
+              type="text"
+              name="search"
+              // value={filters.search}
+              // onChange={handleFilterChange}
+              placeholder="Search..."
+              className="p-2 border rounded w-1/3"
+            />
+            <select
+              name="vehicleType"
+              // value={filters.vehicleType}
+              // onChange={handleFilterChange}
+              className="p-2 border rounded"
+            >
+              <option value="All">All Types</option>
+              <option value="Car">Car</option>
+              <option value="Bus">Bus</option>
+              <option value="Truck">Truck</option>
+            </select>
+            <select
+              name="availability"
+              // value={filters.availability}
+              // onChange={handleFilterChange}
+              className="p-2 border rounded"
+            >
+              <option value="All">All Availability</option>
+              <option value="Available">Available</option>
+              <option value="Not Available">Not Available</option>
+            </select>
           </div>
         </div>
 
@@ -122,7 +151,7 @@ const VehicleManagement = () => {
             </div>
           ))}
         </div> */}
-        <div className="h-4/6 p-2 bg-white">
+        <div className="h-4/6 p-2">
           <MyTable headerCol={headerCol} product={VehicleData} />
         </div>
 

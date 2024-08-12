@@ -6,7 +6,10 @@ import VehicleManagement1 from "./VehicleManagement1";
 const VehicleManagementDashboard = () => {
   return (
     <DefaultLayout>
-      <VehicleManagement />
+      <div className="w-full h-full">
+        <VehicleManagement />
+      </div>
+
       {/* <VehicleManagement1 /> */}
     </DefaultLayout>
   );
