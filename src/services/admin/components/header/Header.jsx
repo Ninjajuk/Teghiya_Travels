@@ -3,7 +3,7 @@ import DropdownUser from "./DropDownUser";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
   return (
-    <header className="sticky top-0 z-999 flex w-full h-full bg-white shadow-md dark:bg-boxdark dark:drop-shadow-none">
+    <header className="sticky top-0 z-999 flex w-full h-[4rem] bg-white shadow-md dark:bg-boxdark dark:drop-shadow-none">
       <div className="h-full flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           {/* <!-- Hamburger Toggle BTN --> */}

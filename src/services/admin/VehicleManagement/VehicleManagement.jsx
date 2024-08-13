@@ -88,13 +88,13 @@ const VehicleManagement = () => {
 
   return (
     <div className=" w-full h-full">
-      <div className="w-full h-full p-4  shadow-md rounded-md">
-        <div className="flex flex-col">
-          <div className=" h-1/6 flex justify-between  mb-4">
+      <div className="w-full h-full  shadow-md rounded-md">
+        <div className="p-2 flex flex-col h-1/6  bg-sky-600  ">
+          <div className="flex justify-between ">
             <h2 className="text-xl font-bold">Manage Vehicles</h2>
             <button
               onClick={handleSaveVehicle}
-              className="bg-green-500 text-white px-4 py-2 rounded"
+              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-800"
             >
               {editing ? "Update Vehicle" : "Add Vehicle"}
             </button>
@@ -131,13 +131,13 @@ const VehicleManagement = () => {
               />
             </div>
 
-            <div className=" relative flex  gap-4 cursor-pointer ">
+            <div className=" relative flex gap-2  lg:gap-4 cursor-pointer ">
               <div
                 onClick={handleFilterDrop}
                 className=" flex items-center  hover:text-primary hover:font-semibold transition duration-700 ease-in-out "
               >
-                <span>Filters</span>
-                <span className="pl-1">
+                <span className="hidden lg:block">Filters</span>
+                <span className="lg:pl-1">
                   <MdFilterList className="w-6 h-6 " />
                 </span>
               </div>
@@ -146,8 +146,8 @@ const VehicleManagement = () => {
                 onClick={handleExportToExcel}
                 className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
               >
-                <span>Export</span>
-                <span className="pl-1">
+                <span className="hidden lg:block">Export</span>
+                <span className="lg:pl-1">
                   <MdFileDownload className="w-6 h-6 " />
                 </span>
               </div>
@@ -263,7 +263,7 @@ const VehicleManagement = () => {
             {editing ? "Update Vehicle" : "Add Vehicle"}
           </button>
         </div> */}
-        <div className="w-full h-1/6   flex items-center">
+        <div className="w-full h-1/6   flex items-center bg-sky-600">
           <div className="w-full flex justify-between px-4">
             <button className="bg-green-500 text-white px-4 py-2 rounded">
               Prev

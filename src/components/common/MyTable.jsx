@@ -51,8 +51,9 @@
 // export default MyTable;
 
 import React, { useState } from "react";
+import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 
-const MyTable = ({ headerCol, product }) => {
+const MyTable = ({ headerCol, product, action = true }) => {
   const [sortedData, setSortedData] = useState(product);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
@@ -96,6 +97,7 @@ const MyTable = ({ headerCol, product }) => {
                 </span>
               </th>
             ))}
+            <th className="pl-1 px-2 py-2 cursor-pointer">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -111,6 +113,20 @@ const MyTable = ({ headerCol, product }) => {
                   )}
                 </td>
               ))}
+              {action && (
+                <td className="py-2 px-2 text-nowrap">
+                  <span className="actions flex grid-cols-2 gap-4">
+                    <BsFillPencilFill
+                      className="edit-btn cursor-pointer text-green-700"
+                      onClick={() => editRow(idx)}
+                    />
+                    <BsFillTrashFill
+                      className="delete-btn cursor-pointer text-red-800"
+                      onClick={() => deleteRow(idx)}
+                    />
+                  </span>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
