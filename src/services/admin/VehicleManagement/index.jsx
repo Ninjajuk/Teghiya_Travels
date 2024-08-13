@@ -6,7 +6,7 @@ import VehicleManagement1 from "./VehicleManagement1";
 const VehicleManagementDashboard = () => {
   return (
     <DefaultLayout>
-      <div className="w-full h-full">
+      <div className="w-full h-[calc(100vh - 4rem)] ">
         <VehicleManagement />
       </div>
 

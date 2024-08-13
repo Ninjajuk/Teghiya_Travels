@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { VehicleData } from "../components/data";
 import MyTable from "../../../components/common/MyTable";
+import { MdFileDownload, MdFilterList, MdRefresh } from "react-icons/md";
+import InputDashboard from "../components/common/InputDashboard";
+import DropdownFilter from "../components/common/DropdownFilter";
+import * as XLSX from "xlsx";
 
 const VehicleManagement = () => {
   const [vehicles, setVehicles] = useState(VehicleData);
@@ -66,9 +70,25 @@ const VehicleManagement = () => {
     "btnText",
   ];
 
+  // filter dropdown
+  const [filter, setFilter] = useState(false);
+  const handleFilterDrop = () => {
+    setFilter(!filter);
+  };
+
+  // Export to Excel function
+  const handleExportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(vehicles); // Convert JSON data to worksheet
+    const workbook = XLSX.utils.book_new(); // Create a new workbook
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Vehicles"); // Append the worksheet to the workbook
+
+    // Generate Excel file and trigger download
+    XLSX.writeFile(workbook, "vehicles_data.xlsx");
+  };
+
   return (
-    <div className=" w-full h-[32rem]">
-      <div className="w-full h-full p-4 bg-gray-50 shadow-md rounded-md">
+    <div className=" w-full h-full">
+      <div className="w-full h-full p-4  shadow-md rounded-md">
         <div className="flex flex-col">
           <div className=" h-1/6 flex justify-between  mb-4">
             <h2 className="text-xl font-bold">Manage Vehicles</h2>
@@ -80,15 +100,7 @@ const VehicleManagement = () => {
             </button>
           </div>
           {/* Filters Section */}
-          <div className="mb-4 flex justify-between">
-            <input
-              type="text"
-              name="search"
-              // value={filters.search}
-              // onChange={handleFilterChange}
-              placeholder="Search..."
-              className="p-2 border rounded w-1/3"
-            />
+          <div className="p-2 flex justify-between items-center ">
             <select
               name="vehicleType"
               // value={filters.vehicleType}
@@ -100,16 +112,53 @@ const VehicleManagement = () => {
               <option value="Bus">Bus</option>
               <option value="Truck">Truck</option>
             </select>
-            <select
-              name="availability"
-              // value={filters.availability}
+
+            {/* <input
+              type="text"
+              name="search"
+              // value={filters.search}
               // onChange={handleFilterChange}
-              className="p-2 border rounded"
-            >
-              <option value="All">All Availability</option>
-              <option value="Available">Available</option>
-              <option value="Not Available">Not Available</option>
-            </select>
+              placeholder="Search..."
+              className="p-2 border rounded "
+            /> */}
+            <div className="">
+              <InputDashboard
+                type="text"
+                name="search"
+                id="search"
+                placeholder=""
+                label="Search..."
+              />
+            </div>
+
+            <div className=" relative flex  gap-4 cursor-pointer ">
+              <div
+                onClick={handleFilterDrop}
+                className=" flex items-center  hover:text-primary hover:font-semibold transition duration-700 ease-in-out "
+              >
+                <span>Filters</span>
+                <span className="pl-1">
+                  <MdFilterList className="w-6 h-6 " />
+                </span>
+              </div>
+              {filter && <DropdownFilter columns={headerCol} />}
+              <div
+                onClick={handleExportToExcel}
+                className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
+              >
+                <span>Export</span>
+                <span className="pl-1">
+                  <MdFileDownload className="w-6 h-6 " />
+                </span>
+              </div>
+            </div>
+
+            {/* <div className="flex items-center cursor-pointer hover:text-primary">
+              <span>Refresh</span>
+              <span className="pl-2">
+                <MdRefresh className="w-6 h-6 text-primary" />
+              </span>
+            </div> */}
           </div>
         </div>
 
