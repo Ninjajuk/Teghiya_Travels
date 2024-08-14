@@ -7,6 +7,30 @@
 
 /* Dark mode */
 
+/* Scrollbar style*/
+/* Vibrant Theme Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background-color: #800000; Vibrant Maroon */
+  background-color: #ccc; /* Light gray */
+  border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #420202; /* Darker orange on hover */
+}
+
+::-webkit-scrollbar-track {
+  /* background-color: #ffe0b2; Light orange track */
+  background-color: #f9f9f9; /* Very light gray */
+}
+
+
 .loader {
     border: 2px solid #f3f3f3; /* Light grey */
     border-top: 2px solid #3498db; /* Blue */

@@ -81,9 +81,9 @@ const MyTable = ({ headerCol, product, action = true }) => {
   };
 
   return (
-    <div className="overflow-x-auto max-h-full">
-      <table className="w-full border-collapse">
-        <thead className="sticky top-0 z-2 bg-gray-800">
+    <div className=" overflow-y-auto  h-full">
+      <table className="w-full h-full border-collapse">
+        <thead className="sticky top-0 z-10 bg-gray-800">
           <tr className="text-left  font-serif px-2 text-white ">
             {headerCol.map((item, index) => (
               <th
@@ -117,11 +117,11 @@ const MyTable = ({ headerCol, product, action = true }) => {
                 <td className="py-2 px-2 text-nowrap">
                   <span className="actions flex grid-cols-2 gap-4">
                     <BsFillPencilFill
-                      className="edit-btn cursor-pointer text-green-700"
+                      className="edit-btn cursor-pointer text-green-500 hover:text-green-800"
                       onClick={() => editRow(idx)}
                     />
                     <BsFillTrashFill
-                      className="delete-btn cursor-pointer text-red-800"
+                      className="delete-btn cursor-pointer text-red-500 hover:text-red-800"
                       onClick={() => deleteRow(idx)}
                     />
                   </span>

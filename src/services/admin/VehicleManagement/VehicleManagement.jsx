@@ -5,6 +5,7 @@ import { MdFileDownload, MdFilterList, MdRefresh } from "react-icons/md";
 import InputDashboard from "../components/common/InputDashboard";
 import DropdownFilter from "../components/common/DropdownFilter";
 import * as XLSX from "xlsx";
+import PaginationComponent from "../../../components/common/Pagination";
 
 const VehicleManagement = () => {
   const [vehicles, setVehicles] = useState(VehicleData);
@@ -86,34 +87,49 @@ const VehicleManagement = () => {
     XLSX.writeFile(workbook, "vehicles_data.xlsx");
   };
 
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const totalItems = 250; // Total number of items in your data
+
+  const handlePageChange = (page, pageSize) => {
+    setCurrentPage(page);
+    setItemsPerPage(pageSize);
+    // Fetch data for the new page here
+  };
+
+  const handleItemsPerPageChange = (pageSize) => {
+    setItemsPerPage(pageSize);
+    // Fetch data with the new items per page here
+  };
+
   return (
     <div className=" w-full h-full">
-      <div className="w-full h-full  shadow-md rounded-md">
-        <div className="p-2 flex flex-col h-1/6  bg-sky-600  ">
-          <div className="flex justify-between ">
-            <h2 className="text-xl font-bold">Manage Vehicles</h2>
-            <button
-              onClick={handleSaveVehicle}
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-800"
-            >
-              {editing ? "Update Vehicle" : "Add Vehicle"}
-            </button>
-          </div>
-          {/* Filters Section */}
-          <div className="p-2 flex justify-between items-center ">
-            <select
-              name="vehicleType"
-              // value={filters.vehicleType}
-              // onChange={handleFilterChange}
-              className="p-2 border rounded"
-            >
-              <option value="All">All Types</option>
-              <option value="Car">Car</option>
-              <option value="Bus">Bus</option>
-              <option value="Truck">Truck</option>
-            </select>
+      <div className="w-full h-1/6 p-4 flex flex-col   bg-white ">
+        <div className="flex justify-between px-2 ">
+          <h2 className="text-xl font-bold">Manage Vehicles</h2>
+          <button
+            onClick={handleSaveVehicle}
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-800"
+          >
+            {editing ? "Update Vehicle" : "Add Vehicle"}
+          </button>
+        </div>
+        {/* Filters Section */}
+        <div className="p-2 flex justify-between items-center ">
+          <select
+            name="vehicleType"
+            // value={filters.vehicleType}
+            // onChange={handleFilterChange}
+            className="p-2 border rounded"
+          >
+            <option value="All">All Types</option>
+            <option value="Car">Car</option>
+            <option value="Bus">Bus</option>
+            <option value="Truck">Truck</option>
+          </select>
 
-            {/* <input
+          {/* <input
               type="text"
               name="search"
               // value={filters.search}
@@ -121,158 +137,60 @@ const VehicleManagement = () => {
               placeholder="Search..."
               className="p-2 border rounded "
             /> */}
-            <div className="">
-              <InputDashboard
-                type="text"
-                name="search"
-                id="search"
-                placeholder=""
-                label="Search..."
-              />
-            </div>
+          <div className="">
+            <InputDashboard
+              type="text"
+              name="search"
+              id="search"
+              placeholder=""
+              label="Search..."
+            />
+          </div>
 
-            <div className=" relative flex gap-2  lg:gap-4 cursor-pointer ">
-              <div
-                onClick={handleFilterDrop}
-                className=" flex items-center  hover:text-primary hover:font-semibold transition duration-700 ease-in-out "
-              >
-                <span className="hidden lg:block">Filters</span>
-                <span className="lg:pl-1">
-                  <MdFilterList className="w-6 h-6 " />
-                </span>
-              </div>
-              {filter && <DropdownFilter columns={headerCol} />}
-              <div
-                onClick={handleExportToExcel}
-                className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
-              >
-                <span className="hidden lg:block">Export</span>
-                <span className="lg:pl-1">
-                  <MdFileDownload className="w-6 h-6 " />
-                </span>
-              </div>
+          <div className=" relative flex gap-2  lg:gap-4 cursor-pointer ">
+            <div
+              onClick={handleFilterDrop}
+              className=" flex items-center  hover:text-primary hover:font-semibold transition duration-700 ease-in-out "
+            >
+              <span className="hidden lg:block">Filters</span>
+              <span className="lg:pl-1">
+                <MdFilterList className="w-6 h-6 " />
+              </span>
             </div>
+            {filter && <DropdownFilter columns={headerCol} />}
+            <div
+              onClick={handleExportToExcel}
+              className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
+            >
+              <span className="hidden lg:block">Export</span>
+              <span className="lg:pl-1">
+                <MdFileDownload className="w-6 h-6 " />
+              </span>
+            </div>
+          </div>
 
-            {/* <div className="flex items-center cursor-pointer hover:text-primary">
+          {/* <div className="flex items-center cursor-pointer hover:text-primary">
               <span>Refresh</span>
               <span className="pl-2">
                 <MdRefresh className="w-6 h-6 text-primary" />
               </span>
             </div> */}
-          </div>
         </div>
+      </div>
 
-        {/* Vehicle List */}
-        {/* <div className="grid grid-cols-1 gap-4">
-          {vehicles.map((vehicle) => (
-            <div
-              key={vehicle.id}
-              className="p-4 border rounded shadow bg-white"
-            >
-              <h3 className="text-lg font-bold mb-2">
-                {vehicle.make} {vehicle.model} ({vehicle.year})
-              </h3>
-              <p className="mb-2">
-                Seating Capacity: {vehicle.seatingCapacity}
-              </p>
-              <p className="mb-2">Features: {vehicle.features}</p>
-              {vehicle.image && (
-                <img
-                  src={vehicle.image}
-                  alt={vehicle.model}
-                  className="w-full h-32 object-cover mb-2"
-                />
-              )}
-              <div className="flex justify-between">
-                <button
-                  onClick={() => handleEditVehicle(vehicle)}
-                  className="text-blue-500"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDeleteVehicle(vehicle.id)}
-                  className="text-red-500"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
-        </div> */}
-        <div className="h-4/6 p-2">
-          <MyTable headerCol={headerCol} product={VehicleData} />
-        </div>
-
-        {/* Vehicle Form */}
-        {/* <div className="mb-4 p-4 border rounded bg-white shadow">
-          <h3 className="text-lg font-semibold mb-4">
-            {editing ? "Edit Vehicle" : "Add New Vehicle"}
-          </h3>
-          <input
-            type="text"
-            name="make"
-            placeholder="Make"
-            value={currentVehicle.make}
-            onChange={handleInputChange}
-            className="block w-full p-2 mb-2 border rounded"
-          />
-          <input
-            type="text"
-            name="model"
-            placeholder="Model"
-            value={currentVehicle.model}
-            onChange={handleInputChange}
-            className="block w-full p-2 mb-2 border rounded"
-          />
-          <input
-            type="number"
-            name="year"
-            placeholder="Year"
-            value={currentVehicle.year}
-            onChange={handleInputChange}
-            className="block w-full p-2 mb-2 border rounded"
-          />
-          <input
-            type="number"
-            name="seatingCapacity"
-            placeholder="Seating Capacity"
-            value={currentVehicle.seatingCapacity}
-            onChange={handleInputChange}
-            className="block w-full p-2 mb-2 border rounded"
-          />
-          <textarea
-            name="features"
-            placeholder="Features"
-            value={currentVehicle.features}
-            onChange={handleInputChange}
-            className="block w-full p-2 mb-2 border rounded"
-          />
-          <input
-            type="text"
-            name="image"
-            placeholder="Image URL"
-            value={currentVehicle.image}
-            onChange={handleInputChange}
-            className="block w-full p-2 mb-2 border rounded"
-          />
-          <button
-            onClick={handleSaveVehicle}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
-          >
-            {editing ? "Update Vehicle" : "Add Vehicle"}
-          </button>
-        </div> */}
-        <div className="w-full h-1/6   flex items-center bg-sky-600">
-          <div className="w-full flex justify-between px-4">
-            <button className="bg-green-500 text-white px-4 py-2 rounded">
-              Prev
-            </button>
-            <button className="bg-green-500 text-white px-4 py-2 rounded">
-              Next
-            </button>
-          </div>
-        </div>
+      {/* Vehicle List */}
+      <div className="h-4/6 p-2">
+        <MyTable headerCol={headerCol} product={VehicleData} />
+      </div>
+      {/* Pagination  */}
+      <div className="w-full h-1/6 flex items-center ">
+        <PaginationComponent
+          totalItems={totalItems}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          onItemsPerPageChange={handleItemsPerPageChange}
+        />
       </div>
     </div>
   );

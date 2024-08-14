@@ -14,6 +14,8 @@ import DefaultLayout from "./services/admin/layout/DefaultLayout";
 import AdminProfile from "./services/admin/profile/Profile";
 import WebsiteMain from "./services/admin/WebsiteMain";
 import VehicleManagementDashboard from "./services/admin/VehicleManagement";
+import Customer from "./services/admin/Customer";
+import Testing from "./pages/Testing";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -30,6 +32,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          {/* <Route path="/testing" element={<Testing />} /> */}
           <Route path="/search" element={<BusListing />} />
           <Route path="/cancellation" element={<CancellationPage />} />
           <Route path="/mybooking" element={<MyBookingPage />} />
@@ -41,6 +44,7 @@ function App() {
             path="/dashboard/corporate-website"
             element={<WebsiteMain />}
           />
+          <Route path="/admin/customers" element={<Customer />} />
           <Route
             path="/dashboard/vehicle-management"
             element={<VehicleManagementDashboard />}
