@@ -61,7 +61,7 @@ const PaginationComponent = ({
   };
 
   return (
-    <div className="w-full flex items-center justify-between p-4 bg-white shadow-lg rounded-lg">
+    <div className="w-full h-full flex items-center justify-between p-4 bg-white shadow-lg rounded-lg">
       {showTotal && (
         <div className="text-sm text-gray-600">
           {`Showing ${(current - 1) * pageSize + 1}-${Math.min(
