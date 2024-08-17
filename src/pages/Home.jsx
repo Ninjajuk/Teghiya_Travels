@@ -30,8 +30,9 @@ const HomePage = () => {
         <Navbar handleLoginModal={handleLoginModal} />
 
         <Hero />
-        <WeddingBookingSection />
         <SpecialBookingSection />
+        <WeddingBookingSection />
+
         {/* <Testing /> */}
         <SpecialBookingPandalsCatering />
         {/* <ScrollAppear /> */}
