@@ -64,11 +64,6 @@ const VehicleManagement = () => {
     "driverContact",
     "ownerName",
     "ownerNumber",
-    "isAvailable",
-    "description",
-    "img",
-    "link",
-    "btnText",
   ];
 
   // filter dropdown
