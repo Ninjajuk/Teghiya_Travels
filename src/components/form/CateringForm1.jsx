@@ -86,7 +86,7 @@ const CateringForm1 = ({ handleCloseModal }) => {
           </div>
           <button
             type="submit"
-            className="bg-yellow-500 text-white px-4 py-2 rounded"
+            className="bg-yellow-500 text-white px-4 py-2 rounded-full"
           >
             Submit
           </button>
