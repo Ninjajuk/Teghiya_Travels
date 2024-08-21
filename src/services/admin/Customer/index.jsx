@@ -45,8 +45,8 @@ const Customer = () => {
         className=" w-full  flex flex-col bg-gray-300"
         style={{ height: "calc(100vh - 4rem)" }}
       >
-        <div className="w-full h-full flex-flex-col  bg-white">
-          <div className="w-full h-1/6  flex-col   ">
+        <div className="w-full h-full flex-flex-col  bg-white ">
+          <div className="w-full h-1/6  flex-col  p-2 ">
             <div className="flex justify-between py-2 px-4">
               <h2 className="text-xl font-bold">Manage Customers</h2>
               <button
@@ -90,7 +90,7 @@ const Customer = () => {
                 />
               </div>
 
-              <div className=" relative flex gap-2  lg:gap-4 cursor-pointer ">
+              <div className="  flex gap-2  lg:gap-4 cursor-pointer ">
                 <div
                   onClick={handleFilterDrop}
                   className=" flex items-center  hover:text-primary hover:font-semibold transition duration-700 ease-in-out "
@@ -121,7 +121,7 @@ const Customer = () => {
             </div>
           </div>
           {/* Content area with flex-grow */}
-          <div className="h-4/6 overflow-y-auto flex-grow">
+          <div className="h-4/6 overflow-y-auto flex-grow p-2">
             <MyTable headerCol={headerCol} product={datatableUsers} />
           </div>
 

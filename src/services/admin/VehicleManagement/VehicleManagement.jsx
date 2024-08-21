@@ -6,6 +6,8 @@ import InputDashboard from "../components/common/InputDashboard";
 import DropdownFilter from "../components/common/DropdownFilter";
 import * as XLSX from "xlsx";
 import PaginationComponent from "../../../components/common/Pagination";
+import VehicleManagement1 from "./VehicleManagement1";
+import CardForm from "../components/FormDash/CardForm";
 
 const VehicleManagement = () => {
   const [vehicles, setVehicles] = useState(VehicleData);
@@ -98,13 +100,18 @@ const VehicleManagement = () => {
     // Fetch data with the new items per page here
   };
 
+  const [showcard, setShowCard] = useState(false);
+  const handleshowCard = () => {
+    setShowCard(!showcard);
+  };
+
   return (
-    <div className=" w-full h-full">
+    <div className=" w-full h-full" style={{ height: "calc(100vh - 4rem)" }}>
       <div className="w-full h-1/6 p-4 flex flex-col   bg-white ">
         <div className="flex justify-between px-2 ">
           <h2 className="text-xl font-bold">Manage Vehicles</h2>
           <button
-            onClick={handleSaveVehicle}
+            onClick={handleshowCard}
             className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-800"
           >
             {editing ? "Update Vehicle" : "Add Vehicle"}
@@ -132,7 +139,7 @@ const VehicleManagement = () => {
               placeholder="Search..."
               className="p-2 border rounded "
             /> */}
-          <div className="">
+          <div className="block">
             <InputDashboard
               type="text"
               name="search"
@@ -142,10 +149,10 @@ const VehicleManagement = () => {
             />
           </div>
 
-          <div className=" relative flex gap-2  lg:gap-4 cursor-pointer ">
+          <div className=" flex gap-2  lg:gap-4 cursor-pointer ">
             <div
               onClick={handleFilterDrop}
-              className=" flex items-center  hover:text-primary hover:font-semibold transition duration-700 ease-in-out "
+              className=" flex items-center  hover:text-primary hover:font-bold  "
             >
               <span className="hidden lg:block">Filters</span>
               <span className="lg:pl-1">
@@ -174,7 +181,7 @@ const VehicleManagement = () => {
       </div>
 
       {/* Vehicle List */}
-      <div className="h-4/6 p-2">
+      <div className="h-4/6 p-2 ">
         <MyTable headerCol={headerCol} product={VehicleData} />
       </div>
       {/* Pagination  */}
@@ -187,6 +194,8 @@ const VehicleManagement = () => {
           onItemsPerPageChange={handleItemsPerPageChange}
         />
       </div>
+      {/* <VehicleManagement1 /> */}
+      {showcard && <CardForm handleshowCard={handleshowCard} />}
     </div>
   );
 };

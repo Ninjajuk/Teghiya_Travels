@@ -84,7 +84,7 @@ const MyTable = ({ headerCol, product, action = true }) => {
   return (
     <div className="overflow-x-auto max-h-full ">
       <table className="w-full border-collapse">
-        <thead className="sticky top-0 z-2 bg-gray-800">
+        <thead className="sticky top-0  bg-primary">
           <tr className="text-left  font-serif px-2 text-white ">
             {headerCol.map((item, index) => (
               <th
@@ -93,7 +93,7 @@ const MyTable = ({ headerCol, product, action = true }) => {
                 onClick={() => onSort(item)}
               >
                 {item}
-                <span className="pl-1 text-primary hover:text-primary">
+                <span className="pl-1 text-green-600 hover:text-green-600">
                   {getSortIndicator(item)}
                 </span>
               </th>

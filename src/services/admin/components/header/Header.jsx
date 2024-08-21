@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import DropdownUser from "./DropDownUser";
 
+import { FaAlignLeft } from "react-icons/fa";
+
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <header className="sticky top-0 z-999 flex w-full h-[4rem] bg-white shadow-md dark:bg-boxdark dark:drop-shadow-none">
@@ -11,11 +13,11 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
             aria-controls="sidebar"
             onClick={(e) => {
               e.stopPropagation();
-              setSidebarOpen(!props.sidebarOpen);
+              setSidebarOpen(!sidebarOpen);
             }}
-            className="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
+            className="z-99999 lg:hidden"
           >
-            <span className="relative block h-5.5 w-5.5 cursor-pointer">
+            {/* <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="du-block absolute right-0 h-full w-full">
                 <span
                   className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${
@@ -45,14 +47,17 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                   }`}
                 ></span>
               </span>
+            </span> */}
+            <span>
+              <FaAlignLeft className="relative block h-6 w-6 cursor-pointer text-primary" />
             </span>
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" to="/">
-            {/* <img src={LogoIcon} alt="Logo" /> */}
+          {/* <Link className="block flex-shrink-0 lg:hidden" to="/">
+            <img src={LogoIcon} alt="Logo" />
             <p>Icon</p>
-          </Link>
+          </Link> */}
         </div>
 
         {/* <div className="hidden sm:block">
@@ -91,7 +96,9 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           </form>
         </div> */}
         <div>
-          <h1 className="font-extrabold text-lg text-primary"> Hi Samsu</h1>
+          <h1 className="font-extrabold text-sm lg:text-lg text-primary">
+            Hi Samsu
+          </h1>
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
