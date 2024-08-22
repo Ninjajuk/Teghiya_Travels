@@ -70,7 +70,7 @@ const CardForm = ({ handleshowCard }) => {
           />
           <button
             onClick={handleSaveCard}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            className="bg-primary text-white px-4 py-2 rounded"
           >
             {editing ? "Update Card" : "Add Card"}
           </button>

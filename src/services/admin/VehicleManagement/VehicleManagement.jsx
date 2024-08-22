@@ -106,32 +106,33 @@ const VehicleManagement = () => {
   };
 
   return (
-    <div className=" w-full h-full" style={{ height: "calc(100vh - 4rem)" }}>
-      <div className="w-full h-1/6 p-4 flex flex-col   bg-white ">
-        <div className="flex justify-between px-2 ">
-          <h2 className="text-xl font-bold">Manage Vehicles</h2>
-          <button
-            onClick={handleshowCard}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-800"
-          >
-            {editing ? "Update Vehicle" : "Add Vehicle"}
-          </button>
-        </div>
-        {/* Filters Section */}
-        <div className="p-2 flex justify-between items-center ">
-          <select
-            name="vehicleType"
-            // value={filters.vehicleType}
-            // onChange={handleFilterChange}
-            className="p-2 border rounded"
-          >
-            <option value="All">All Types</option>
-            <option value="Car">Car</option>
-            <option value="Bus">Bus</option>
-            <option value="Truck">Truck</option>
-          </select>
+    <div className=" w-full h-full">
+      <div className="w-full h-1/6 p-4  bg-white ">
+        <div className="h-full flex flex-col    ">
+          <div className="h-1/2 flex justify-between  px-2 ">
+            <h2 className="text-xl font-bold">Manage Vehicles</h2>
+            <button
+              onClick={handleshowCard}
+              className="h-full flex items-center bg-primary text-white px-4 py-5 rounded hover:bg-green-800"
+            >
+              {editing ? "Update Vehicle" : "Add Vehicle"}
+            </button>
+          </div>
+          {/* Filters Section */}
+          <div className=" h-1/2 p-2 flex justify-between items-center mt-3">
+            <select
+              name="vehicleType"
+              // value={filters.vehicleType}
+              // onChange={handleFilterChange}
+              className="p-2 border rounded"
+            >
+              <option value="All">All Types</option>
+              <option value="Car">Car</option>
+              <option value="Bus">Bus</option>
+              <option value="Truck">Truck</option>
+            </select>
 
-          {/* <input
+            {/* <input
               type="text"
               name="search"
               // value={filters.search}
@@ -139,44 +140,45 @@ const VehicleManagement = () => {
               placeholder="Search..."
               className="p-2 border rounded "
             /> */}
-          <div className="block">
-            <InputDashboard
-              type="text"
-              name="search"
-              id="search"
-              placeholder=""
-              label="Search..."
-            />
-          </div>
-
-          <div className=" flex gap-2  lg:gap-4 cursor-pointer ">
-            <div
-              onClick={handleFilterDrop}
-              className=" flex items-center  hover:text-primary hover:font-bold  "
-            >
-              <span className="hidden lg:block">Filters</span>
-              <span className="lg:pl-1">
-                <MdFilterList className="w-6 h-6 " />
-              </span>
+            <div className="block ">
+              <InputDashboard
+                type="text"
+                name="search"
+                id="search"
+                placeholder=""
+                label="Search..."
+              />
             </div>
-            {filter && <DropdownFilter columns={headerCol} />}
-            <div
-              onClick={handleExportToExcel}
-              className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
-            >
-              <span className="hidden lg:block">Export</span>
-              <span className="lg:pl-1">
-                <MdFileDownload className="w-6 h-6 " />
-              </span>
-            </div>
-          </div>
 
-          {/* <div className="flex items-center cursor-pointer hover:text-primary">
+            <div className=" flex gap-2  lg:gap-4 cursor-pointer ">
+              <div
+                onClick={handleFilterDrop}
+                className=" flex items-center  hover:text-primary hover:font-bold  "
+              >
+                <span className="hidden lg:block">Filters</span>
+                <span className="lg:pl-1">
+                  <MdFilterList className="w-6 h-6 " />
+                </span>
+              </div>
+              {filter && <DropdownFilter columns={headerCol} />}
+              <div
+                onClick={handleExportToExcel}
+                className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
+              >
+                <span className="hidden lg:block">Export</span>
+                <span className="lg:pl-1">
+                  <MdFileDownload className="w-6 h-6 " />
+                </span>
+              </div>
+            </div>
+
+            {/* <div className="flex items-center cursor-pointer hover:text-primary">
               <span>Refresh</span>
               <span className="pl-2">
                 <MdRefresh className="w-6 h-6 text-primary" />
               </span>
             </div> */}
+          </div>
         </div>
       </div>
 

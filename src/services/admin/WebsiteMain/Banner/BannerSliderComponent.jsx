@@ -53,7 +53,7 @@ const BannerSlider = () => {
           <button
             // onClick={handleSaveBanner}
             onClick={handleshowBanner}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            className="bg-primary text-white px-4 py-2 rounded"
           >
             {/* {editing ? "Update Banner" : "Add Banner"} */}
             Add Banner
