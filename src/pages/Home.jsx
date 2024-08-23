@@ -12,6 +12,7 @@ import FAQRelatedBooking from "../components/FAQ/FAQRelatedBooking";
 import SpecialBookingPandalsCatering from "../components/SpecialBookingPandalsCatering";
 import LoginForm from "../services/auth/LoginForm";
 import ScrollAppear from "../components/Componen/SlideleftRight";
+import HeaderScrollingInfinite from "../components/HeaderTop/HeaderScrollingInfinite";
 
 const HomePage = () => {
   console.log("Home component rendered");
@@ -27,6 +28,7 @@ const HomePage = () => {
   return (
     <>
       <main className="h-auto flex flex-col">
+        <HeaderScrollingInfinite />
         <Navbar handleLoginModal={handleLoginModal} />
 
         <Hero />

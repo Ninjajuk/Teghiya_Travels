@@ -1,20 +1,24 @@
-
-import React, { useEffect, useState } from 'react'
-import {busList} from './busdetaildata.js'
-import { FaBusAlt, FaClock, FaFlagCheckered, FaMapMarkerAlt, FaPlay } from 'react-icons/fa';
-import { MdOutlineFlag, MdOutlineTripOrigin } from 'react-icons/md';
-import { useLocation } from 'react-router-dom';
-import MyInput from '../../components/common/MyInput.jsx';
-
+import React, { useEffect, useState } from "react";
+import { busList } from "./busdetaildata.js";
+import {
+  FaBusAlt,
+  FaClock,
+  FaFlagCheckered,
+  FaMapMarkerAlt,
+  FaPlay,
+} from "react-icons/fa";
+import { MdOutlineFlag, MdOutlineTripOrigin } from "react-icons/md";
+import { useLocation } from "react-router-dom";
+import MyInput from "../../components/common/MyInput.jsx";
+import BusSeatLayout from "./BusSeatLayout.jsx";
 
 const BusSearchResultPage = () => {
-
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
   const query = useQuery();
-  const fromCity = query.get('fromCity');
-  const toCity = query.get('toCity');
+  const fromCity = query.get("fromCity");
+  const toCity = query.get("toCity");
   // const departDate = query.get('departDate');
   // const returnDate = query.get('returnDate');
   // const mode = query.get('mode');
@@ -29,15 +33,15 @@ const BusSearchResultPage = () => {
 
   useEffect(() => {
     // Filter static bus listings based on query parameters
-    const filteredBusListings = busList.filter(bus => {
+    const filteredBusListings = busList.filter((bus) => {
       return (
         bus.fromCity.toLowerCase() === fromCity.toLowerCase() &&
-        bus.toCity.toLowerCase() === toCity.toLowerCase() 
+        bus.toCity.toLowerCase() === toCity.toLowerCase()
       );
     });
     setBusListings(filteredBusListings);
   }, [fromCity, toCity]);
-  console.log('busListings',busListings,fromCity)
+  console.log("busListings", busListings, fromCity);
   return (
     <>
       <main className="w-full  ">
@@ -47,16 +51,32 @@ const BusSearchResultPage = () => {
           </h1> */}
           <div className="w-full flex  items-center lg:h-24 ">
             <div className="w-full grid grid-cols-4 gap-2 items-center bg-white p-4 rounded-md shadow-lg my-2">
-              <div className='span-2'><input type='text' placeholder={fromCity} className='w-full outline-none border-b-2 '/></div>
-              <div className='span-2'><input type='text' placeholder={toCity} className=' w-full outline-none border-b-2 '/></div>
-              <div className='span-2'><input type='date'   className=' w-full outline-none border-b-2 '/></div>
-              <div className='flex justify-end'>
-            <button className='max-w-48 ring-1 p-2 rounded-md ring-primary'>Modify</button>
+              <div className="span-2">
+                <input
+                  type="text"
+                  placeholder={fromCity}
+                  className="w-full outline-none border-b-2 "
+                />
+              </div>
+              <div className="span-2">
+                <input
+                  type="text"
+                  placeholder={toCity}
+                  className=" w-full outline-none border-b-2 "
+                />
+              </div>
+              <div className="span-2">
+                <input
+                  type="date"
+                  className=" w-full outline-none border-b-2 "
+                />
+              </div>
+              <div className="flex justify-end">
+                <button className="max-w-48 ring-1 p-2 rounded-md ring-primary">
+                  Modify
+                </button>
+              </div>
             </div>
-            </div>
-    
-            
-           
           </div>
 
           <div className="h-full min-h-24 w-full grid grid-cols-1 gap-2  ">
@@ -165,17 +185,53 @@ const BusSearchResultPage = () => {
                         <div className="w-full flex  m-2">
                           <button
                             onClick={() => handleShowSeat(item.id)}
-                            className="w-full p-2 text-white  bg-sky-800 rounded-md shadow-md"
+                            className="w-full p-2 text-white  bg-primary rounded-md shadow-md"
                           >
                             Select Seat
                           </button>
                         </div>
                       </div>
                     </div>
+
+                    {/* Seat Layout and Pickup and drop Point */}
                     {selectedItemId === item.id && (
+                      // <div className="flex-none  bg-gray-200">
+                      //   <BusSeatLayout />
+                      // </div>
                       <div className="flex-none  bg-gray-200">
-                        {/* <BusBookingHome /> */}
-                        Seat Legend
+                        <div className="flex flex-col lg:flex-row">
+                          <div className="w-full lg:w-2/3">
+                            <BusSeatLayout />
+                          </div>
+                          <div className="w-full  lg:w-1/3 flex flex-col ">
+                            <h1 className="p-4 text-purple-800 ">
+                              Select Pickup and Dropoff point
+                            </h1>
+                            <div className="flex-1 flex-col ">
+                              <div className="  w-full  mb-2 px-2">
+                                <select className="w-full p-2 ">
+                                  <option value="someOption">Akshardham</option>
+                                  <option value="otherOption">
+                                    Delhi Metro Station
+                                  </option>
+                                </select>
+                              </div>
+                              <div className="  w-full mb-2 px-2">
+                                <select className="w-full p-2 ">
+                                  <option value="someOption">Manali</option>
+                                  <option value="otherOption">
+                                    Ajuking Road
+                                  </option>
+                                </select>
+                              </div>
+                              <div className="w-full px-2 py-4 ">
+                                <button className="w-full p-2 bg-green-600 text-white rounded-md">
+                                  SELECT SEATS, PICKUP, DROPOFF POINTS
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -191,6 +247,6 @@ const BusSearchResultPage = () => {
       </main>
     </>
   );
-}
+};
 
-export default BusSearchResultPage
+export default BusSearchResultPage;

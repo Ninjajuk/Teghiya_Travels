@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SeatForm from "../components/FormDash/SeatForm";
 
 function BusDetails({ bus }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -19,6 +20,17 @@ function BusDetails({ bus }) {
 
   const handleUnassignRoute = () => {
     // Implement route unassignment logic here
+  };
+
+  //Seat Layout
+  const [seats, setSeats] = useState([]);
+
+  const addRow = (row) => {
+    setSeats([...seats, row]);
+  };
+
+  const handleSave = () => {
+    saveLayout(seats);
   };
 
   return (
@@ -99,7 +111,13 @@ function BusDetails({ bus }) {
       </div>
 
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
-        <h2 className="text-xl font-semibold mb-4">Maintenance Records</h2>
+        <div className="flex items-center justify-between py-2">
+          <h2 className="text-xl font-semibold mb-4">Maintenance Records</h2>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
+            Add Maintenance Record
+          </button>
+        </div>
+
         {/* Maintenance records table */}
         <table className="w-full table-auto bg-white shadow-lg">
           <thead>
@@ -119,9 +137,30 @@ function BusDetails({ bus }) {
             ))}
           </tbody>
         </table>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4">
-          Add Maintenance Record
+      </div>
+      <div className="space-y-4">
+        <h2 className="text-xl font-bold">Create Seat Layout</h2>
+        <SeatForm addRow={addRow} />
+        <button
+          onClick={handleSave}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Save Layout
         </button>
+        {seats.length > 0 && (
+          <div>
+            <h3 className="text-lg font-bold mt-4">Current Layout:</h3>
+            {seats.map((row, rowIndex) => (
+              <div key={rowIndex} className="flex space-x-2">
+                {row.map((seat, seatIndex) => (
+                  <div key={seatIndex} className="p-2 border rounded">
+                    {seat.id} - ${seat.price} ({seat.status})
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
