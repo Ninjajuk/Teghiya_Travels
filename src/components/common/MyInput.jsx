@@ -75,7 +75,7 @@ const MyInput = ({ placeholder = "", staticDataCity, value, onChange }) => {
           </ul>
         )} */}
         {showSuggestions && (
-          <div className="absolute top-12  w-full h-40 bg-white rounded-md shadow-md overflow-y-auto">
+          <div className="absolute top-12  w-full h-40 z-10 bg-white rounded-md shadow-md overflow-y-auto">
             <ul className="px-4 py-2">
               {matchingCities.map((item, index) => (
                 <li

@@ -17,6 +17,7 @@ import {
   FaBuilding,
   FaShoppingCart,
 } from "react-icons/fa";
+import { BiHome } from "react-icons/bi";
 
 const SidebarMenu = () => {
   const menus = [
@@ -61,7 +62,7 @@ const SidebarMenu = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="flex ">
+    <section className="hidden lg:flex ">
       {/* Sidebar starts here bg-[#0e0e0e]*/}
       <div
         className={`bg-primary min-h-screen    ${
@@ -77,8 +78,20 @@ const SidebarMenu = () => {
         </div> */}
 
         <div className="h-full flex flex-col">
-          <h1 className=" text-lg font-bold  my-2">Teghiya</h1>
-          <div className="mt-4 flex flex-col gap-4 relative z-10 ">
+          <div className="flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md">
+            <span>
+              <BiHome />
+            </span>
+            <h1
+              className={`whitespace-pre duration-500 ${
+                !open && "opacity-0 translate-x-28 overflow-hidden"
+              }`}
+            >
+              Teghiya
+            </h1>
+          </div>
+
+          <div className=" flex flex-col gap-4 relative z-10 ">
             {menus?.map((menu, i) => (
               <NavLink
                 to={menu?.link}

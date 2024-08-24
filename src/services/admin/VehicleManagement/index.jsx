@@ -60,7 +60,7 @@ const VehicleManagementDashboard = () => {
     <DefaultLayout>
       <div className="w-full h-full flex flex-col">
         {/* Tab Navigation */}
-        <div className="flex space-x-4 p-4">
+        <div className="flex space-x-4 p-4 overflow-x-auto">
           {vehicletabs.map((tab) => (
             <button
               key={tab.id}
