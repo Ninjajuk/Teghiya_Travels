@@ -33,8 +33,9 @@ const HomePage = () => {
         <Navbar handleLoginModal={handleLoginModal} />
 
         <Hero />
-        <SpecialBookingSection />
         <BannerSlider />
+        <SpecialBookingSection />
+
         <WeddingBookingSection />
 
         {/* <Testing /> */}

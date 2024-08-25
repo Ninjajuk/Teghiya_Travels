@@ -195,16 +195,20 @@ const BusSearchResultPage = () => {
 
                     {/* Seat Layout and Pickup and drop Point */}
                     {selectedItemId === item.id && (
-                      // <div className="flex-none  bg-gray-200">
-                      //   <BusSeatLayout />
-                      // </div>
                       <div className="flex-none  bg-gray-200">
                         <div className="flex flex-col lg:flex-row">
-                          <div className="w-full lg:w-2/3">
-                            <BusSeatLayout />
+                          <div className="w-full lg:w-2/3 flex">
+                            <div className="w-2/3 ">
+                              <BusSeatLayout seatLayout={item.seatLayout} />
+                            </div>
+
+                            <div className="w-1/3 bg-gray-400 p-4 text-purple-800 font-semibold ">
+                              {" "}
+                              Seat Legend
+                            </div>
                           </div>
                           <div className="w-full  lg:w-1/3 flex flex-col ">
-                            <h1 className="p-4 text-purple-800 ">
+                            <h1 className="p-4 text-purple-800 font-semibold ">
                               Select Pickup and Dropoff point
                             </h1>
                             <div className="flex-1 flex-col ">

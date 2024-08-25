@@ -44,7 +44,7 @@ const BannerSlider = () => {
       <div className="w-full h-[600px] relative">
         <img
           src={images[currentIndex]}
-          className="w-full h-full object-center object-cover rounded-md"
+          className="w-full h-full object-center object-cover rounded-md transition-all duration-700 ease-in-out"
         />
         <div className="w-full absolute inset-y-1/2 ">
           <div className=" flex items-center gap-2 justify-between text-primary">

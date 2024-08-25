@@ -9,7 +9,7 @@ const Stepper = () => {
 
   const steps = [
     { id: 1, title: "1.Traveller Details" },
-    { id: 2, title: "2.Payee & Discount Details" },
+    { id: 2, title: "2.Payee & Discount" },
     { id: 3, title: "3.Payment Options" },
   ];
 

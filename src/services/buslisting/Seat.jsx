@@ -10,7 +10,7 @@ function Seat({ status, onClick, seatId, price }) {
   return (
     <div className="relative group">
       <div
-        className={`w-10 h-10 border-2 ${seatStatus[status]} flex justify-center items-center cursor-pointer`}
+        className={`w-6 h-6 ring-1 ${seatStatus[status]} flex justify-center items-center cursor-pointer`}
         onClick={onClick}
       >
         {/* Tooltip */}

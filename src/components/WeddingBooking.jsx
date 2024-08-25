@@ -72,6 +72,10 @@ const WeddingBookingSection = () => {
                 <circle cx="12" cy="56" r="4" fill="#f50057" />
                 <circle cx="52" cy="56" r="4" fill="#f50057" />
               </svg>
+              {/* <img
+                src="https://images.91trucks.com/buses/models/80/1701/tata-lp-909-starbus-665220249.jpg"
+                alt="bus"
+              /> */}
 
               {/* <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
