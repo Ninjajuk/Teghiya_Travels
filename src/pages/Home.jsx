@@ -13,6 +13,7 @@ import SpecialBookingPandalsCatering from "../components/SpecialBookingPandalsCa
 import LoginForm from "../services/auth/LoginForm";
 import ScrollAppear from "../components/Componen/SlideleftRight";
 import HeaderScrollingInfinite from "../components/HeaderTop/HeaderScrollingInfinite";
+import BannerSlider from "../components/SliderCarousel/BannerSlider";
 
 const HomePage = () => {
   console.log("Home component rendered");
@@ -33,6 +34,7 @@ const HomePage = () => {
 
         <Hero />
         <SpecialBookingSection />
+        <BannerSlider />
         <WeddingBookingSection />
 
         {/* <Testing /> */}

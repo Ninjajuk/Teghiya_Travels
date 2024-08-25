@@ -45,7 +45,14 @@ const SidebarMenu = () => {
     { name: "Pandals", link: "/admin/catering", icon: MdRestaurant },
     { name: "user", link: "/admin/customers", icon: AiOutlineUser },
     // { name: "messages", link: "/", icon: FiMessageSquare },
-    { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
     { name: "File Manager", link: "/", icon: FiFolder },
     // { name: "Cart", link: "/", icon: FiShoppingCart },
     { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
@@ -62,83 +69,86 @@ const SidebarMenu = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="hidden lg:flex ">
+    <section className="hidden lg:flex relative ">
       {/* Sidebar starts here bg-[#0e0e0e]*/}
       <div
-        className={`bg-primary min-h-screen    ${
-          open ? "w-48" : "w-16"
-        } duration-500 text-white px-4`}
+        className={`bg-primary min-h-screen       ${
+          open ? "w-48" : "w-16 "
+        } duration-500  `}
       >
-        {/* <div className="py-3 flex justify-end">
-          <HiMenuAlt3
-            size={26}
+        <div className="w-full h-full flex flex-col">
+          <div className="w-full h-16 bg-gray-50 ">
+            <div className="w-full h-full px-4 flex items-center text-sm gap-3.5 font-medium   cursor-pointer">
+              <span>
+                <BiHome className="h-6 w-6" />
+              </span>
+              <h1
+                className={`whitespace-pre duration-500 p-2 ${
+                  !open && "opacity-0 translate-x-28 overflow-hidden"
+                }`}
+              >
+                Teghiya
+              </h1>
+            </div>
+          </div>
+
+          <div className={`flex-grow h-0 px-4 bg-gray-50 `}>
+            <div className=" flex flex-col gap-4 relative z-10 ">
+              {menus?.map((menu, i) => (
+                <NavLink
+                  to={menu?.link}
+                  key={i}
+                  className={({ isActive }) =>
+                    `${menu?.margin ? "mt-5" : ""} ${
+                      isActive ? "bg-gray-200" : ""
+                    } group flex items-center text-sm gap-2 font-medium p-2 hover:bg-gray-200 rounded-md`
+                  }
+                >
+                  <div>{React.createElement(menu?.icon, { size: "20" })}</div>
+                  <h2
+                    style={{
+                      transitionDelay: `${i + 3}00ms`,
+                    }}
+                    className={`whitespace-pre duration-500 ${
+                      !open && "opacity-0 translate-x-28 overflow-hidden"
+                    }`}
+                  >
+                    {menu?.name}
+                  </h2>
+                  <h2
+                    className={`${
+                      open && "hidden"
+                    } absolute left-48  bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  >
+                    {menu?.name}
+                  </h2>
+                </NavLink>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-6 flex items-center bg-gray-100 cursor-pointer ">
+            <MdLogout className="w-6 h-6" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`absolute bottom-2 z-10 flex items-center bg-gray-300 rounded-full w-6 h-6 p-2 ${
+          open ? "left-48" : "left-16"
+        }`}
+      >
+        {open ? (
+          <FaAngleLeft
             className="cursor-pointer"
             onClick={() => setOpen(!open)}
           />
-        </div> */}
-
-        <div className="h-full flex flex-col">
-          <div className="flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md">
-            <span>
-              <BiHome />
-            </span>
-            <h1
-              className={`whitespace-pre duration-500 ${
-                !open && "opacity-0 translate-x-28 overflow-hidden"
-              }`}
-            >
-              Teghiya
-            </h1>
-          </div>
-
-          <div className=" flex flex-col gap-4 relative z-10 ">
-            {menus?.map((menu, i) => (
-              <NavLink
-                to={menu?.link}
-                key={i}
-                className={({ isActive }) =>
-                  `${menu?.margin ? "mt-5" : ""} ${
-                    isActive ? "bg-gray-800" : ""
-                  } group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`
-                }
-              >
-                <div>{React.createElement(menu?.icon, { size: "20" })}</div>
-                <h2
-                  style={{
-                    transitionDelay: `${i + 3}00ms`,
-                  }}
-                  className={`whitespace-pre duration-500 ${
-                    !open && "opacity-0 translate-x-28 overflow-hidden"
-                  }`}
-                >
-                  {menu?.name}
-                </h2>
-                <h2
-                  className={`${
-                    open && "hidden"
-                  } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
-                >
-                  {menu?.name}
-                </h2>
-              </NavLink>
-            ))}
-          </div>
-          <div className="mt-auto  py-3 flex justify-end ">
-            {open ? (
-              <FaAngleLeft
-                size={26}
-                className="cursor-pointer"
-                onClick={() => setOpen(!open)}
-              />
-            ) : (
-              <FaAngleRight
-                size={26}
-                className="cursor-pointer"
-                onClick={() => setOpen(!open)}
-              />
-            )}
-          </div>
-        </div>
+        ) : (
+          <FaAngleRight
+            className="cursor-pointer"
+            onClick={() => setOpen(!open)}
+          />
+        )}
       </div>
     </section>
   );

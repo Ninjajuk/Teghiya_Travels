@@ -16,6 +16,7 @@ import WebsiteMain from "./services/admin/WebsiteMain";
 import VehicleManagementDashboard from "./services/admin/VehicleManagement";
 import Customer from "./services/admin/Customer";
 import Testing from "./pages/Testing";
+import BusTicketSuccess from "./pages/BusTicketSuccess";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/cancellation" element={<CancellationPage />} />
           <Route path="/mybooking" element={<MyBookingPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/ticket-success" element={<BusTicketSuccess />} />
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/contact-us" element={<ContactUsPage />} />
           <Route path="/dashboard" element={<DefaultLayout />} />

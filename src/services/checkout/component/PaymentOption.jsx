@@ -1,76 +1,68 @@
+import React, { useState } from "react";
+import UPIPaymentOption from "./UPIPaymentOption";
+import DebitCardPaymentOption from "./DebitCardPaymentOption";
+import NetBankingPaymentOption from "./NetBankingPaymentOption";
+import CreditCardPaymentOption from "./CreditCardPaymentOption";
+import WalletPaymentOption from "./WalletPaymentOption";
+import { useNavigate } from "react-router-dom";
 
-import React from 'react'
+const PaymentOption = ({}) => {
+  const [selectedPayment, setSelectedPayment] = useState(1);
 
-const PaymentOption = () => {
+  const PaymentTypes = [
+    { id: 1, title: "UPI Payments", component: <UPIPaymentOption /> },
+    { id: 2, title: "Debit Card", component: <DebitCardPaymentOption /> },
+    { id: 3, title: "Net Banking", component: <NetBankingPaymentOption /> },
+    { id: 4, title: "Credit Card", component: <CreditCardPaymentOption /> },
+    { id: 5, title: "Wallet", component: <WalletPaymentOption /> },
+  ];
+  const navigate = useNavigate();
+  const handlePayment = () => {
+    console.log("Payment success");
+
+    navigate("/ticket-success");
+  };
+
   return (
-    <div className="p-4 ">
-      <h1 className="text-2xl font-bold mb-4 text-purple-800 leading-5">
-        PaymentOption
+    <div className="w-full h-full p-4 flex flex-col">
+      <h1 className="text-2xl font-bold mb-2 text-purple-800 leading-5 ">
+        Payment Options
       </h1>
-      <div className="mb-4 flex flex-col gap-2 lg:flex-row">
-        <div className="w-full min-h-48 lg:w-1/3 border border-gray-200">
-          <ul className="flex flex-col p-4">
-            <li className="space-x-2 font-sans text-md text-gray-600">
-              <span>
-                <input type="radio" />
-              </span>
-              <span>UPI Payments</span>
-            </li>
-            <li className="space-x-2 font-sans text-md text-gray-600">
-              <span>
-                <input type="radio" />
-              </span>
-              <span>Debit Card</span>
-            </li>
-            <li className="space-x-2 font-sans text-md text-gray-600">
-              <span>
-                <input type="radio" />
-              </span>
-              <span>Net Banking</span>
-            </li>
-            <li className="space-x-2 font-sans text-md text-gray-600">
-              <span>
-                <input type="radio" />
-              </span>
-              <span>Credit Card</span>
-            </li>
-            <li className="space-x-2 font-sans text-md text-gray-600">
-              <span>
-                <input type="radio" />
-              </span>
-              <span>Wallet</span>
-            </li>
+      <div className="flex-grow-0  flex flex-col gap-2 lg:flex-row  ">
+        {/* Payment Types List */}
+        <div className="w-full h-full lg:w-1/3 border border-gray-200 ">
+          <ul className="flex flex-col p-4 space-y-2">
+            {PaymentTypes.map((type) => (
+              <li
+                key={type.id}
+                onClick={() => setSelectedPayment(type.id)}
+                className="space-x-2  font-sans text-md text-gray-600 cursor-pointer flex items-center"
+              >
+                <input
+                  type="radio"
+                  name="paymentType"
+                  checked={selectedPayment === type.id}
+                  // onChange={() => setSelectedPayment(type.id)}
+                  className="w-4 h-4"
+                />
+                <span>{type.title}</span>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="w-full min-h-48 lg:w-2/3 white border">
-          {/* <h2 className="p-2 text-lg font-semibold mb-1 text-gray-500">Enter UPI ID</h2> */}
-          <div className="w-full p-2">
-            <input
-              type="text"
-              placeholder="UPI ID"
-              className="w-full p-2 border border-sky-600 rounded-md shadow-md"
-            />
-          </div>
-          <div className="p-2">
-            <h2 className=" text-lg font-semibold  text-gray-900 pb-2">
-              How UPI Works ?{" "}
-            </h2>
-            <ol className="space-y-2 list-decimal px-4">
-              <li>Make sure</li>
-              <li>
-                User initiates a payment through a UPI-enabled mobile app.
-              </li>
-              <li>User selects the recipient's UPI ID (VPA).</li>
-              <li>App verifies the UPI ID and transaction details.</li>
-    
-    
-  
-            </ol>
-          </div>
+
+        {/* Selected Payment Option Component */}
+        <div className="w-full h-full lg:w-2/3 border p-4">
+          {PaymentTypes.find((type) => type.id === selectedPayment)?.component}
         </div>
+      </div>
+      <div className="mt-auto flex justify-center items-center p-2 bg-green-700 hover:bg-green-900 rounded-md cursor-pointer">
+        <button onClick={handlePayment} className="text-white">
+          Proceed to Pay
+        </button>
       </div>
     </div>
   );
-}
+};
 
-export default PaymentOption
+export default PaymentOption;
