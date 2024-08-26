@@ -3,12 +3,16 @@ import { FaBusAlt } from "react-icons/fa";
 import {
   MdOutlineDashboard,
   MdLogout,
-  MdSubdirectoryArrowLeft,
+  MdOutlineStarOutline,
   MdRestaurant,
 } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
+import {
+  AiOutlineUser,
+  AiOutlineHeart,
+  AiOutlineUserAdd,
+} from "react-icons/ai";
 import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import {
@@ -42,8 +46,8 @@ const SidebarMenu = () => {
     },
     { name: "Ecom", link: "/admin/ecom", icon: FiShoppingCart },
     { name: "Catering", link: "/admin/catering", icon: MdRestaurant },
-    { name: "Pandals", link: "/admin/catering", icon: MdRestaurant },
-    { name: "user", link: "/admin/customers", icon: AiOutlineUser },
+    { name: "Pandals", link: "/admin/catering", icon: MdOutlineStarOutline },
+    { name: "Customer", link: "/admin/customers", icon: AiOutlineUser },
     // { name: "messages", link: "/", icon: FiMessageSquare },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
@@ -56,6 +60,7 @@ const SidebarMenu = () => {
     { name: "File Manager", link: "/", icon: FiFolder },
     // { name: "Cart", link: "/", icon: FiShoppingCart },
     { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
+    { name: "User", link: "/admin/user", icon: AiOutlineUserAdd },
     { name: "Setting", link: "/", icon: RiSettings4Line },
   ];
   const userNavigation = [
