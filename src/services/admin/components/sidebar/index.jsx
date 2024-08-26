@@ -13,7 +13,7 @@ import {
   AiOutlineHeart,
   AiOutlineUserAdd,
 } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
+import { FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import {
   FaAngleLeft,
