@@ -202,7 +202,7 @@ const BusSearchResultPage = () => {
                               <BusSeatLayout seatLayout={item.seatLayout} />
                             </div>
 
-                            <div className="w-1/3 bg-gray-400 p-4 text-purple-800 font-semibold ">
+                            <div className="w-1/3 bg-gray-100 p-4 text-purple-800 font-semibold ">
                               {" "}
                               Seat Legend
                             </div>
