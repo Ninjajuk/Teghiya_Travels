@@ -3,7 +3,7 @@ import DropdownUser from "./DropDownUser";
 
 import { FaAlignLeft } from "react-icons/fa";
 
-const Header = ({ sidebarOpen, setSidebarOpen }) => {
+const Header = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   return (
     <header className="sticky top-0 z-999 flex w-full h-[4rem] bg-white shadow-md dark:bg-boxdark dark:drop-shadow-none">
       <div className="h-full flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
@@ -13,7 +13,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
             aria-controls="sidebar"
             onClick={(e) => {
               e.stopPropagation();
-              setSidebarOpen(!sidebarOpen);
+              setMobileMenuOpen(!mobileMenuOpen);
             }}
             className="z-99999 lg:hidden"
           >

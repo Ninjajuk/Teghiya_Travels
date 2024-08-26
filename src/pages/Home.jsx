@@ -15,16 +15,16 @@ import ScrollAppear from "../components/Componen/SlideleftRight";
 import HeaderScrollingInfinite from "../components/HeaderTop/HeaderScrollingInfinite";
 import BannerSlider from "../components/SliderCarousel/BannerSlider";
 
-const HomePage = () => {
+const HomePage = ({ handleLoginModal }) => {
   console.log("Home component rendered");
-  const [logmodal, setlogmodal] = useState(false);
+  // const [logmodal, setlogmodal] = useState(false);
 
-  const handleLoginModal = () => {
-    setlogmodal(!logmodal);
-  };
-  const closeLoginModal = () => {
-    setlogmodal(false);
-  };
+  // const handleLoginModal = () => {
+  //   setlogmodal(!logmodal);
+  // };
+  // const closeLoginModal = () => {
+  //   setlogmodal(false);
+  // };
 
   return (
     <>
@@ -43,7 +43,7 @@ const HomePage = () => {
         {/* <ScrollAppear /> */}
         <FAQRelatedBooking />
         <Footer />
-        {logmodal && <LoginForm closeLoginModal={closeLoginModal} />}
+        {/* {logmodal && <LoginForm closeLoginModal={closeLoginModal} />} */}
       </main>
     </>
   );

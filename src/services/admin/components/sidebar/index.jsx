@@ -23,9 +23,9 @@ import {
 } from "react-icons/fa";
 import { BiHome } from "react-icons/bi";
 
-const SidebarMenu = () => {
+const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const menus = [
-    { name: "dashboard", link: "/", icon: MdOutlineDashboard },
+    { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
     {
       name: "Corporate Site",
       link: "/dashboard/corporate-website",
@@ -74,88 +74,152 @@ const SidebarMenu = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="hidden lg:flex relative ">
-      {/* Sidebar starts here bg-[#0e0e0e]*/}
-      <div
-        className={`bg-primary min-h-screen       ${
-          open ? "w-48" : "w-16 "
-        } duration-500  `}
-      >
-        <div className="w-full h-full flex flex-col">
-          <div className="w-full h-16 bg-gray-50 ">
-            <div className="w-full h-full px-4 flex items-center text-sm gap-3.5 font-medium   cursor-pointer">
-              <span>
-                <BiHome className="h-6 w-6" />
-              </span>
-              <h1
-                className={`whitespace-pre duration-500 p-2 ${
-                  !open && "opacity-0 translate-x-28 overflow-hidden"
-                }`}
-              >
-                Teghiya
-              </h1>
-            </div>
-          </div>
-
-          <div className={`flex-grow h-0 px-4 bg-gray-50 `}>
-            <div className=" flex flex-col gap-4 relative z-10 ">
-              {menus?.map((menu, i) => (
-                <NavLink
-                  to={menu?.link}
-                  key={i}
-                  className={({ isActive }) =>
-                    `${menu?.margin ? "mt-5" : ""} ${
-                      isActive ? "bg-gray-200" : ""
-                    } group flex items-center text-sm gap-2 font-medium p-2 hover:bg-gray-200 rounded-md`
-                  }
+    <>
+      {/* Desktop Sidebar */}
+      <section className="hidden lg:flex relative ">
+        {/* Sidebar starts here bg-[#0e0e0e]*/}
+        <div
+          className={`bg-primary min-h-screen       ${
+            open ? "w-48" : "w-16 "
+          } duration-500  `}
+        >
+          <div className="w-full h-full flex flex-col">
+            <div className="w-full h-16 bg-gray-50 ">
+              <div className="w-full h-full px-4 flex items-center text-sm gap-3.5 font-medium   cursor-pointer">
+                <span>
+                  <BiHome className="h-6 w-6" />
+                </span>
+                <h1
+                  className={`whitespace-pre duration-500 p-2 ${
+                    !open && "opacity-0 translate-x-28 overflow-hidden"
+                  }`}
                 >
-                  <div>{React.createElement(menu?.icon, { size: "20" })}</div>
-                  <h2
-                    style={{
-                      transitionDelay: `${i + 3}00ms`,
-                    }}
-                    className={`whitespace-pre duration-500 ${
-                      !open && "opacity-0 translate-x-28 overflow-hidden"
-                    }`}
-                  >
-                    {menu?.name}
-                  </h2>
-                  <h2
-                    className={`${
-                      open && "hidden"
-                    } absolute left-48  bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
-                  >
-                    {menu?.name}
-                  </h2>
-                </NavLink>
-              ))}
+                  Teghiya
+                </h1>
+              </div>
             </div>
-          </div>
 
-          <div className="p-6 flex items-center bg-gray-100 cursor-pointer ">
-            <MdLogout className="w-6 h-6" />
+            <div className={`flex-grow h-0 px-4 bg-gray-50 `}>
+              <div className=" flex flex-col gap-4 relative z-10 ">
+                {menus?.map((menu, i) => (
+                  <NavLink
+                    to={menu?.link}
+                    key={i}
+                    className={({ isActive }) =>
+                      `${menu?.margin ? "mt-5" : ""} ${
+                        isActive ? "bg-gray-200" : ""
+                      } group flex items-center text-sm gap-2 font-medium p-2 hover:bg-gray-200 rounded-md`
+                    }
+                  >
+                    <div>{React.createElement(menu?.icon, { size: "20" })}</div>
+                    <h2
+                      style={{
+                        transitionDelay: `${i + 3}00ms`,
+                      }}
+                      className={`whitespace-pre duration-500 ${
+                        !open && "opacity-0 translate-x-28 overflow-hidden"
+                      }`}
+                    >
+                      {menu?.name}
+                    </h2>
+                    <h2
+                      className={`${
+                        open && "hidden"
+                      } absolute left-48  bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                    >
+                      {menu?.name}
+                    </h2>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-6 flex items-center bg-gray-100 cursor-pointer ">
+              <MdLogout className="w-6 h-6" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        className={`absolute bottom-2 z-10 flex items-center bg-gray-300 rounded-full w-6 h-6 p-2 ${
-          open ? "left-48" : "left-16"
-        }`}
-      >
-        {open ? (
-          <FaAngleLeft
-            className="cursor-pointer"
-            onClick={() => setOpen(!open)}
-          />
-        ) : (
-          <FaAngleRight
-            className="cursor-pointer"
-            onClick={() => setOpen(!open)}
-          />
+        <div
+          className={`absolute bottom-2 z-10 flex items-center bg-gray-300 rounded-full w-6 h-6 p-2 ${
+            open ? "left-48" : "left-16"
+          }`}
+        >
+          {open ? (
+            <FaAngleLeft
+              className="cursor-pointer"
+              onClick={() => setOpen(!open)}
+            />
+          ) : (
+            <FaAngleRight
+              className="cursor-pointer"
+              onClick={() => setOpen(!open)}
+            />
+          )}
+        </div>
+      </section>
+
+      {/* Mobile Sidebar */}
+      <section className="lg:hidden flex">
+        {/* <button
+          className="p-4 text-gray-900 focus:outline-none"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <FaAngleRight size={24} />
+        </button> */}
+
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 flex z-40">
+            <div className="fixed inset-0 bg-black opacity-50" />
+
+            <div className="relative flex-1 flex flex-col max-w-xs w-full bg-gray-50">
+              <div className="absolute top-0 right-0 -mr-14 p-1">
+                <button
+                  className="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none hover:bg-gray-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FaAngleLeft className="text-white" />
+                </button>
+              </div>
+
+              <div className="h-16 flex items-center px-6 bg-gray-50">
+                <BiHome className="h-6 w-6" />
+                <h1 className="ml-2 text-lg font-bold text-primary">Teghiya</h1>
+              </div>
+
+              <div className="mt-5 flex-1 h-0 overflow-y-auto">
+                <nav className="px-4 space-y-1">
+                  {menus.map((menu, i) => (
+                    <NavLink
+                      to={menu?.link}
+                      key={i}
+                      className={({ isActive }) =>
+                        `${menu?.margin ? "mt-5" : ""} ${
+                          isActive ? "bg-gray-200" : ""
+                        } group flex items-center text-sm gap-2  font-medium p-2 hover:bg-gray-100 rounded-md transform hover:scale-105 hover:translate-x-2 transition-transform duration-300`
+                      }
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <div>
+                        {React.createElement(menu?.icon, { size: "20" })}
+                      </div>
+                      <span className="ml-4">{menu?.name}</span>
+                    </NavLink>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="p-6 flex items-center bg-white cursor-pointer">
+                <MdLogout className="w-6 h-6" />
+                <span className="ml-4 text-base font-medium text-gray-900">
+                  Logout
+                </span>
+              </div>
+            </div>
+          </div>
         )}
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

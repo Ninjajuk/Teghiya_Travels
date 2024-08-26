@@ -17,6 +17,7 @@ import VehicleManagementDashboard from "./services/admin/VehicleManagement";
 import Customer from "./services/admin/Customer";
 import Testing from "./pages/Testing";
 import BusTicketSuccess from "./pages/BusTicketSuccess";
+import LoginForm from "./services/auth/LoginForm";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -32,15 +33,24 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={<HomePage handleLoginModal={handleLoginModal} />}
+          />
           {/* <Route path="/testing" element={<Testing />} /> */}
           <Route path="/search" element={<BusListing />} />
-          <Route path="/cancellation" element={<CancellationPage />} />
+          <Route
+            path="/cancellation"
+            element={<CancellationPage handleLoginModal={handleLoginModal} />}
+          />
           <Route path="/mybooking" element={<MyBookingPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/ticket-success" element={<BusTicketSuccess />} />
           <Route path="/myprofile" element={<MyProfile />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route
+            path="/contact-us"
+            element={<ContactUsPage handleLoginModal={handleLoginModal} />}
+          />
           <Route path="/dashboard" element={<DefaultLayout />} />
           <Route
             path="/dashboard/corporate-website"
@@ -56,6 +66,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
+      {logmodal && <LoginForm closeLoginModal={closeLoginModal} />}
     </>
   );
 }

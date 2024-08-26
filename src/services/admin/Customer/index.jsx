@@ -6,6 +6,7 @@ import MyTable from "../../../components/common/MyTable";
 import { MdFileDownload, MdFilterList } from "react-icons/md";
 import DropdownFilter from "../components/common/DropdownFilter";
 import InputDashboard from "../components/common/InputDashboard";
+import LoaderCircle from "../../../components/common/Loader";
 
 const Customer = () => {
   const headerCol = [
@@ -39,6 +40,9 @@ const Customer = () => {
   const handleFilterDrop = () => {
     setFilter(!filter);
   };
+
+  //Loading later manage with redux or contex
+  const isLoading = false;
   return (
     <DefaultLayout>
       <div
@@ -122,7 +126,11 @@ const Customer = () => {
           </div>
           {/* Content area with flex-grow */}
           <div className="h-4/6 overflow-y-auto flex-grow p-2">
-            <MyTable headerCol={headerCol} product={datatableUsers} />
+            {isLoading ? (
+              <LoaderCircle />
+            ) : (
+              <MyTable headerCol={headerCol} product={datatableUsers} />
+            )}
           </div>
 
           <div className="w-full  h-1/6">

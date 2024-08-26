@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import { ThemeContext } from "../context/context";
 import "../components/form/style.css";
-const CancellationPage = () => {
+const CancellationPage = ({ handleLoginModal }) => {
   const [pnr, setPnr] = useState("");
   const [error, setError] = useState("");
   const { language } = useContext(ThemeContext);
@@ -20,7 +20,7 @@ const CancellationPage = () => {
   };
   return (
     <>
-      <Navbar />
+      <Navbar handleLoginModal={handleLoginModal} />
       <section
         className="  bg-gray-50 flex items-center justify-center"
         style={{ height: "calc(100vh - 4rem)" }}

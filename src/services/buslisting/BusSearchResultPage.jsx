@@ -46,9 +46,6 @@ const BusSearchResultPage = () => {
     <>
       <main className="w-full  ">
         <div className=" w-full lg:px-[10rem]">
-          {/* <h1 className="py-4 text-lg lg:text-5xl font-extrabold text-primary">
-            Bus Search Result Page
-          </h1> */}
           <div className="w-full flex  items-center lg:h-24 ">
             <div className="w-full grid grid-cols-4 gap-2 items-center bg-white p-4 rounded-md shadow-lg my-2">
               <div className="span-2">
@@ -243,7 +240,9 @@ const BusSearchResultPage = () => {
               ))
             ) : (
               <>
-                <h1 className="text-primary">Not found bus</h1>
+                <div className="h-16 w-full flex items-center justify-center rounded-md shadow-md">
+                  <h1 className="text-primary font-bold">Not found bus</h1>
+                </div>
               </>
             )}
           </div>
