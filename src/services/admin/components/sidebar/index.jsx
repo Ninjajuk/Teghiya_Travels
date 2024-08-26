@@ -85,12 +85,12 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
         >
           <div className="w-full h-full flex flex-col">
             <div className="w-full h-16 bg-gray-50 ">
-              <div className="w-full h-full px-4 flex items-center text-sm gap-3.5 font-medium   cursor-pointer">
+              <div className="w-full h-full px-6 flex items-center text-sm gap-3.5 font-medium   cursor-pointer">
                 <span>
-                  <BiHome className="h-6 w-6" />
+                  <BiHome className="h-6 w-6 text-primary" />
                 </span>
                 <h1
-                  className={`whitespace-pre duration-500 p-2 ${
+                  className={`whitespace-pre duration-500 text-2xl font-bold text-primary ${
                     !open && "opacity-0 translate-x-28 overflow-hidden"
                   }`}
                 >
@@ -135,7 +135,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
             </div>
 
             <div className="p-6 flex items-center bg-gray-100 cursor-pointer ">
-              <MdLogout className="w-6 h-6" />
+              <MdLogout className="w-6 h-6 text-red-800 font-bold" />
             </div>
           </div>
         </div>

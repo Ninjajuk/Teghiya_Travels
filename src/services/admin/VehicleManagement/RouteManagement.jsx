@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { DeleteModal } from "../../../components/modal/DeleteModal";
 
 function RouteManagement() {
   const [routes, setRoutes] = useState([
@@ -19,8 +20,9 @@ function RouteManagement() {
 
   const handleDelete = (id) => {
     // Handle delete route logic
+    setIsDeleting(!isDeleting);
   };
-
+  const [isDeleting, setIsDeleting] = useState(false);
   return (
     <div className="container mx-auto p-4">
       <header className="flex justify-between items-center mb-4">
@@ -73,7 +75,7 @@ function RouteManagement() {
           ))}
         </tbody>
       </table>
-
+      {isDeleting && <DeleteModal />}
       {/* Pagination would go here */}
     </div>
   );
