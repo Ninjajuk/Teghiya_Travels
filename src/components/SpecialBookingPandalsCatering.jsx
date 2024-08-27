@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../context/context";
-import CateringForm1 from "./form/CateringForm1";
-import CateringBookingForm from "./form/CateringFrom";
+
 import WeddingBusBookingForm from "./form/WeddingFormBus";
+import CateringForm from "./form/CateringForm";
 
 const SpecialBookingPandalsCatering = () => {
   const { language, theme } = useContext(ThemeContext);
@@ -89,9 +89,9 @@ const SpecialBookingPandalsCatering = () => {
         <WeddingBusBookingForm handleCloseModal={handleCloseModal} />
       )}
       {selectedCard === 2 && (
-        <CateringForm1 handleCloseModal={handleCloseModal} />
+        <CateringForm handleCloseModal={handleCloseModal} />
       )}
-      {selectedCard === 3 && <CateringBookingForm />}
+      {selectedCard === 3 && <CateringForm />}
       {selectedCard === 4 && <div>Form or Content for Buying Gift</div>}
     </>
   );

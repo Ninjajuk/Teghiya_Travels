@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdOutlineClear } from "react-icons/md";
-import "../form/style.css";
-const CateringForm1 = ({ handleCloseModal }) => {
+
+const CateringForm = ({ handleCloseModal }) => {
   const [formData, setFormData] = useState({
     eventType: "",
     date: "",
@@ -96,4 +96,4 @@ const CateringForm1 = ({ handleCloseModal }) => {
   );
 };
 
-export default CateringForm1;
+export default CateringForm;
