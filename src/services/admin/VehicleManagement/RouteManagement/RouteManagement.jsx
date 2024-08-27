@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DeleteModal } from "../../../components/modal/DeleteModal";
+import { DeleteModal } from "../../../../components/modal/DeleteModal";
 
 function RouteManagement() {
   const [routes, setRoutes] = useState([
@@ -20,9 +20,11 @@ function RouteManagement() {
 
   const handleDelete = (id) => {
     // Handle delete route logic
-    setIsDeleting(!isDeleting);
+    setShowModal(true);
+    setIsDeleting(true);
   };
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="container mx-auto p-4">
       <header className="flex justify-between items-center mb-4">
@@ -32,12 +34,15 @@ function RouteManagement() {
         </button>
       </header>
 
-      <div className="mb-4">
+      <div className="mb-4 form-group">
         <input
           type="text"
-          placeholder="Search routes..."
+          placeholder=""
+          name="Search"
+          id="Search"
           className="border p-2 rounded w-full"
         />
+        <label htmlFor="Search">Search routes...</label>
       </div>
 
       <table className="w-full table-auto bg-white shadow-lg">
@@ -75,7 +80,20 @@ function RouteManagement() {
           ))}
         </tbody>
       </table>
-      {isDeleting && <DeleteModal />}
+      {isDeleting && showModal && (
+        <DeleteModal
+          closeModal={() => setShowModal(!showModal)}
+          // onDelete={onDelete}
+          title={"Delete Route"}
+          message={
+            "Are you sure you want to Delete this Route? All associated data will be permanently removed. This action cannot be undone."
+          }
+          deleteText={"Delete"}
+          cancelText={"Cancel"}
+          toastType={"success"}
+          toastMessage={"Deleted successfully!"}
+        />
+      )}
       {/* Pagination would go here */}
     </div>
   );

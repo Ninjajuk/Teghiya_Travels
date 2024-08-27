@@ -6,8 +6,8 @@ import { FaExclamationTriangle } from "react-icons/fa";
 export const DeleteModal = ({
   closeModal,
   onDelete,
-  title = "Deactivate Product",
-  message = "Are you sure you want to deactivate this product? All associated data will be permanently removed. This action cannot be undone.",
+  title = "Delete",
+  message = "Are you sure you want to Delete? All associated data will be permanently removed. This action cannot be undone.",
   deleteText = "Delete",
   cancelText = "Cancel",
   toastType = "success",
@@ -38,7 +38,7 @@ export const DeleteModal = ({
           <p className="text-sm text-gray-500">{message}</p>
           <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
             <button
-              onClick={handleDelete}
+              // onClick={handleDelete}
               className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
             >
               {deleteText}
