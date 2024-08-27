@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DeleteModal } from "../../../../components/modal/DeleteModal";
-
+import { FaPen, FaTrash } from "react-icons/fa";
 function RouteManagement() {
   const [routes, setRoutes] = useState([
     // Example routes data
@@ -64,16 +64,16 @@ function RouteManagement() {
               <td className="p-2">{route.distance}</td>
               <td className="p-2">
                 <button
-                  className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                  className=" px-2 py-1 rounded mr-2 text-green-800"
                   onClick={() => handleEdit(route.id)}
                 >
-                  Edit
+                  <FaPen />
                 </button>
                 <button
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="  px-2 rounded text-red-800"
                   onClick={() => handleDelete(route.id)}
                 >
-                  Delete
+                  <FaTrash className="" />
                 </button>
               </td>
             </tr>
