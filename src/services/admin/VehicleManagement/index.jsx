@@ -3,7 +3,7 @@ import DefaultLayout from "../layout/DefaultLayout";
 import VehicleManagement from "./VehicleManagement";
 
 import BusDetails from "./BusDetails";
-import ScheduleManagement from "./ScheduleManage";
+import ScheduleManagement from "./ScheduleManagement/ScheduleManage";
 import RouteManagement from "./RouteManagement/RouteManagement";
 
 const VehicleManagementDashboard = () => {
