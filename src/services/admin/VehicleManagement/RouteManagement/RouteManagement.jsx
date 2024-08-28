@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DeleteModal } from "../../../../components/modal/DeleteModal";
 import { FaPen, FaTrash } from "react-icons/fa";
+import AddRoute from "../../components/FormDash/AddRoute";
 function RouteManagement() {
   const [routes, setRoutes] = useState([
     // Example routes data
@@ -25,11 +26,18 @@ function RouteManagement() {
   };
   const [isDeleting, setIsDeleting] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [addRoute, setAddRoute] = useState(false);
+  const handleClose = () => {
+    setAddRoute(!addRoute);
+  };
   return (
     <div className="container mx-auto p-4">
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Route Management</h1>
-        <button className="bg-primary text-white px-4 py-2 rounded">
+        <button
+          onClick={() => setAddRoute(!addRoute)}
+          className="bg-primary text-white px-4 py-2 rounded"
+        >
           Add New Route
         </button>
       </header>
@@ -94,6 +102,7 @@ function RouteManagement() {
           toastMessage={"Deleted successfully!"}
         />
       )}
+      {addRoute && <AddRoute handleClose={handleClose} />}
       {/* Pagination would go here */}
     </div>
   );
