@@ -128,7 +128,7 @@ const ScheduleManagement = () => {
       </header>
 
       <table className="w-full table-auto bg-white shadow-lg">
-        <thead>
+        <thead className="">
           <tr className="bg-gray-200">
             <th className="p-2 text-left">Bus Name</th>
             <th className="p-2 text-left">Route</th>

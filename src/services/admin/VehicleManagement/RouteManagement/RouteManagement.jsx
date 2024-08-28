@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DeleteModal } from "../../../../components/modal/DeleteModal";
 import { FaPen, FaTrash } from "react-icons/fa";
 import AddRoute from "../../components/FormDash/AddRoute";
+import MyTable from "../../../../components/common/MyTable";
 function RouteManagement() {
   const [routes, setRoutes] = useState([
     // Example routes data
@@ -52,7 +53,9 @@ function RouteManagement() {
         />
         <label htmlFor="Search">Search routes...</label>
       </div>
-
+      {/* <div>
+        <MyTable />
+      </div> */}
       <table className="w-full table-auto bg-white shadow-lg">
         <thead>
           <tr className="bg-gray-200">
@@ -102,7 +105,7 @@ function RouteManagement() {
           toastMessage={"Deleted successfully!"}
         />
       )}
-      {addRoute && <AddRoute handleClose={handleClose} />}
+      {addRoute && <AddRoute handleClose={handleClose} routes={routes} />}
       {/* Pagination would go here */}
     </div>
   );
