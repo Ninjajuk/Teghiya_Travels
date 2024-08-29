@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import MyTable from "../../../../components/common/MyTable";
+import { MdUploadFile } from "react-icons/md";
+import Papa from "papaparse"; // Add this import for CSV parsing
 
 const ScheduleManagement = () => {
-  const scheduleData = [
+  const schedule = [
     {
       id: 1,
       busName: "Express 101",
@@ -110,158 +113,107 @@ const ScheduleManagement = () => {
       arrivalTime: "09:00 AM",
       driver: "Jack Orange",
     },
+    {
+      id: 13,
+      busName: "Express 112",
+      route: "Nashik to Shirdi",
+      day: "Friday",
+      departureTime: "07:00 AM",
+      arrivalTime: "09:00 AM",
+      driver: "Jack Orange",
+    },
+    {
+      id: 14,
+      busName: "Express 112",
+      route: "Nashik to Shirdi",
+      day: "Friday",
+      departureTime: "07:00 AM",
+      arrivalTime: "09:00 AM",
+      driver: "Jack Orange",
+    },
   ];
-  const [activeMethod, setActiveMethod] = useState("automated");
 
-  const handleScheduleCreation = (method) => {
-    // Handle scheduling logic based on the method
-    console.log(`Creating schedule using ${method} method`);
+  const scheduleRow = [
+    "busName",
+    "route",
+    "day",
+    "departureTime",
+    "arrivalTime",
+    "driver",
+  ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [csvData, setCsvData] = useState([]);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    Papa.parse(file, {
+      complete: (result) => {
+        setCsvData(result.data);
+        setIsModalOpen(true);
+      },
+      header: true,
+    });
+  };
+
+  const handleSaveCSV = () => {
+    // Implement the logic to save the CSV data
+    console.log("Saving CSV data:", csvData);
+    setIsModalOpen(false);
   };
 
   return (
-    <div className="p-6">
-      <header className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Schedule Management</h1>
-        <button className="bg-primary text-white px-4 py-2 rounded">
-          Add Schedule
-        </button>
-      </header>
-
-      <table className="w-full table-auto bg-white shadow-lg">
-        <thead className="">
-          <tr className="bg-gray-200">
-            <th className="p-2 text-left">Bus Name</th>
-            <th className="p-2 text-left">Route</th>
-            <th className="p-2 text-left">Day</th>
-            <th className="p-2 text-left">Departure Time</th>
-            <th className="p-2 text-left">Arrival Time</th>
-            <th className="p-2 text-left">Driver</th>
-          </tr>
-        </thead>
-        <tbody>
-          {scheduleData.map((schedule) => (
-            <tr key={schedule.id} className="border-b">
-              <td className="p-2">{schedule.busName}</td>
-              <td className="p-2">{schedule.route}</td>
-              <td className="p-2">{schedule.day}</td>
-              <td className="p-2">{schedule.departureTime}</td>
-              <td className="p-2">{schedule.arrivalTime}</td>
-              <td className="p-2">{schedule.driver}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <div className="mb-6 pt-4">
-        <label className="font-medium">Select Schedule Method:</label>
-        <div className="flex space-x-4 mt-2">
-          <button
-            className={`px-4 py-2 rounded ${
-              activeMethod === "automated"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setActiveMethod("automated")}
-          >
-            Automated
+    <div className="w-full h-full flex flex-col">
+      <header className="w-full h-1/6 flex lg:justify-between items-center px-4 py-2">
+        <h1 className="text-md lg:text-2xl font-bold ">Schedule Management</h1>
+        <div className="flex item-center gap-1 lg:gap-2 text-xs lg:text-base">
+          <button className="bg-primary text-white px-1 lg:px-4 py-1 lg:py-2 rounded">
+            Manual Schedule
           </button>
           <button
-            className={`px-4 py-2 rounded ${
-              activeMethod === "manual"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setActiveMethod("manual")}
-          >
-            Manual
-          </button>
-          <button
-            className={`px-4 py-2 rounded ${
-              activeMethod === "bulk"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setActiveMethod("bulk")}
-          >
-            Bulk
-          </button>
-        </div>
-      </div>
-
-      {activeMethod === "automated" && (
-        <div>
-          <h3 className="text-lg font-semibold mb-4">
-            Automated Schedule Creation
-          </h3>
-          <p>Configure parameters for automated scheduling here.</p>
-          <button
-            className="bg-green-500 text-white px-4 py-2 rounded mt-4"
+            className="bg-green-500 text-white px-4 py-1 lg:py-2 rounded "
             onClick={() => handleScheduleCreation("automated")}
           >
-            Generate Automated Schedule
+            Automated Schedule
           </button>
+          <label className="bg-gray-500 text-white px-4 py-1 lg:py-2 rounded flex items-center cursor-pointer">
+            <span>
+              <MdUploadFile className="w-6 h-6" />
+            </span>
+            <span className="ml-2">Upload</span>
+            <input
+              type="file"
+              accept=".csv"
+              className="hidden"
+              onChange={handleFileUpload}
+            />
+          </label>
         </div>
-      )}
+      </header>
+      <div className=" h-full lg:h-5/6 px-4 pb-4 ">
+        <MyTable headerCol={scheduleRow} row={schedule} />
+      </div>
 
-      {activeMethod === "manual" && (
-        <div>
-          <h3 className="text-lg font-semibold mb-4">
-            Manual Schedule Creation
-          </h3>
-          <form>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="font-medium">Day:</label>
-                <input
-                  type="text"
-                  className="w-full p-2 border border-gray-300 rounded"
-                  placeholder="e.g., Monday"
-                />
-              </div>
-              <div>
-                <label className="font-medium">Departure Time:</label>
-                <input
-                  type="time"
-                  className="w-full p-2 border border-gray-300 rounded"
-                />
-              </div>
-              <div>
-                <label className="font-medium">Arrival Time:</label>
-                <input
-                  type="time"
-                  className="w-full p-2 border border-gray-300 rounded"
-                />
-              </div>
-              <div>
-                <label className="font-medium">Driver:</label>
-                <input
-                  type="text"
-                  className="w-full p-2 border border-gray-300 rounded"
-                  placeholder="Driver Name"
-                />
-              </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg w-3/4 max-h-3/4 overflow-auto">
+            <h2 className="text-2xl font-bold mb-4">CSV Preview</h2>
+            <MyTable headerCol={Object.keys(csvData[0] || {})} row={csvData} />
+            <div className="mt-4 flex justify-end">
+              <button
+                className="bg-gray-500 text-white px-4 py-2 rounded mr-2"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded"
+                onClick={handleSaveCSV}
+              >
+                Save
+              </button>
             </div>
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded mt-4"
-              type="submit"
-            >
-              Add Schedule
-            </button>
-          </form>
-        </div>
-      )}
-
-      {activeMethod === "bulk" && (
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Bulk Schedule Upload</h3>
-          <p>Upload a CSV file to add schedules in bulk.</p>
-          <input type="file" className="block mt-4 mb-2" />
-          <button
-            className="bg-green-500 text-white px-4 py-2 rounded"
-            onClick={() => handleScheduleCreation("bulk")}
-          >
-            Upload and Create Schedules
-          </button>
+          </div>
         </div>
       )}
     </div>

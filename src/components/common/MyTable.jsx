@@ -54,8 +54,8 @@ import React, { useState } from "react";
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
-const MyTable = ({ headerCol, product, action = true }) => {
-  const [sortedData, setSortedData] = useState(product);
+const MyTable = ({ headerCol, row, action = true, handleDelete }) => {
+  const [sortedData, setSortedData] = useState(row);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
   const onSort = (col) => {
@@ -84,7 +84,7 @@ const MyTable = ({ headerCol, product, action = true }) => {
   return (
     <div className="overflow-x-auto max-h-full ">
       <table className="w-full border-collapse">
-        <thead className="sticky top-0  bg-primary">
+        <thead className="sticky top-0  bg-primary rounded-md">
           <tr className="text-left  font-serif px-2 text-white ">
             {headerCol.map((item, index) => (
               <th
@@ -103,7 +103,10 @@ const MyTable = ({ headerCol, product, action = true }) => {
         </thead>
         <tbody>
           {sortedData.map((row, rowIndex) => (
-            <tr key={rowIndex} className="divide-y-2 divide-gray-200">
+            <tr
+              key={rowIndex}
+              className="divide-y-2 border-b-2 divide-gray-200 hover:bg-gray-200 cursor-pointer "
+            >
               {headerCol.map((col, colIndex) => (
                 <td key={colIndex} className="py-2 px-2 text-nowrap">
                   {typeof row[col] === "string" &&
@@ -128,6 +131,7 @@ const MyTable = ({ headerCol, product, action = true }) => {
                     /> */}
                     <FaTrash
                       title="Delete"
+                      // onClick={handleDelete}
                       className="delete-btn cursor-pointer text-red-500 hover:text-red-800"
                     />
                   </span>

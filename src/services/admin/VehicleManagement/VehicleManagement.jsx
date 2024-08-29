@@ -6,7 +6,7 @@ import InputDashboard from "../components/common/InputDashboard";
 import DropdownFilter from "../components/common/DropdownFilter";
 import * as XLSX from "xlsx";
 import PaginationComponent from "../../../components/common/Pagination";
-import VehicleManagement1 from "./VehicleManagement1";
+
 import CardForm from "../components/FormDash/CardForm";
 
 const VehicleManagement = () => {
@@ -109,22 +109,30 @@ const VehicleManagement = () => {
     <div className=" w-full h-full">
       <div className="w-full h-1/6 p-4  bg-white ">
         <div className="h-full flex flex-col    ">
-          <div className="h-1/2 flex justify-between  px-2 ">
-            <h2 className="text-xl font-bold">Manage Vehicles</h2>
-            <button
-              onClick={handleshowCard}
-              className="h-full flex items-center bg-primary text-white px-4 py-5 rounded hover:bg-green-800"
-            >
-              {editing ? "Update Vehicle" : "Add Vehicle"}
-            </button>
+          <div className="h-1/2 flex justify-between  px-2 py-1 lg:py-2 ">
+            <h2 className="text-sm lg:text-xl font-bold">Manage Vehicles</h2>
+            <div className="flex gap-2 items-center">
+              <button
+                onClick={handleshowCard}
+                className="h-full flex items-center bg-primary text-white px-4 py-1 lg:py-5 rounded hover:bg-green-800"
+              >
+                {editing ? "Update Vehicle" : "Add Vehicle"}
+              </button>
+              <button
+                onClick={handleshowCard}
+                className="h-full flex items-center bg-green-700 text-white px-1 lg:px-4 py-1 lg:py-5 rounded hover:bg-green-800"
+              >
+                Import Vehicle
+              </button>
+            </div>
           </div>
           {/* Filters Section */}
-          <div className=" h-1/2 p-2 flex justify-between items-center mt-3">
+          <div className=" h-1/2 p-2 flex gap-1 justify-between items-center my-2">
             <select
               name="vehicleType"
               // value={filters.vehicleType}
               // onChange={handleFilterChange}
-              className="p-2 border rounded"
+              className="p-2 border rounded mx-2"
             >
               <option value="All">All Types</option>
               <option value="Car">Car</option>
@@ -184,7 +192,7 @@ const VehicleManagement = () => {
 
       {/* Vehicle List */}
       <div className="h-4/6 p-2 ">
-        <MyTable headerCol={headerCol} product={VehicleData} />
+        <MyTable headerCol={headerCol} row={VehicleData} />
       </div>
       {/* Pagination  */}
       <div className="w-full h-1/6 flex items-center ">

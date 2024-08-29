@@ -129,7 +129,7 @@ const Customer = () => {
             {isLoading ? (
               <LoaderCircle />
             ) : (
-              <MyTable headerCol={headerCol} product={datatableUsers} />
+              <MyTable headerCol={headerCol} row={datatableUsers} />
             )}
           </div>
 

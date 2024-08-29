@@ -172,7 +172,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           <div className="fixed inset-0 flex z-40">
             <div className="fixed inset-0 bg-black opacity-50" />
 
-            <div className="relative flex-1 flex flex-col max-w-xs w-full bg-gray-50">
+            <div className="relative flex-1 flex flex-col max-w-[14rem] w-full bg-gray-50">
               <div className="absolute top-0 right-0 -mr-14 p-1">
                 <button
                   className="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none hover:bg-gray-600"

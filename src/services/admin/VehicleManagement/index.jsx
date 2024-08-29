@@ -66,7 +66,7 @@ const VehicleManagementDashboard = () => {
               key={tab.id}
               className={`px-4 py-2  ${
                 activeTab === tab.id
-                  ? " text-primary font-bold text-lg border-b-2 border-primary"
+                  ? " text-primary font-bold text-xs lg:text-lg border-b-2 border-primary"
                   : " text-gray-700"
               }`}
               onClick={() => setActiveTab(tab.id)}
