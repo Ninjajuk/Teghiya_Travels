@@ -196,9 +196,15 @@ const ScheduleManagement = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg w-3/4 max-h-3/4 overflow-auto">
+          <div className="bg-white p-6 rounded-lg w-3/4 h-3/4  overflow-auto overflow-y-auto">
             <h2 className="text-2xl font-bold mb-4">CSV Preview</h2>
-            <MyTable headerCol={Object.keys(csvData[0] || {})} row={csvData} />
+            <div className="w-full h-4/6">
+              <MyTable
+                headerCol={Object.keys(csvData[0] || {})}
+                row={csvData}
+              />
+            </div>
+
             <div className="mt-4 flex justify-end">
               <button
                 className="bg-gray-500 text-white px-4 py-2 rounded mr-2"

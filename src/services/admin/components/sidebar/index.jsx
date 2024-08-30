@@ -22,6 +22,8 @@ import {
   FaShoppingCart,
 } from "react-icons/fa";
 import { BiHome } from "react-icons/bi";
+import Sideba2 from "./Sidebar2";
+import Sidebar2 from "./Sidebar2";
 
 const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const menus = [
@@ -132,6 +134,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
                   </NavLink>
                 ))}
               </div>
+              {/* <Sidebar2 /> */}
             </div>
 
             <div className="p-6 flex items-center bg-gray-100 cursor-pointer ">

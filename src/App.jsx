@@ -18,6 +18,7 @@ import Customer from "./services/admin/Customer";
 import Testing from "./pages/Testing";
 import BusTicketSuccess from "./pages/BusTicketSuccess";
 import LoginForm from "./services/auth/LoginForm";
+import AddVehicle from "./services/admin/VehicleManagement/AddVehicle";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -60,6 +61,10 @@ function App() {
           <Route
             path="/dashboard/vehicle-management"
             element={<VehicleManagementDashboard />}
+          />
+          <Route
+            path="/dashboard/vehicle-management/add"
+            element={<AddVehicle />}
           />
           <Route path="/dashboard/adminprofile" element={<AdminProfile />} />
 
