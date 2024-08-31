@@ -127,7 +127,13 @@ function BusDetails({ bus }) {
             </div>
             <div>
               <label className="font-medium">Status:</label>
-              <p>{bus.isAvailable === true ? "Available" : "Not Available"}</p>
+              <p
+                className={`font-medium ${
+                  bus.isAvailable === true ? "text-green-800" : "text-red-800"
+                } `}
+              >
+                {bus.isAvailable === true ? "Available" : "Not Available"}
+              </p>
             </div>
           </div>
           {/* <div className="flex mt-4 space-x-4">
@@ -146,10 +152,11 @@ function BusDetails({ bus }) {
           </div> */}
         </div>
 
+        {/* Amenities Details */}
         <div className="bg-white shadow-md rounded-lg p-6 mb-6 mx-2">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold mb-4 tracking-widest text-gray-600">
-              Amenities
+              Amenities Details
             </h2>
             <button
               className=" text-green-800 px-4 py-2 rounded flex items-center "
@@ -216,7 +223,7 @@ function BusDetails({ bus }) {
             </button>
           </div> */}
         </div>
-
+        {/* Assignment History */}
         <div className="bg-white shadow-md rounded-lg p-6 my-2 mx-2 ">
           <h2 className="text-2xl font-bold mb-4 text-gray-600 tracking-widest">
             Assignment History
