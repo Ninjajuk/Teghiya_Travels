@@ -66,7 +66,9 @@ function BusDetails({ bus }) {
 
       <div className=" bg-gray-100">
         <header className=" p-2 flex justify-between items-center mb-4 mx-2">
-          <h1 className="text-2xl font-bold">Bus Details: {bus.name}</h1>
+          <h1 className="text-2xl lg:text-4xl font-bold text-primary">
+            Bus Details: {bus.name}
+          </h1>
           {/* <button
             className="bg-gray-500 text-white px-4 py-2 rounded"
             onClick={() => window.history.back()}
@@ -77,7 +79,7 @@ function BusDetails({ bus }) {
 
         <div className="bg-white shadow-md rounded-lg p-6 mb-6 mx-2">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold  tracking-widest text-gray-600">
+            <h2 className="text-2xl font-bold  tracking-widest text-txtHeading1">
               Bus Information
             </h2>
             <button
@@ -94,39 +96,47 @@ function BusDetails({ bus }) {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="font-medium">Bus Type:</label>
-              <p>{bus.type}</p>
+              <label className="font-medium text-txtHeading2">Bus Type:</label>
+              <p className="text-textPrimary">{bus.type}</p>
             </div>
             <div>
-              <label className="font-medium">Registration Number:</label>
-              <p>{bus.registrationNumber}</p>
+              <label className="font-medium text-txtHeading2">
+                Registration Number:
+              </label>
+              <p className="text-textPrimary">{bus.registrationNumber}</p>
             </div>
             <div>
-              <label className="font-medium">Registration Name:</label>
-              <p>{bus.registrationNumber}</p>
+              <label className="font-medium text-txtHeading2">
+                Registration Name:
+              </label>
+              <p className="text-textPrimary">{bus.registrationNumber}</p>
             </div>
             <div>
-              <label className="font-medium">Owner Number:</label>
-              <p>{bus.registrationNumber}</p>
+              <label className="font-medium text-txtHeading2">
+                Owner Number:
+              </label>
+              <p className="text-textPrimary">{bus.registrationNumber}</p>
             </div>
             <div>
-              <label className="font-medium">Capacity:</label>
+              <label className="font-medium text-txtHeading2">Capacity:</label>
               <p>{bus.capacity} Seats</p>
             </div>
             <div>
-              <label className="font-medium">Assigned Route:</label>
-              <p>
+              <label className="font-medium text-txtHeading2">
+                Assigned Route:
+              </label>
+              <p className="text-textPrimary">
                 {bus.assignedRoute
                   ? bus.assignedRoute.name
                   : "No Route Assigned"}
               </p>
             </div>
             <div>
-              <label className="font-medium">Status:</label>
-              <p>{bus.status}</p>
+              <label className="font-medium text-txtHeading2">Status:</label>
+              <p className="text-textPrimary">{bus.status}</p>
             </div>
             <div>
-              <label className="font-medium">Status:</label>
+              <label className="font-medium text-txtHeading2">Available:</label>
               <p
                 className={`font-medium ${
                   bus.isAvailable === true ? "text-green-800" : "text-red-800"
@@ -155,7 +165,7 @@ function BusDetails({ bus }) {
         {/* Amenities Details */}
         <div className="bg-white shadow-md rounded-lg p-6 mb-6 mx-2">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold mb-4 tracking-widest text-gray-600">
+            <h2 className="text-2xl font-bold mb-4 tracking-widest text-txtHeading1">
               Amenities Details
             </h2>
             <button
@@ -172,39 +182,47 @@ function BusDetails({ bus }) {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="font-medium">Bus Type:</label>
-              <p>{bus.type}</p>
+              <label className="font-medium text-txtHeading2">Bus Type:</label>
+              <p className="text-textPrimary">{bus.type}</p>
             </div>
             <div>
-              <label className="font-medium">Registration Number:</label>
-              <p>{bus.registrationNumber}</p>
+              <label className="font-medium text-txtHeading2">
+                Registration Number:
+              </label>
+              <p className="text-textPrimary">{bus.registrationNumber}</p>
             </div>
             <div>
-              <label className="font-medium">Registration Name:</label>
-              <p>{bus.registrationNumber}</p>
+              <label className="font-medium text-txtHeading2">
+                Registration Name:
+              </label>
+              <p className="text-textPrimary">{bus.registrationNumber}</p>
             </div>
             <div>
-              <label className="font-medium">Owner Number:</label>
-              <p>{bus.registrationNumber}</p>
+              <label className="font-medium text-txtHeading2">
+                Owner Number:
+              </label>
+              <p className="text-textPrimary">{bus.registrationNumber}</p>
             </div>
             <div>
-              <label className="font-medium">Capacity:</label>
+              <label className="font-medium text-txtHeading2">Capacity:</label>
               <p>{bus.capacity} Seats</p>
             </div>
             <div>
-              <label className="font-medium">Assigned Route:</label>
-              <p>
+              <label className="font-medium text-txtHeading2">
+                Assigned Route:
+              </label>
+              <p className="text-textPrimary">
                 {bus.assignedRoute
                   ? bus.assignedRoute.name
                   : "No Route Assigned"}
               </p>
             </div>
             <div>
-              <label className="font-medium">Status:</label>
-              <p>{bus.status}</p>
+              <label className="font-medium text-txtHeading2">Status:</label>
+              <p className="text-textPrimary">{bus.status}</p>
             </div>
             <div>
-              <label className="font-medium">Status:</label>
+              <label className="font-medium text-txtHeading2">Status:</label>
               <p>{bus.isAvailable === true ? "Available" : "Not Available"}</p>
             </div>
           </div>
@@ -225,7 +243,7 @@ function BusDetails({ bus }) {
         </div>
         {/* Assignment History */}
         <div className="bg-white shadow-md rounded-lg p-6 my-2 mx-2 ">
-          <h2 className="text-2xl font-bold mb-4 text-gray-600 tracking-widest">
+          <h2 className="text-2xl font-bold mb-4 text-txtHeading1 tracking-widest">
             Assignment History
           </h2>
           {/* Assignment history table */}
