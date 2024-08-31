@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultLayout from "../layout/DefaultLayout";
+import DefaultLayout from "../../layout/DefaultLayout";
 
 const AddVehicle = () => {
   return <DefaultLayout>AddVehicle</DefaultLayout>;

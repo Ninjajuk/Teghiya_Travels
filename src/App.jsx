@@ -15,10 +15,10 @@ import AdminProfile from "./services/admin/profile/Profile";
 import WebsiteMain from "./services/admin/WebsiteMain";
 import VehicleManagementDashboard from "./services/admin/VehicleManagement";
 import Customer from "./services/admin/Customer";
-import Testing from "./pages/Testing";
+
 import BusTicketSuccess from "./pages/BusTicketSuccess";
 import LoginForm from "./services/auth/LoginForm";
-import AddVehicle from "./services/admin/VehicleManagement/AddVehicle";
+import AddVehicle from "./services/admin/VehicleManagement/VehicleDetails.jsx/AddVehicle";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);

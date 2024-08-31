@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import DefaultLayout from "../layout/DefaultLayout";
 import VehicleManagement from "./VehicleManagement";
-import BusDetails from "./BusDetails";
+
 import ScheduleManagement from "./ScheduleManagement/ScheduleManage";
 import RouteManagement from "./RouteManagement/RouteManagement";
+import BusDetails from "./VehicleDetails.jsx/BusDetails";
 
 const VehicleManagementDashboard = () => {
   const [activeTab, setActiveTab] = useState(1); // State to track the active tab
@@ -18,6 +19,7 @@ const VehicleManagementDashboard = () => {
       endLocation: "Pune",
     },
     status: "Active",
+    isAvailable: false,
     maintenanceRecords: [
       {
         date: "2024-06-15",

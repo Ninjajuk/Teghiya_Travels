@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import SeatForm from "../components/FormDash/SeatForm";
 
-function BusDetails({ bus }) {
+function BusDetailsPage({ bus }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = () => {
@@ -140,7 +139,7 @@ function BusDetails({ bus }) {
       </div>
       <div className="space-y-4">
         <h2 className="text-xl font-bold">Create Seat Layout</h2>
-        <SeatForm addRow={addRow} />
+        {/* <SeatForm addRow={addRow} /> */}
         <button
           onClick={handleSave}
           className="bg-blue-500 text-white px-4 py-2 rounded"
@@ -166,4 +165,4 @@ function BusDetails({ bus }) {
   );
 }
 
-export default BusDetails;
+export default BusDetailsPage;
