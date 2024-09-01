@@ -79,7 +79,7 @@ const AddRoute = ({ handleClose, routes }) => {
             </div>
 
             <div className="px-2">
-              <button className="w-full flex items-center justify-center p-2 text-white bg-primary rounded-md shadow-md">
+              <button className="w-full flex items-center justify-center p-2 text-white bg-primary rounded-md shadow-md hover:scale-105">
                 Add Route
               </button>
             </div>

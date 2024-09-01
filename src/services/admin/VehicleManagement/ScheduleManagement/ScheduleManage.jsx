@@ -191,7 +191,12 @@ const ScheduleManagement = () => {
         </div>
       </header>
       <div className=" h-5/6 p-4 bg-gray-100 rounded-md shadow-md ">
-        <MyTable headerCol={scheduleRow} row={schedule} />
+        <MyTable
+          headerCol={scheduleRow}
+          row={schedule}
+          showEdit={true}
+          showDelete={false}
+        />
       </div>
 
       {isModalOpen && (

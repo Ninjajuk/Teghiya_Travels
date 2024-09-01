@@ -138,8 +138,8 @@ function RouteManagement() {
         </div>
       </div>
 
-      <div className="h-4/6 p-4 bg-gray-100 rounded-md shadow-md">
-        <MyTable headerCol={columnTable} row={routes} />
+      <div className="h-5/6 p-4 bg-gray-100 rounded-md shadow-md">
+        <MyTable headerCol={columnTable} row={routes} action={false} />
       </div>
 
       {isDeleting && showModal && (

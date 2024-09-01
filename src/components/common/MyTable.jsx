@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
-const MyTable = ({ headerCol, row, action = true, handleDelete }) => {
+const MyTable = ({
+  headerCol,
+  row,
+  action = true,
+  showEdit = true,
+  showDelete = true,
+  handleDelete,
+}) => {
   const [sortedData, setSortedData] = useState(row);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
@@ -46,7 +53,9 @@ const MyTable = ({ headerCol, row, action = true, handleDelete }) => {
                 </span>
               </th>
             ))}
-            <th className="pl-1 px-2 py-2 cursor-pointer">Actions</th>
+            {action && (
+              <th className="pl-1 px-2 py-2 cursor-pointer">Actions</th>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -66,22 +75,23 @@ const MyTable = ({ headerCol, row, action = true, handleDelete }) => {
                 </td>
               ))}
               {action && (
-                <td className="py-2 px-2 text-nowrap">
-                  <span className="actions flex grid-cols-2 gap-4">
-                    <BsFillPencilFill
-                      title="Edit"
-                      className="edit-btn cursor-pointer text-green-500 hover:text-green-800"
-                      onClick={() => editRow(idx)}
-                    />
-                    {/* <BsFillTrashFill
-                      className="delete-btn cursor-pointer text-red-500 hover:text-red-800"
-                      onClick={() => deleteRow(idx)}
-                    /> */}
-                    <FaTrash
-                      title="Delete"
-                      // onClick={handleDelete}
-                      className="delete-btn cursor-pointer text-red-500 hover:text-red-800"
-                    />
+                <td className="py-2 px-2 text-nowrap ">
+                  <span className="actions flex grid-cols-2 gap-4 ">
+                    {showEdit && (
+                      <BsFillPencilFill
+                        title="Edit"
+                        className="edit-btn cursor-pointer text-green-500 hover:text-green-800 "
+                        onClick={() => editRow(rowIndex)} // Ensure editRow function is correctly passed
+                      />
+                    )}
+                    {showDelete && (
+                      // handleDelete &&
+                      <FaTrash
+                        title="Delete"
+                        className="delete-btn cursor-pointer text-red-500 hover:text-red-800"
+                        onClick={() => handleDelete(rowIndex)} // Ensure handleDelete function is correctly passed
+                      />
+                    )}
                   </span>
                 </td>
               )}
