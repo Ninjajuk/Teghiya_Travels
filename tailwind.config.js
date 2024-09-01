@@ -14,7 +14,7 @@ export default {
 
         //background
         bgPrimary: "#f8f9fa",
-        bgSecondary: "#00BFA5",
+        bgSecondary: "#00BFA5" /*Teal Modern and Sleek */,
         tertary: "#00ACC1",
         quadliterily: "#8E24AA",
 

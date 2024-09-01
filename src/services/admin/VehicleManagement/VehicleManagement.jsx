@@ -106,96 +106,85 @@ const VehicleManagement = () => {
   };
 
   return (
-    <div className=" w-full h-full">
-      <div className="w-full h-1/6 p-4  bg-white ">
-        <div className="h-full flex flex-col    ">
-          <div className="h-1/2 flex justify-between  px-2 py-1 lg:py-2 ">
-            <h2 className="text-sm lg:text-xl font-bold">Manage Vehicles</h2>
-            <div className="flex gap-2 items-center">
-              <button
-                onClick={handleshowCard}
-                className="h-full flex items-center bg-primary text-white px-4 py-1 lg:py-5 rounded hover:bg-green-800"
-              >
-                {editing ? "Update Vehicle" : "Add Vehicle"}
-              </button>
-              <button
-                onClick={handleshowCard}
-                className="h-full flex items-center bg-green-700 text-white px-1 lg:px-4 py-1 lg:py-5 rounded hover:bg-green-800"
-              >
-                Import Vehicle
-              </button>
-            </div>
-          </div>
-          {/* Filters Section */}
-          <div className=" h-1/2 p-2 flex gap-1 justify-between items-center my-2">
-            <select
-              name="vehicleType"
-              // value={filters.vehicleType}
-              // onChange={handleFilterChange}
-              className="p-2 border rounded mx-2"
+    <div className=" w-full h-full flex flex-col p-2 lg:p-4 gap-1 lg:gap-2">
+      <div className="w-full lg:h-1/6 flex flex-col gap-1 px-1 lg:px-4 py-1  bg-teal-400 rounded-md shadow-md">
+        <div className=" flex justify-between  px-2  ">
+          <h2 className="text-sm lg:text-xl font-bold">Manage Vehicles</h2>
+          <div className="flex gap-2 items-center">
+            <button
+              onClick={handleshowCard}
+              className="h-full flex items-center bg-primary text-white px-4 py-1 lg:py-2 rounded hover:bg-green-800"
             >
-              <option value="All">All Types</option>
-              <option value="Car">Car</option>
-              <option value="Bus">Bus</option>
-              <option value="Truck">Truck</option>
-            </select>
-
-            {/* <input
+              {editing ? "Update Vehicle" : "Add Vehicle"}
+            </button>
+            <button
+              onClick={handleshowCard}
+              className="h-full flex items-center text-xs lg:text-base bg-green-700 text-white px-1 lg:px-4 py-1 lg:py-2 rounded hover:bg-green-800"
+            >
+              Import Vehicle
+            </button>
+          </div>
+        </div>
+        {/* Filters Section */}
+        <div className=" flex gap-1 justify-between items-center">
+          <select
+            name="vehicleType"
+            // value={filters.vehicleType}
+            // onChange={handleFilterChange}
+            className="p-2 border rounded mx-2"
+          >
+            <option value="All">All Types</option>
+            <option value="Car">Car</option>
+            <option value="Bus">Bus</option>
+            <option value="Truck">Truck</option>
+          </select>
+          <div className="block ">
+            <InputDashboard
               type="text"
               name="search"
-              // value={filters.search}
-              // onChange={handleFilterChange}
-              placeholder="Search..."
-              className="p-2 border rounded "
-            /> */}
-            <div className="block ">
-              <InputDashboard
-                type="text"
-                name="search"
-                id="search"
-                placeholder=""
-                label="Search..."
-              />
-            </div>
+              id="search"
+              placeholder=""
+              label="Search..."
+            />
+          </div>
 
-            <div className=" flex gap-2  lg:gap-4 cursor-pointer ">
-              <div
-                onClick={handleFilterDrop}
-                className=" flex items-center  hover:text-primary hover:font-bold  "
-              >
-                <span className="hidden lg:block">Filters</span>
-                <span className="lg:pl-1">
-                  <MdFilterList className="w-6 h-6 " />
-                </span>
-              </div>
-              {filter && <DropdownFilter columns={headerCol} />}
-              <div
-                onClick={handleExportToExcel}
-                className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
-              >
-                <span className="hidden lg:block">Export</span>
-                <span className="lg:pl-1">
-                  <MdFileDownload className="w-6 h-6 " />
-                </span>
-              </div>
+          <div className=" flex gap-2  lg:gap-4 cursor-pointer ">
+            <div
+              onClick={handleFilterDrop}
+              className=" flex items-center  hover:text-primary hover:font-bold  "
+            >
+              <span className="hidden lg:block">Filters</span>
+              <span className="lg:pl-1">
+                <MdFilterList className="w-6 h-6 " />
+              </span>
             </div>
+            {filter && <DropdownFilter columns={headerCol} />}
+            <div
+              onClick={handleExportToExcel}
+              className="flex items-center cursor-pointer hover:text-primary hover:font-bold"
+            >
+              <span className="hidden lg:block">Export</span>
+              <span className="lg:pl-1">
+                <MdFileDownload className="w-6 h-6 " />
+              </span>
+            </div>
+          </div>
 
-            {/* <div className="flex items-center cursor-pointer hover:text-primary">
+          {/* <div className="flex items-center cursor-pointer hover:text-primary">
               <span>Refresh</span>
               <span className="pl-2">
                 <MdRefresh className="w-6 h-6 text-primary" />
               </span>
             </div> */}
-          </div>
         </div>
       </div>
 
       {/* Vehicle List */}
-      <div className="h-4/6 p-2 ">
+      <div className="w-full p-4 h-4/6 bg-gray-100 rounded-md shadow-md">
         <MyTable headerCol={headerCol} row={VehicleData} />
       </div>
       {/* Pagination  */}
-      <div className="w-full h-1/6 flex items-center ">
+      <div className="w-full  h-1/6 flex items-center rounded-md shadow-md">
         <PaginationComponent
           totalItems={totalItems}
           itemsPerPage={itemsPerPage}

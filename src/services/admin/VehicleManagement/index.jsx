@@ -62,11 +62,11 @@ const VehicleManagementDashboard = () => {
     <DefaultLayout>
       <div className="w-full h-full flex flex-col">
         {/* Tab Navigation */}
-        <div className="flex space-x-4 p-4 overflow-x-auto">
+        <div className="flex   overflow-x-auto mx-2 lg:mx-4 mt-2 rounded-md shadow-md ">
           {vehicletabs.map((tab) => (
-            <button
+            <div
               key={tab.id}
-              className={`px-4 py-2  ${
+              className={`w-full px-4 py-2 cursor-pointer   ${
                 activeTab === tab.id
                   ? " text-primary font-bold text-xs lg:text-lg border-b-2 border-primary"
                   : " text-gray-700"
@@ -74,12 +74,12 @@ const VehicleManagementDashboard = () => {
               onClick={() => setActiveTab(tab.id)}
             >
               {tab.label}
-            </button>
+            </div>
           ))}
         </div>
 
         {/* Render the active component */}
-        <div className="flex-grow h-0 overflow-y-auto">
+        <div className="flex-grow w-full h-0 overflow-y-auto">
           {vehicletabs.find((tab) => tab.id === activeTab)?.component}
         </div>
       </div>

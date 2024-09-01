@@ -33,8 +33,8 @@ function BusDetails({ bus }) {
   };
 
   return (
-    <div className="p-4 flex flex-col gap-1 h-full ">
-      <div className=" bg-gray-800 flex items-center justify-evenly p-2">
+    <div className="p-4 flex flex-col gap-1 lg:gap-2 h-full ">
+      <div className=" bg-bgSecondary flex items-center gap-1 lg:justify-evenly p-2 rounded-md shadow-md">
         <div className="">
           <select className="p-2 rounded-md max-w-20 truncate">
             <option value="All" className="">
@@ -64,7 +64,7 @@ function BusDetails({ bus }) {
         </div>
       </div>
 
-      <div className=" bg-gray-100">
+      <div className=" bg-gray-100 py-2 lg:py-4 rounded-md shadow-md">
         <header className=" p-2 flex justify-between items-center mb-4 mx-2">
           <h1 className="text-2xl lg:text-4xl font-bold text-primary">
             Bus Details: {bus.name}
@@ -249,7 +249,7 @@ function BusDetails({ bus }) {
           {/* Assignment history table */}
           <table className="w-full table-auto bg-white shadow-lg">
             <thead>
-              <tr className="bg-gray-200 text-left">
+              <tr className="bg-primary text-left text-white">
                 <th className="p-2">Route Name</th>
                 <th className="p-2">Start Date</th>
                 <th className="p-2">End Date</th>

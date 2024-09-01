@@ -86,7 +86,7 @@ const BusSearchResultPage = () => {
                   >
                     <div className="flex flex-col lg:flex-row ">
                       <div className="lg:w-1/2 ">
-                        <h1 className="px-2 py-2 text-gray-600 font-semibold text-lg">
+                        <h1 className="px-2 py-2 text-txtHeading1 font-semibold text-lg">
                           <span>{item.startTime}</span>
                           <span className="ml-2">{item.fromCity}</span>
                         </h1>

@@ -30,9 +30,9 @@ const MyTable = ({ headerCol, row, action = true, handleDelete }) => {
   };
 
   return (
-    <div className="overflow-x-auto max-h-full ">
+    <div className="overflow-x-auto max-h-full w-full">
       <table className="w-full border-collapse">
-        <thead className="sticky top-0  bg-primary rounded-md">
+        <thead className="sticky top-0  bg-primary ">
           <tr className="text-left  font-serif px-2 text-white ">
             {headerCol.map((item, index) => (
               <th
