@@ -163,8 +163,8 @@ const ScheduleManagement = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col">
-      <header className="w-full h-1/6 flex lg:justify-between items-center px-4 py-2">
+    <div className="w-full h-full flex flex-col p-2 lg:p-4 gap-1 lg:gap-2">
+      <header className="flex flex-col lg:flex-row  gap-1  lg:justify-between items-center  w-full h-1/6  px-1 lg:px-4 py-1  bg-teal-400 rounded-md shadow-md">
         <h1 className="text-md lg:text-2xl font-bold ">Schedule Management</h1>
         <div className="flex item-center gap-1 lg:gap-2 text-xs lg:text-base">
           <button className="bg-primary text-white px-1 lg:px-4 py-1 lg:py-2 rounded">
@@ -190,7 +190,7 @@ const ScheduleManagement = () => {
           </label>
         </div>
       </header>
-      <div className=" h-full lg:h-5/6 px-4 pb-4 ">
+      <div className=" h-5/6 p-4 bg-gray-100 rounded-md shadow-md ">
         <MyTable headerCol={scheduleRow} row={schedule} />
       </div>
 
