@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DeleteModal } from "../../../../components/modal/DeleteModal";
 import { FaPen, FaTrash } from "react-icons/fa";
 import AddRoute from "../../components/FormDash/AddRoute";
 import MyTable from "../../../../components/common/MyTable";
 
 import { MdFileDownload, MdFilterList } from "react-icons/md";
+import LoaderCircle from "../../../../components/common/Loader";
 
 function RouteManagement() {
   const parsedRoute = [
@@ -88,6 +89,24 @@ function RouteManagement() {
   const handleClose = () => {
     setAddRoute(!addRoute);
   };
+
+  // loading state
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an async operation with setTimeout
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    // Cleanup timeout on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoaderCircle />;
+  }
+
   return (
     <div className="w-full h-full flex flex-col p-2 lg:p-4 gap-1 lg:gap-2">
       <div className="w-full lg:h-1/6 flex flex-col gap-1 px-1 lg:px-4 py-1  bg-teal-400 rounded-md shadow-md">
