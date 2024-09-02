@@ -103,9 +103,9 @@ function RouteManagement() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <LoaderCircle />;
-  }
+  // if (loading) {
+  //   return <LoaderCircle />;
+  // }
 
   return (
     <div className="w-full h-full flex flex-col p-2 lg:p-4 gap-1 lg:gap-2">
