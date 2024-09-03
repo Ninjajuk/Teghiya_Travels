@@ -39,7 +39,7 @@ const HomePage = ({ handleLoginModal }) => {
         <WeddingBookingSection />
 
         {/* <Testing /> */}
-        <SpecialBookingPandalsCatering />
+        {/* <SpecialBookingPandalsCatering /> */}
         {/* <ScrollAppear /> */}
         <FAQRelatedBooking />
         <Footer />

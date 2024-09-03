@@ -78,7 +78,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <section className="hidden lg:flex relative ">
+      <section className="hidden lg:flex  ">
         {/* Sidebar starts here bg-[#0e0e0e]*/}
         <div
           className={`bg-primary min-h-screen       ${
@@ -87,7 +87,10 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
         >
           <div className="w-full h-full flex flex-col">
             <div className="w-full h-16 bg-gray-50 ">
-              <div className="w-full h-full px-6 flex items-center text-sm gap-3.5 font-medium   cursor-pointer">
+              <div
+                onClick={() => setOpen(!open)}
+                className="w-full h-full px-6 flex items-center text-sm gap-3.5 font-medium   cursor-pointer"
+              >
                 <span>
                   <BiHome className="h-6 w-6 text-primary" />
                 </span>
@@ -143,7 +146,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           </div>
         </div>
 
-        <div
+        {/* <div
           className={`absolute bottom-2 z-10 flex items-center bg-gray-300 rounded-full w-6 h-6 p-2 ${
             open ? "left-48" : "left-16"
           }`}
@@ -159,7 +162,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
               onClick={() => setOpen(!open)}
             />
           )}
-        </div>
+        </div> */}
       </section>
 
       {/* Mobile Sidebar */}
