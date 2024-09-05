@@ -54,11 +54,11 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
-    // { name: "analytics", link: "/", icon: TbReportAnalytics },
-    // { name: "analytics", link: "/", icon: TbReportAnalytics },
-    // { name: "analytics", link: "/", icon: TbReportAnalytics },
-    // { name: "analytics", link: "/", icon: TbReportAnalytics },
-    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    { name: "analytics", link: "/", icon: TbReportAnalytics },
+    { name: "analytics", link: "/", icon: TbReportAnalytics },
+    { name: "analytics", link: "/", icon: TbReportAnalytics },
+    { name: "analytics", link: "/", icon: TbReportAnalytics },
+    { name: "analytics", link: "/", icon: TbReportAnalytics },
     { name: "File Manager", link: "/", icon: FiFolder },
     // { name: "Cart", link: "/", icon: FiShoppingCart },
     { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
@@ -104,12 +104,15 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
               </div>
             </div>
 
-            <div className={`flex-grow h-0 px-4 bg-gray-50 `}>
-              <div className=" flex flex-col gap-4 relative z-10 ">
+            <div
+              className={`flex-grow h-0 px-4 bg-gray-50 inline-block  overflow-y-auto`}
+            >
+              <div className=" flex flex-col gap-4  ">
                 {menus?.map((menu, i) => (
                   <NavLink
                     to={menu?.link}
                     key={i}
+                    title={menu.name}
                     className={({ isActive }) =>
                       `${menu?.margin ? "mt-5" : ""} ${
                         isActive ? "bg-gray-200" : ""
@@ -127,13 +130,13 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
                     >
                       {menu?.name}
                     </h2>
-                    <h2
+                    {/* <h2
                       className={`${
-                        open && "hidden"
-                      } absolute left-48  bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                        open && "hidden w-[120px] opacity-0 transition-opacity-0.3"
+                      } absolute left-48  bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit group-hover:visible group-hover:opacity-1  `}
                     >
                       {menu?.name}
-                    </h2>
+                    </h2> */}
                   </NavLink>
                 ))}
               </div>
