@@ -19,6 +19,7 @@ import Customer from "./services/admin/Customer";
 import BusTicketSuccess from "./pages/BusTicketSuccess";
 import LoginForm from "./services/auth/LoginForm";
 import AddVehicle from "./services/admin/VehicleManagement/VehicleDetails.jsx/AddVehicle";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);

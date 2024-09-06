@@ -6,6 +6,7 @@ import MyTable from "../../../../components/common/MyTable";
 
 import { MdFileDownload, MdFilterList } from "react-icons/md";
 import LoaderCircle from "../../../../components/common/Loader";
+import { toast, ToastContainer } from "react-toastify";
 
 function RouteManagement() {
   const parsedRoute = [
@@ -111,7 +112,10 @@ function RouteManagement() {
     <div className="w-full h-full flex flex-col p-2 lg:p-4 gap-1 lg:gap-2">
       <div className="w-full lg:h-1/6 flex flex-col gap-1 px-1 lg:px-4 py-1  bg-teal-400 rounded-md shadow-md">
         <header className="w-full flex justify-between items-center px-2 ">
-          <h1 className="text-sm lg:text-xl font-bold truncate">
+          <h1
+            onClick={() => toast.success("Success")}
+            className="text-sm lg:text-xl font-bold truncate"
+          >
             Route Management
           </h1>
           <button
@@ -122,7 +126,12 @@ function RouteManagement() {
           </button>
         </header>
         <div className="flex items-center justify-between gap-2 px-4 py-2">
-          <div>1</div>
+          <div
+            onClick={() => toast.success("Success")}
+            className="cursor-pointer"
+          >
+            Click ME
+          </div>
           <div className=" form-group">
             <input
               type="text"
@@ -178,6 +187,7 @@ function RouteManagement() {
       )}
       {addRoute && <AddRoute handleClose={handleClose} routes={routes} />}
       {/* Pagination would go here */}
+      <ToastContainer />
     </div>
   );
 }

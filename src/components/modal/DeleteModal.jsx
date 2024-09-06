@@ -1,7 +1,6 @@
 import { AiFillExclamationCircle } from "react-icons/ai";
 import { FaExclamationTriangle } from "react-icons/fa";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 export const DeleteModal = ({
   closeModal,
@@ -16,8 +15,9 @@ export const DeleteModal = ({
   const handleDelete = () => {
     if (onDelete) {
       onDelete(); // Call the onDelete function when "Delete" is clicked
+      toast.success("Successfully delete");
     }
-    showToast(toastType, toastMessage); // Show a dynamic toast notification
+    // showToast(toastType, toastMessage); // Show a dynamic toast notification
     closeModal(); // Close the modal
   };
 
@@ -38,7 +38,7 @@ export const DeleteModal = ({
           <p className="text-sm text-gray-500">{message}</p>
           <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
             <button
-              // onClick={handleDelete}
+              onClick={handleDelete}
               className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
             >
               {deleteText}
@@ -51,7 +51,7 @@ export const DeleteModal = ({
             </button>
           </div>
         </div>
-        {/* <ToastContainer /> */}
+        <ToastContainer />
       </div>
     </>
   );
