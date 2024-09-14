@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaBusAlt } from "react-icons/fa";
-import {
-  MdOutlineDashboard,
-  MdLogout,
-  MdOutlineStarOutline,
-  MdRestaurant,
-} from "react-icons/md";
+import {MdOutlineDashboard,MdLogout,MdOutlineStarOutline,MdRestaurant,MdFolderOpen,MdAttachMoney,MdEngineering} from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
 import {
@@ -20,6 +15,7 @@ import {
   FaAngleRight,
   FaBuilding,
   FaShoppingCart,
+
 } from "react-icons/fa";
 import { BiHome } from "react-icons/bi";
 import Sideba2 from "./Sidebar2";
@@ -28,6 +24,7 @@ import Sidebar2 from "./Sidebar2";
 const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const menus = [
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
+    { name: "My Portfolio", link: "/", icon: MdEngineering },
     {
       name: "Corporate Site",
       link: "/dashboard/corporate-website",
@@ -46,19 +43,21 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
         },
       ],
     },
-    { name: "Ecom", link: "/admin/ecom", icon: FiShoppingCart },
+    { name: "Teghiya Store", link: "/admin/ecom", icon: FiShoppingCart },
+    { name: "Gausiya Tyres", link: "/admin/gausiya-tyres", icon: MdFolderOpen },
     { name: "Catering", link: "/admin/catering", icon: MdRestaurant },
     { name: "Pandals", link: "/admin/catering", icon: MdOutlineStarOutline },
+    { name: "Expense Tracker", link: "/admin/catering", icon: MdAttachMoney },
     { name: "Customer", link: "/admin/customers", icon: AiOutlineUser },
     // { name: "messages", link: "/", icon: FiMessageSquare },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
     // { name: "analytics", link: "/", icon: TbReportAnalytics },
     { name: "analytics", link: "/", icon: TbReportAnalytics },
-    { name: "analytics", link: "/", icon: TbReportAnalytics },
-    { name: "analytics", link: "/", icon: TbReportAnalytics },
-    { name: "analytics", link: "/", icon: TbReportAnalytics },
-    { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
+    // { name: "analytics", link: "/", icon: TbReportAnalytics },
     { name: "File Manager", link: "/", icon: FiFolder },
     // { name: "Cart", link: "/", icon: FiShoppingCart },
     { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
