@@ -72,7 +72,7 @@ const Navbar = ({ handleLoginModal }) => {
         {mobilemenu && (
           <div
             className={`absolute flex flex-col top-[4rem]  left-0    h-[calc(100vh-4rem)] bg-gray-100 transition ease-in-out duration-1000  overflow-y-auto  ${
-              mobilemenu ? "w-64" : " w-0"
+              mobilemenu ? "w-64   ease-in-out  duration-1000 " : " w-0 "
             }`}
           >
             <div className="flex-grow ">
