@@ -58,18 +58,18 @@ function RouteManagement() {
       end: "Shimla",
       distance: 230,
     },
-    {
-      name: "Riverfront Journey",
-      start: "Patna",
-      end: "Varanasi",
-      distance: 254,
-    },
-    {
-      name: "Royal Rajasthan",
-      start: "Jaipur",
-      end: "Jodhpur",
-      distance: 337,
-    },
+    // {
+    //   name: "Riverfront Journey",
+    //   start: "Patna",
+    //   end: "Varanasi",
+    //   distance: 254,
+    // },
+    // {
+    //   name: "Royal Rajasthan",
+    //   start: "Jaipur",
+    //   end: "Jodhpur",
+    //   distance: 337,
+    // },
   ];
   const [routes, setRoutes] = useState(parsedRoute);
 
