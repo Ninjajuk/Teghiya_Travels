@@ -134,7 +134,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           </div>
         </div>
 
-        {/* <div
+        <div
           className={`absolute bottom-2 z-10 flex items-center bg-gray-300 rounded-full w-6 h-6 p-2 ${
             open ? "left-48" : "left-16"
           }`}
@@ -150,7 +150,7 @@ const SidebarMenu = ({ mobileMenuOpen, setMobileMenuOpen }) => {
               onClick={() => setOpen(!open)}
             />
           )}
-        </div> */}
+        </div>
       </section>
 
       {/* Mobile Sidebar */}
