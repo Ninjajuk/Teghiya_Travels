@@ -11,9 +11,10 @@ import SpecialBookingSection from "../components/SpecialBookingSection";
 import FAQRelatedBooking from "../components/FAQ/FAQRelatedBooking";
 import SpecialBookingPandalsCatering from "../components/SpecialBookingPandalsCatering";
 import LoginForm from "../services/auth/LoginForm";
-import ScrollAppear from "../components/Componen/SlideleftRight";
+
 import HeaderScrollingInfinite from "../components/HeaderTop/HeaderScrollingInfinite";
 import BannerSlider from "../components/SliderCarousel/BannerSlider";
+import Scroll from "../components/Scroll";
 
 const HomePage = ({ handleLoginModal }) => {
   console.log("Home component rendered");
@@ -42,6 +43,7 @@ const HomePage = ({ handleLoginModal }) => {
         {/* <SpecialBookingPandalsCatering /> */}
         {/* <ScrollAppear /> */}
         <FAQRelatedBooking />
+        <Scroll/>
         <Footer />
         {/* {logmodal && <LoginForm closeLoginModal={closeLoginModal} />} */}
       </main>
