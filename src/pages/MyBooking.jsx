@@ -22,10 +22,10 @@ const MyBookingPage = () => {
     <>
       <Navbar />
       <section
-        className=" bg-purple-900 flex items-center justify-center"
+        className=" bg-primary flex items-center justify-center"
         style={{ height: "calc(100vh - 4rem)" }}
       >
-        <div className="max-h-[24rem] w-full max-w-md   bg-white p-4 rounded-md shadow-md">
+        <div className="max-h-[24rem] w-full max-w-md   bg-white p-4 rounded-md shadow-md ">
           <h1 className="text-gray-900 text-center font-semibold text-lg  py-4 leading-7">
             PRINT TICKET
           </h1>

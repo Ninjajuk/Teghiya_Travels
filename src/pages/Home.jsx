@@ -3,18 +3,19 @@ import Navbar from "../components/Navbar";
 import Button from "../components/common/Button";
 import MyInput from "../components/common/MyInput";
 import { MdOutlineSwapHoriz, MdOutlineSwapVert } from "react-icons/md";
-import Testing from "./Testing";
+
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import WeddingBookingSection from "../components/WeddingBooking";
+
 import SpecialBookingSection from "../components/SpecialBookingSection";
 import FAQRelatedBooking from "../components/FAQ/FAQRelatedBooking";
-import SpecialBookingPandalsCatering from "../components/SpecialBookingPandalsCatering";
+
 import LoginForm from "../services/auth/LoginForm";
 
 import HeaderScrollingInfinite from "../components/HeaderTop/HeaderScrollingInfinite";
 import BannerSlider from "../components/SliderCarousel/BannerSlider";
-import Scroll from "../components/Scroll";
+import WeddingVehicleBooking from "../components/WeddingVehicleBooking";
+
 
 const HomePage = ({ handleLoginModal }) => {
   console.log("Home component rendered");
@@ -35,13 +36,10 @@ console.log('hero')
 
         <Hero />
         <BannerSlider />
+        <WeddingVehicleBooking/>
+
         <SpecialBookingSection />
 
-        <WeddingBookingSection />
-
-        {/* <Testing /> */}
-        {/* <SpecialBookingPandalsCatering /> */}
-        {/* <ScrollAppear /> */}
         <FAQRelatedBooking />
         {/* <Scroll/> */}
         <Footer />

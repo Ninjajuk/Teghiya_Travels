@@ -4,7 +4,7 @@ import { ThemeContext } from "../context/context";
 import WeddingBusBookingForm from "./form/WeddingFormBus";
 // import { ReactComponent as WeddingBusSvg } from './wedding-bus.svg';
 
-const WeddingBookingSection = () => {
+const WeddingVehicleBooking = () => {
   const { language, theme } = useContext(ThemeContext);
   const [weddingForm, setWeddingForm] = useState(false);
   return (
@@ -28,7 +28,7 @@ const WeddingBookingSection = () => {
         </div> */}
             {language === "en" ? (
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4 h1-slide">
-                Now You Can Book a Bus for{" "}
+                Now You Can Book a Vehicle for{" "}
                 <span className="text-primary pl-1">Your Wedding</span> in
                 Advance
               </h2>
@@ -50,7 +50,7 @@ const WeddingBookingSection = () => {
               className="px-6 py-3 bg-primary text-white rounded-md hover:bg-pink-700"
             >
               {language === "en"
-                ? " Book Your Wedding Bus"
+                ? " Search Your Vehcile"
                 : "अपनी शादी की बस बुक करें"}
             </button>
             {/* <WeddingBusBookingForm /> */}
@@ -106,4 +106,4 @@ const WeddingBookingSection = () => {
   );
 };
 
-export default WeddingBookingSection;
+export default WeddingVehicleBooking;

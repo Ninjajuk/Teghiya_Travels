@@ -22,7 +22,7 @@ const CancellationPage = ({ handleLoginModal }) => {
     <>
       <Navbar handleLoginModal={handleLoginModal} />
       <section
-        className="  bg-gray-50 flex items-center justify-center"
+        className="  bg-primary flex items-center justify-center"
         style={{ height: "calc(100vh - 4rem)" }}
       >
         <div className="max-h-[24rem] w-full max-w-md  bg-white p-4 rounded-md shadow-lg">
