@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Scroll = () => {
+const HorizontalScrollInfinite = () => {
     const scrollers = document.querySelectorAll(".scroller");
 
 // If a user hasn't opted in for recuded motion, then we add the animation
@@ -30,7 +30,6 @@ function addAnimation() {
 
   return (
     <>
-    <h1>Infinite Scroll Animation</h1>
 
 <div className="scroller" data-speed="fast">
   <ul className="tag-list scroller__inner ">
@@ -71,4 +70,4 @@ function addAnimation() {
   )
 }
 
-export default Scroll
+export default HorizontalScrollInfinite

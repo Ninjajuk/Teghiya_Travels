@@ -8,7 +8,7 @@ const UserProfile = () => {
       className="bg-gray-200 flex items-center justify-center  lg:px-[10rem]"
       style={{ height: "calc(100vh - 4rem)" }}
     >
-      <div className=" relative  rounded-md shadow-md h-full max-h-72  w-full max-w-xl bg-white">
+      <div className=" relative  rounded-md shadow-md max-h-[24rem] h-full  w-full max-w-xl bg-white">
         <div className="h-full p-4 flex flex-col justify-between">
           <div>
             <h1 className="py-8">{language==='en'?'My Profile':'मेरी प्रोफाइल'}</h1>

@@ -15,6 +15,9 @@ import LoginForm from "../services/auth/LoginForm";
 import HeaderScrollingInfinite from "../components/HeaderTop/HeaderScrollingInfinite";
 import BannerSlider from "../components/SliderCarousel/BannerSlider";
 import WeddingVehicleBooking from "../components/WeddingVehicleBooking";
+import Tooltip from "../components/common/Tooltip";
+import HorizontalScrollInfinite from "../components/HorizontalScrollInfinite";
+import Testimonial from "../components/Testimonial";
 
 
 const HomePage = ({ handleLoginModal }) => {
@@ -39,9 +42,11 @@ console.log('hero')
         <WeddingVehicleBooking/>
 
         <SpecialBookingSection />
-
+        <Testimonial/>
         <FAQRelatedBooking />
-        {/* <Scroll/> */}
+        {/* <Tooltip/> */}
+        {/* <HorizontalScrollInfinite/> */}
+
         <Footer />
         {/* {logmodal && <LoginForm closeLoginModal={closeLoginModal} />} */}
       </main>
