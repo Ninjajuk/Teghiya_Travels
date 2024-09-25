@@ -26,7 +26,7 @@ const HomePage = ({ handleLoginModal }) => {
   // const closeLoginModal = () => {
   //   setlogmodal(false);
   // };
-
+console.log('hero')
   return (
     <>
       <main className="h-auto flex flex-col">
@@ -43,7 +43,7 @@ const HomePage = ({ handleLoginModal }) => {
         {/* <SpecialBookingPandalsCatering /> */}
         {/* <ScrollAppear /> */}
         <FAQRelatedBooking />
-        <Scroll/>
+        {/* <Scroll/> */}
         <Footer />
         {/* {logmodal && <LoginForm closeLoginModal={closeLoginModal} />} */}
       </main>

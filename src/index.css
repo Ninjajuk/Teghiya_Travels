@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 /* Dark mode */
-
-
 /* Dark mode */
 
 /* Scrollbar style*/
@@ -31,6 +29,7 @@
 }
 
 /* Scrollbar style ends */
+
 .loader {
     border: 2px solid #f3f3f3; /* Light grey */
     border-top: 2px solid #3498db; /* Blue */
@@ -46,7 +45,6 @@
   }
 
   /* Navbar transition effect */
-
 
 
   /* Navbar transition effect */
@@ -73,20 +71,22 @@
   }
   
   .h1-slide {
-    animation: slideIn 5s infinite;
+    animation: slideIn 2s infinite;
   }
   
-  .h1-1 {
-    animation-delay: 0s;
+.h1-1 {
+    animation-delay: 1s;
+    
+    
   }
-  
+   /*  
   .h1-2 {
     animation-delay: 3s;
   }
   
   .h1-3 {
     animation-delay: 6s;
-  }
+  } */
 
   
     /* hero section header sliding effect ends here */
@@ -178,6 +178,7 @@
 
  /* Infinite Scroll Animation sttarts*/
  .scroller {
+  /* max-width: 300px; */
   max-width: 100%;
   /* background-color: #420202; */
 }
@@ -206,6 +207,7 @@
   flex-wrap: nowrap;
   animation: scroll var(--_animation-duration, 40s)
     var(--_animation-direction, forwards) linear infinite;
+    /* animation: scroll linear infinite; */
 }
 
 .scroller[data-direction="right"] {
@@ -214,10 +216,13 @@
 
 .scroller[data-direction="left"] {
   --_animation-direction: forwards;
+  animation-duration: 70s;
+  /* animation-duration: 72s;
+  animation-direction: reverse; */
 }
 
-.scroller[data-speed="fast"] {
-  --_animation-duration: 20s;
+.scroller[data-speed="slow"] {
+  --_animation-duration: 60s;
 }
 
 .scroller[data-speed="slow"] {
@@ -271,5 +276,9 @@
   background: red !important;
 }
 
-
  /* Infinite Scroll Animation ends*/
+
+
+
+
+ 

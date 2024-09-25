@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import MyInput from "./common/MyInput"; // Assuming you have a MyInput component
 import { MdOutlineSwapHoriz, MdOutlineSwapVert } from "react-icons/md";
 import { ThemeContext } from "../context/context";
@@ -8,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const { language, theme } = useContext(ThemeContext);
+  const [currentItem, setCurrentItem] = useState('');
+  const [index, setIndex] = useState(0);
   const navigate = useNavigate();
 
   //Date picker show on click on div
@@ -37,6 +39,18 @@ const Hero = () => {
     navigate(`/search?${searchParams}`);
   };
 
+
+  const items = ['Tickets Booking', 'Bus detail', 'Item 3', 'Catering', 'Pandal Services'];
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setCurrentItem(items[index]);
+  //     setIndex(prevIndex => (prevIndex + 1) % items.length); // Loop back to start
+  //   }, 2000); // 1 second interval
+
+  //   return () => clearInterval(intervalId); // Cleanup on unmount
+  // }, [index, items]);
+  // console.log('slider ')
+
   return (
     <div
       className="relative w-full h-screen bg-cover bg-center"
@@ -53,6 +67,7 @@ const Hero = () => {
             Book Your{" "}
             <span className="text-primary font-extrabold p-2">Bus</span>
             Journey
+            {/* {currentItem} */}
           </h1>
         ) : (
           <h1 className="text-4xl lg:text-6xl font-bold mb-4 h1-slide h1-1">

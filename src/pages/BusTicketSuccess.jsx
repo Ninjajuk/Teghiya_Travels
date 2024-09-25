@@ -15,18 +15,18 @@ const BusTicketSuccess = () => {
       { name: "Jane Doe", seatNumber: "12B" },
       { name: "Alice Smith", seatNumber: "12C" },
       { name: "Bob Johnson", seatNumber: "12D" },
-      { name: "Charlie Brown", seatNumber: "12E" },
-      { name: "Eve White", seatNumber: "12F" },
+      // { name: "Charlie Brown", seatNumber: "12E" },
+      // { name: "Eve White", seatNumber: "12F" },
     ],
   };
 
   return (
     <>
       <Navbar />
-      <div className=" bg-gray-100" style={{ height: "calc(100vh - 4rem)" }}>
-        <div className="w-full h-full flex items-center justify-center flex-col lg:flex-row lg:px-[10rem] gap-1 lg:gap-2 py-2 lg:py-8">
-          <div className=" bg-white py-4 rounded-md shadow-lg w-full max-h-96 h-full  lg:w-1/2 text-center ">
-            <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-2" />
+      <div className="flex items-center justify-center"   style={{ height: "calc(100vh - 4rem)" }}>
+        <div className="w-full h-full flex items-center justify-center flex-col lg:flex-row lg:px-[10rem] gap-2 lg:gap-4 py-2 lg:py-8">
+          <div className=" bg-white py-4 rounded-md shadow-lg w-full h-96  lg:w-1/2 text-center ">
+            <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-6 lg:mb-2 " />
             <h1 className="text-2xl font-bold text-gray-800 mb-2">
               Booking Confirmed!
             </h1>
@@ -65,7 +65,7 @@ const BusTicketSuccess = () => {
             </div>
           </div>
 
-          <div className=" bg-white p-4 rounded-md shadow-lg w-full max-h-96 h-full  lg:w-1/2 text-center ">
+          <div className=" bg-white p-4 rounded-md shadow-lg w-full h-96   lg:w-1/2 text-center ">
             <h3 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
               Passenger Details
             </h3>

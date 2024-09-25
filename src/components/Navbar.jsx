@@ -71,9 +71,9 @@ const Navbar = ({ handleLoginModal }) => {
 
         {mobilemenu && (
           <div
-            className={`absolute flex flex-col top-[4rem]  left-0    h-[calc(100vh-4rem)] bg-gray-100 transition ease-in-out duration-1000  overflow-y-auto  ${
-              mobilemenu ? "w-64   ease-in-out  duration-1000 " : " w-0 "
-            }`}
+          className={`absolute flex flex-col top-[4rem] left-0 h-[calc(100vh-4rem)] bg-gray-100  overflow-y-auto 
+            ${mobilemenu ? "translate-x-0 w-64" : "-translate-x-full w-0"}
+            `}
           >
             <div className="flex-grow ">
               <div className="w-full flex items-center pl-6">
@@ -96,7 +96,7 @@ const Navbar = ({ handleLoginModal }) => {
               </div>
 
               <ul className="p-4 ">
-                <li className="hover:bg-gray-100 hover:text-primary tracking-wider font-serif text-gray-600 px-4 py-2 rounded-md">
+                <li className="hover:bg-gray-100 transition duration-500 hover:text-primary tracking-wider font-serif text-gray-600 px-4 py-2 rounded-md">
                   <NavLink
                     to="/"
                     className={({ isActive, isPending }) =>

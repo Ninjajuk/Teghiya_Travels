@@ -10,15 +10,9 @@ import MyProfile from "./pages/MyProfile";
 import CheckoutPage from "./services/checkout/Checkout";
 import ErrorPage from "./pages/ErrorPage";
 
-import DefaultLayout from "./services/admin/layout/DefaultLayout";
-import AdminProfile from "./services/admin/profile/Profile";
-import WebsiteMain from "./services/admin/WebsiteMain";
-import VehicleManagementDashboard from "./services/admin/VehicleManagement";
-import Customer from "./services/admin/Customer";
-
 import BusTicketSuccess from "./pages/BusTicketSuccess";
 import LoginForm from "./services/auth/LoginForm";
-import AddVehicle from "./services/admin/VehicleManagement/VehicleDetails.jsx/AddVehicle";
+
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -53,21 +47,6 @@ function App() {
             path="/contact-us"
             element={<ContactUsPage handleLoginModal={handleLoginModal} />}
           />
-          <Route path="/dashboard" element={<DefaultLayout />} />
-          <Route
-            path="/dashboard/corporate-website"
-            element={<WebsiteMain />}
-          />
-          <Route path="/admin/customers" element={<Customer />} />
-          <Route
-            path="/dashboard/vehicle-management"
-            element={<VehicleManagementDashboard />}
-          />
-          <Route
-            path="/dashboard/vehicle-management/add"
-            element={<AddVehicle />}
-          />
-          <Route path="/dashboard/adminprofile" element={<AdminProfile />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
