@@ -49,7 +49,7 @@ const Navbar = ({ handleLoginModal }) => {
     <>
       <nav
         className={` sticky top-0 scroll-smooth z-10 flex items-center justify-between  shadow-lg  h-[4rem] lg:px-[10rem] app-container ${
-          theme === "light" ? "bg-themeLight text-gray-600" : "bg-gray-950"
+          theme === "light" ? "bg-themeLight text-gray-600" : "bg-[#000]"
         }`}
       >
         <div

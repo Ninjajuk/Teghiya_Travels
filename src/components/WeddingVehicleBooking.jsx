@@ -47,7 +47,7 @@ const WeddingVehicleBooking = () => {
             </p>
             <button
               onClick={() => setWeddingForm(!weddingForm)}
-              className="px-6 py-3 bg-primary text-white rounded-md hover:bg-pink-700"
+              className="px-6 py-3 bg-primary text-white rounded-md hover:bg-hoverPrimary transition-colors duration-300 ease-in-out"
             >
               {language === "en"
                 ? " Search Your Vehcile"

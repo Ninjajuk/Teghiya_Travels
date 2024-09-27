@@ -11,6 +11,7 @@ export default {
         buttonWarning: "#f39c12",
 
         primary: "#800000",
+        hoverPrimary:"#600000",
 
         //background
         bgPrimary: "#f8f9fa",

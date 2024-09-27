@@ -58,7 +58,7 @@ const WeddingBusBookingForm = ({
                 className="border rounded-md p-2 w-full"
               />
             </div> */}
-            <div className="">
+            {/* <div className="">
               <label
                 htmlFor="busType"
                 className="block text-sm font-medium mb-1"
@@ -73,7 +73,7 @@ const WeddingBusBookingForm = ({
                 <option value="luxury">Luxury</option>
                 <option value="premium">Premium</option>
               </select>
-            </div>
+            </div> */}
             <div className="form-group">
               <input
                 type="text"
@@ -160,9 +160,9 @@ const WeddingBusBookingForm = ({
           <div className="w-full ">
             <button
               type="submit"
-              className="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-900"
+              className="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-hoverPrimary transition-colors duration-300 ease-in-out"
             >
-              Book Now
+              Search Now
             </button>
             {/* <button
               type="button"
