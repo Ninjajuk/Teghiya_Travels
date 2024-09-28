@@ -6,6 +6,7 @@ import useWindowSize from "react-use/lib/useWindowSize";
 
 const BusTicketSuccess = () => {
   const { width, height } = useWindowSize();
+  
   const bookingDetails = {
     ticketNumber: "AB123456789",
     departure: "New York",
@@ -13,6 +14,7 @@ const BusTicketSuccess = () => {
     date: "August 30, 2024",
     time: "10:00 AM",
     busNumber: "NY-DC Express",
+    Contact_Person: "John Doe",
     passengers: [
       { name: "John Doe", seatNumber: "12A" },
       { name: "Jane Doe", seatNumber: "12B" },
@@ -26,12 +28,12 @@ const BusTicketSuccess = () => {
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center"   style={{ height: "calc(100vh - 4rem)" }}>
       <Confetti width={width} height={height} recycle={false} />
-        <div className="w-full h-full flex items-center justify-center flex-col lg:flex-row lg:px-[10rem] gap-2 lg:gap-4 py-2 lg:py-8">
-          <div className=" bg-white py-4 rounded-md shadow-lg w-full h-96  lg:w-1/2 text-center ">
-            <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-6 lg:mb-2 " />
-            <h1 className="text-2xl font-bold text-gray-800 mb-2">
+      <div className="w-full flex items-center justify-center" >
+        <div className="w-full  flex items-center justify-center flex-col lg:flex-row lg:px-[10rem] gap-2 px-2 lg:gap-4 py-2 lg:py-8" >
+          <div className=" bg-white py-4 rounded-md shadow-lg w-full  lg:h-96  lg:w-1/2 text-center ">
+            <FaCheckCircle className="text-green-500 text-5xl mx-auto  " />
+            <h1 className="text-2xl font-bold text-green-700 mb-2">
               Booking Confirmed!
             </h1>
             <p className="text-gray-600 mb-6">
@@ -66,10 +68,13 @@ const BusTicketSuccess = () => {
               <p className="pb-2">
                 <strong>Bus Number:</strong> {bookingDetails.busNumber}
               </p>
+              <p className="pb-2">
+                <strong>Contact Person:</strong> {bookingDetails.Contact_Person}
+              </p>
             </div>
           </div>
 
-          <div className=" bg-white p-4 rounded-md shadow-lg w-full h-96   lg:w-1/2 text-center ">
+          <div className=" bg-white p-4 rounded-md shadow-lg w-full lg:h-96   lg:w-1/2 text-center ">
             <h3 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
               Passenger Details
             </h3>
@@ -84,7 +89,7 @@ const BusTicketSuccess = () => {
               </div>
             ))}
 
-            <div className="flex justify-center gap-4 py-4 px-2">
+            <div className="flex justify-center gap-4 py-4 px-2 text-sm lg:text-lg">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-700">
                 Download Ticket
               </button>

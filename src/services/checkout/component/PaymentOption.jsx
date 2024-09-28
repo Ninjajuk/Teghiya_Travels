@@ -24,8 +24,8 @@ const PaymentOption = ({}) => {
   };
 
   return (
-    <div className="w-full h-full p-4 flex flex-col">
-      <h1 className="text-2xl font-bold mb-2 text-purple-800 leading-5 ">
+    <div className="w-full h-full p-4 flex flex-col gap-2">
+      <h1 className="text-2xl font-bold mb-2 text-primary leading-5 ">
         Payment Options
       </h1>
       {/* <div className="flex-grow-0  flex flex-col gap-2 lg:flex-row  ">

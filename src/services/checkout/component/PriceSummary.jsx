@@ -3,7 +3,7 @@ import React from 'react'
 const PriceSummary = () => {
   return (
     <>
-      <div className="h-full flex flex-col p-2 bg-white rounded-md">
+      <div className="h-full flex flex-col p-4 ">
         <div className="flex flex-col ">
           <h1 className="text-center font-bold font-mono text-3xl text-primary py-4">
             fare Breakup

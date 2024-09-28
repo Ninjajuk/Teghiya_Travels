@@ -16,12 +16,12 @@ const CheckoutPage = () => {
         style={{ height: "calc(100vh - 4rem)" }}
       >
         <div className="w-full h-full flex flex-col lg:flex-row lg:px-[10rem] gap-1 lg:gap-2 py-4">
-          <div className="w-full h-full   lg:w-2/3   py-4">
+          <div className="w-full    lg:w-2/3   py-4">
             <Stepper />
           </div>
 
-          <div className={`w-full h-full py-4    lg:w-1/3 rounded-md   `}>
-            <div className={`w-full h-full  `}>
+          <div className={`w-full h-full py-4    lg:w-1/3    `}>
+            <div className={`w-full h-full   bg-gray-100 rounded-md shadow-md `}>
               <PriceSummary />
             </div>
           </div>

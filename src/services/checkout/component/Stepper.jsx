@@ -23,7 +23,7 @@ const Stepper = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col mx-auto p-4 bg-gray-100 rounded-md">
+    <div className="w-full h-full flex flex-col mx-auto p-4 bg-gray-100 rounded-md shadow-md">
       <div className="flex justify-between items-center mb-8">
         {steps.map((step, index) => (
           <div key={step.id} className="flex-1 flex flex-col items-center">
