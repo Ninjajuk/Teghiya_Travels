@@ -1,8 +1,11 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import Navbar from "../components/Navbar";
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 const BusTicketSuccess = () => {
+  const { width, height } = useWindowSize();
   const bookingDetails = {
     ticketNumber: "AB123456789",
     departure: "New York",
@@ -24,6 +27,7 @@ const BusTicketSuccess = () => {
     <>
       <Navbar />
       <div className="flex items-center justify-center"   style={{ height: "calc(100vh - 4rem)" }}>
+      <Confetti width={width} height={height} recycle={false} />
         <div className="w-full h-full flex items-center justify-center flex-col lg:flex-row lg:px-[10rem] gap-2 lg:gap-4 py-2 lg:py-8">
           <div className=" bg-white py-4 rounded-md shadow-lg w-full h-96  lg:w-1/2 text-center ">
             <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-6 lg:mb-2 " />
