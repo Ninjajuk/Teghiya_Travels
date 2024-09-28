@@ -23,8 +23,8 @@ const Stepper = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col mx-auto p-4 bg-gray-100 rounded-md shadow-md">
-      <div className="flex justify-between items-center mb-8">
+    <div className="w-full h-full flex flex-col mx-auto ">
+      <div className="flex justify-between items-center mb-4">
         {steps.map((step, index) => (
           <div key={step.id} className="flex-1 flex flex-col items-center">
             <div
@@ -69,7 +69,7 @@ const Stepper = () => {
           </div>
         ))}
       </div>
-      <div className="h-full lg:flex-grow p-4 bg-white rounded-md shadow-md overflow-y-auto">
+      <div className="w-full h-full lg:flex-grow p-4 overflow-y-auto">
         {currentStep === 1 && (
           <div className="w-full h-full">
             <TravellersDetails onClick={nextStep} />

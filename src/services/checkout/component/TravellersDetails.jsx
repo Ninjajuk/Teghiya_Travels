@@ -123,7 +123,7 @@ const TravellersDetails = ({ onClick }) => {
               />
               <label
                 htmlFor={`seatNo-${index}`}
-                className="mb-1 font-medium truncate text-sm"
+                className="mb-1 font-medium truncate text-xs"
               >
                 Seat
               </label>
@@ -144,7 +144,7 @@ const TravellersDetails = ({ onClick }) => {
                 htmlFor={`name-${index}`}
                 className="mb-1 font-medium text-sm lg:pl-2"
               >
-                Enter Name
+                Name
               </label>
             </div>
 
