@@ -6,6 +6,8 @@ import { cities } from "./common/data";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+
+
 const Hero = () => {
   const { language, theme } = useContext(ThemeContext);
   const [currentItem, setCurrentItem] = useState('');
