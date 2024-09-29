@@ -38,6 +38,7 @@ const Hero = () => {
       returnDate: "",
       mode: "oneway",
     }).toString();
+    console.log('departDate',departDate)
     navigate(`/search?${searchParams}`);
   };
 

@@ -19,7 +19,7 @@ const BusSearchResultPage = () => {
   const query = useQuery();
   const fromCity = query.get("fromCity");
   const toCity = query.get("toCity");
-  // const departDate = query.get('departDate');
+  const departDate = query.get('departDate');
   // const returnDate = query.get('returnDate');
   // const mode = query.get('mode');
 
@@ -41,7 +41,7 @@ const BusSearchResultPage = () => {
     });
     setBusListings(filteredBusListings);
   }, [fromCity, toCity]);
-  console.log("busListings", busListings, fromCity);
+  console.log("busListings", busListings, departDate);
   return (
     <>
       <main className="w-full  ">
