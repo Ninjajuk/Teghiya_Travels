@@ -33,7 +33,6 @@ function App() {
             path="/"
             element={<HomePage handleLoginModal={handleLoginModal} />}
           />
-          {/* <Route path="/testing" element={<Testing />} /> */}
           <Route path="/search" element={<BusListing />} />
           <Route
             path="/cancellation"
