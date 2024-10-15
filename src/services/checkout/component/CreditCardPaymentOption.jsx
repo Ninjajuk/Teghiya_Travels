@@ -3,7 +3,6 @@ import React from "react";
 const CreditCardPaymentOption = () => {
   return(
     <div>
-    {/* <h1>Debit Card Payment Option</h1> */}
     <div>
       <div className="form-group w-full ">
         <input
