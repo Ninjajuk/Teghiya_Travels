@@ -12,9 +12,9 @@ const PaymentOption = ({}) => {
   const PaymentTypes = [
     { id: 1, title: "UPI Payments", component: <UPIPaymentOption /> },
     { id: 2, title: "Debit Card", component: <DebitCardPaymentOption /> },
-    { id: 3, title: "Net Banking", component: <NetBankingPaymentOption /> },
+    // { id: 3, title: "Net Banking", component: <NetBankingPaymentOption /> },
     { id: 4, title: "Credit Card", component: <CreditCardPaymentOption /> },
-    { id: 5, title: "Wallet", component: <WalletPaymentOption /> },
+    // { id: 5, title: "Wallet", component: <WalletPaymentOption /> },
   ];
   const navigate = useNavigate();
   const handlePayment = () => {
@@ -56,21 +56,21 @@ const PaymentOption = ({}) => {
           {PaymentTypes.find((type) => type.id === selectedPayment)?.component}
         </div>
       </div> */}
-      <div className="flex-grow-0 flex flex-col gap-2 lg:flex-row">
+      <div className="flex-1 flex flex-col gap-2 lg:flex-row">
   {/* Payment Types Grid */}
-  <div className="w-full h-full lg:w-1/3 border border-gray-200">
+  <div className="w-full h-full lg:w-1/3 border border-gray-200 bg-white rounded-md shadow-md ">
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
       {PaymentTypes.map((type) => (
         <div
           key={type.id}
           onClick={() => setSelectedPayment(type.id)}
           className={`border py-4 px-1 rounded-lg cursor-pointer transition duration-200 ease-in-out ${
-            selectedPayment === type.id ? 'bg-indigo-100 border-indigo-500' : 'hover:bg-gray-100'
+            selectedPayment === type.id ? ' border-primary' : 'hover:bg-gray-100'
           }`}
         >
           <div className="flex items-center">
             <span className="w-4 h-4 mr-1">
-              {selectedPayment === type.id && <span className="text-indigo-600">✔</span>}
+              {selectedPayment === type.id && <span className="text-primary">✔</span>}
             </span>
             <span className="font-sans text-md text-gray-600">{type.title}</span>
           </div>
@@ -80,7 +80,7 @@ const PaymentOption = ({}) => {
   </div>
 
   {/* Selected Payment Option Component */}
-  <div className="w-full h-full lg:w-2/3 border p-4">
+  <div className="w-full h-full lg:w-2/3 border p-4 bg-white rounded-md shadow-md">
     {PaymentTypes.find((type) => type.id === selectedPayment)?.component}
   </div>
 </div>

@@ -30,7 +30,7 @@ const PayeeDiscountDetails = ({ onClick }) => {
   return (
     <main className="flex flex-col w-full h-full">
       <div className="p-4 ">
-        <h1 className="text-2xl font-bold mb-4 text-purple-800 leading-5">
+        <h1 className="text-2xl font-bold mb-4 text-primary leading-5">
           Payee & Discount Details
         </h1>
 
