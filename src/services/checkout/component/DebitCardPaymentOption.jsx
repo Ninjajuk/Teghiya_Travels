@@ -3,7 +3,7 @@ import React from "react";
 const DebitCardPaymentOption = () => {
   return (
     <div>
-      {/* <h1>Debit Card Payment Option</h1> */}
+      <h1 className="text-primary font-semibold text-lg py-2 text-center">Debit Card Details</h1>
       <div>
         <div className="form-group w-full ">
           <input
