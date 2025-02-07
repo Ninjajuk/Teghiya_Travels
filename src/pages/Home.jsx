@@ -43,6 +43,8 @@ console.log('hero')
 
         <SpecialBookingSection />
         <Testimonial/>
+
+
         <FAQRelatedBooking />
         {/* <Tooltip/> */}
         {/* <HorizontalScrollInfinite/> */}

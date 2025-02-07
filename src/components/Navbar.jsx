@@ -29,12 +29,15 @@ const Navbar = ({ handleLoginModal }) => {
   useClickOutside(menuRef, closeSubmenu);
   const submenu = () => {
     return (
-      <ul className="bg-white border border-gray-300 rounded-md shadow-lg mt-2 p-2 ">
+      <ul className="bg-white border border-gray-300 rounded-md shadow-lg mt-2 p-2">
         <li className="p-2 hover:bg-gray-200 cursor-pointer rounded-md ">
           <a href="/mybooking">My Booking</a>
         </li>
         <li className="p-2 hover:bg-gray-200 cursor-pointer rounded-md">
           Phone Booking
+        </li>
+        <li className="p-2 hover:bg-gray-200 cursor-pointer rounded-md">
+          Email 
         </li>
       </ul>
     );
