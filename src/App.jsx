@@ -14,6 +14,7 @@ import BusTicketSuccess from "./pages/BusTicketSuccess";
 import LoginForm from "./services/auth/LoginForm";
 
 import "react-toastify/dist/ReactToastify.css";
+import VehicleListingPage from "./services/VehicleListing";
 
 function App() {
   const [logmodal, setlogmodal] = useState(false);
@@ -34,6 +35,7 @@ function App() {
             element={<HomePage handleLoginModal={handleLoginModal} />}
           />
           <Route path="/search" element={<BusListing />} />
+          <Route path="/vehicle-listing" element={<VehicleListingPage />} />
           <Route
             path="/cancellation"
             element={<CancellationPage handleLoginModal={handleLoginModal} />}

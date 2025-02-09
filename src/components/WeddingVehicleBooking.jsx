@@ -108,20 +108,48 @@
 
 // export default WeddingVehicleBooking;
 
-
 import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "../context/context";
 import WeddingBusBookingForm from "./form/WeddingFormBus";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+
+const messages = [
+  {
+    name: "Catering Services",
+    title: "Catering Services for Marriage",
+    message:
+      "A supportive and inclusive environment where you can explore your potential and achieve your personal best in all aspects of your life.",
+    img: "https://new.caterninja.com/ninja-buffy/header/Frame%20770.webp",
+    href: "",
+  },
+  {
+    name: "Pandals Services",
+    title: "Pandals Services for Marriage",
+    message: "",
+    img: "https://images.pexels.com/photos/169203/pexels-photo-169203.jpeg?auto=compress&cs=tinysrgb&w=600",
+    href: "",
+  },
+  {
+    name: "Gift Services",
+    title: "Gift Services for Marriage",
+    message: "Buy gifts for the couple.",
+    img: "https://images.pexels.com/photos/169203/pexels-photo-169203.jpeg?auto=compress&cs=tinysrgb&w=600",
+    href: "",
+  },
+];
 
 const WeddingVehicleBooking = () => {
   const { language, theme } = useContext(ThemeContext);
   const [weddingForm, setWeddingForm] = useState(false);
+  const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
-  // Animation variants for text and button
+  // Animation variants
   const textVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   const buttonVariants = {
@@ -129,9 +157,16 @@ const WeddingVehicleBooking = () => {
     tap: { scale: 0.95 },
   };
 
-  const svgVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.3 } },
+  const nextMessage = () => {
+    setIndex((prev) => (prev + 1) % messages.length);
+  };
+
+  const prevMessage = () => {
+    setIndex((prev) => (prev - 1 + messages.length) % messages.length);
+  };
+
+  const handleNavigate = (msg) => {
+    navigate(msg.href);
   };
 
   return (
@@ -141,11 +176,12 @@ const WeddingVehicleBooking = () => {
           theme === "light" ? "bg-white" : "bg-gray-950"
         } py-16 lg:px-[10rem]`}
       >
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Section - Text and Button */}
-          <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
+          <div className="flex flex-col justify-center space-y-6">
             <motion.h2
-              className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4"
+              className="text-3xl lg:text-5xl font-bold text-gray-800"
               variants={textVariants}
               initial="hidden"
               animate="visible"
@@ -166,7 +202,7 @@ const WeddingVehicleBooking = () => {
             </motion.h2>
 
             <motion.p
-              className="text-lg lg:text-xl text-gray-600 mb-8"
+              className="text-lg lg:text-xl text-gray-600"
               variants={textVariants}
               initial="hidden"
               animate="visible"
@@ -179,7 +215,7 @@ const WeddingVehicleBooking = () => {
 
             <motion.button
               onClick={() => setWeddingForm(!weddingForm)}
-              className="px-6 py-3 bg-primary text-white rounded-md hover:bg-hoverPrimary transition-colors duration-300 ease-in-out"
+              className="px-6 py-3 bg-primary text-white rounded-md hover:bg-hoverPrimary transition-colors duration-300 ease-in-out w-fit"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -190,31 +226,41 @@ const WeddingVehicleBooking = () => {
             </motion.button>
           </div>
 
-          {/* Right Section - SVG Illustration */}
-          <motion.div
-            className="w-full lg:w-1/2 flex justify-center"
-            variants={svgVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className="w-full h-auto max-w-md">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 64 64"
-                className="icon icon-tabler icon-tabler-bus"
-                fill="#000000"
+          {/* Right Section - Carousel */}
+          <div className="relative h-[500px] w-full overflow-hidden rounded-2xl shadow-xl bg-white">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                className="absolute inset-0 flex flex-col items-center justify-center p-8"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
               >
-                <path
-                  d="M2 12v32h6l4 8v4h4v-4h28v4h4v-4l4-8h6v-32z"
-                  fill="#f2a3b3"
+                <img
+                  src={messages[index].img}
+                  alt={messages[index].name}
+                  className="object-cover w-full h-full rounded-md border-1 border-purple-200 shadow-lg"
                 />
-                <path d="M10 44v-26h16v26z" fill="#fff" />
-                <path d="M38 44v-26h16v26z" fill="#fff" />
-                <circle cx="12" cy="56" r="4" fill="#f50057" />
-                <circle cx="52" cy="56" r="4" fill="#f50057" />
-              </svg>
-            </div>
-          </motion.div>
+                <h2 className="text-2xl font-bold text-primary mt-6">
+                  {messages[index].name}
+                </h2>
+              </motion.div>
+            </AnimatePresence>
+
+            <button
+              onClick={prevMessage}
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-primary p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors"
+            >
+              <FiChevronLeft size={24} className="text-white" />
+            </button>
+            <button
+              onClick={nextMessage}
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-primary p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors"
+            >
+              <FiChevronRight size={24} className="text-white" />
+            </button>
+          </div>
         </div>
       </div>
 

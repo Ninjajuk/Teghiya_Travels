@@ -18,6 +18,10 @@ import WeddingVehicleBooking from "../components/WeddingVehicleBooking";
 import Tooltip from "../components/common/Tooltip";
 import HorizontalScrollInfinite from "../components/HorizontalScrollInfinite";
 import Testimonial from "../components/Testimonial";
+import VideoSection from "../components/VideoSection";
+import SpecialBookingPandalsCatering from "../components/SpecialBookingPandalsCatering";
+import Gallery from "../components/Gallary";
+import FeaturedServices from "../components/New Features to be added/FeaturedServices";
 
 
 const HomePage = ({ handleLoginModal }) => {
@@ -42,10 +46,14 @@ console.log('hero')
         <WeddingVehicleBooking/>
 
         <SpecialBookingSection />
+        <Gallery/>
+        <FeaturedServices /> {/* New section */}
+
         <Testimonial/>
 
 
         <FAQRelatedBooking />
+        <VideoSection/>
         {/* <Tooltip/> */}
         {/* <HorizontalScrollInfinite/> */}
 
